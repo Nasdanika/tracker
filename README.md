@@ -1,2 +1,3 @@
-# tracker
-Issue tracker for Maven projects.
+# Tracker
+
+See [site](https://www.nasdanika.org/products/tracker/index.html).

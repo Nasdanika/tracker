@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	
+	   <feature url="features/org.nasdanika.tracker.feature_0.1.0.qualifier.jar" id="org.nasdanika.tracker.feature" version="0.1.0.qualifier">
+	      <category name="org.nasdanika.tracker.category"/>
+	   </feature>
+   <category-def name="org.nasdanika.tracker.category" label="Nasdanika Tracker">
+      <description>
+         org.nasdanika.tracker.
+      </description>
+   </category-def>
+</site>

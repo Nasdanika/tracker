@@ -1,0 +1,87 @@
+
+<script>document.title="EEnum IssueRelationshipType";</script>
+<h2>
+<img src="resources/images/EEnum.gif" style="margin-right:5px"/>IssueRelationshipType</h2>enum org.nasdanika.tracker.IssueRelationshipType
+<div style="margin-top:10px;margin-bottom:10px" class="markdown-body"><p>Issue relationships may be of different types. This enumeration lists some of them.</p></div>
+<div id="nsd_en_accordion" role="tablist" class="panel-group">
+  <div class="panel panel-default">
+    <div role="tab" id="nsd_eo_collapse_heading" class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#nsd_en_accordion" href="#nsd_eo_collapse_collapse" aria-expanded="false" aria-controls="nsd_eo_collapse_collapse"><b>Parent</b>  - <I>The containing issue is the “parent” of target “child” issues and can be closed/resolved only after all children are resolved. </I></a>
+      </h4>
+    </div>
+    <div id="nsd_eo_collapse_collapse" class="panel-collapse collapse">
+      <div id="nsd_eo_collapse_panel_body" class="panel-body"><p>The containing issue is the &ldquo;parent&rdquo; of target &ldquo;child&rdquo; issues and can be closed/resolved only after all children are resolved. A child issue may have multiple parents - it is a graph, not a tree.</p>
+        <table class="table table-bordered">
+          <tr>
+            <th style="align:left">Literal</th>
+            <td style="white-space:pre-wrap;font-family:monospace">Parent</td>
+          </tr>
+          <tr>
+            <th style="align:left">Value</th>
+            <td>0</td>
+          </tr>
+        </table></div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div role="tab" id="nsd_ep_collapse_heading" class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#nsd_en_accordion" href="#nsd_ep_collapse_collapse" aria-expanded="false" aria-controls="nsd_ep_collapse_collapse"><b>Child</b>  - <I>The opposite to the parent relationship.</I></a>
+      </h4>
+    </div>
+    <div id="nsd_ep_collapse_collapse" class="panel-collapse collapse">
+      <div id="nsd_ep_collapse_panel_body" class="panel-body"><p>The opposite to the parent relationship.</p>
+        <table class="table table-bordered">
+          <tr>
+            <th style="align:left">Literal</th>
+            <td style="white-space:pre-wrap;font-family:monospace">Child</td>
+          </tr>
+          <tr>
+            <th style="align:left">Value</th>
+            <td>1</td>
+          </tr>
+        </table></div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div role="tab" id="nsd_eq_collapse_heading" class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#nsd_en_accordion" href="#nsd_eq_collapse_collapse" aria-expanded="false" aria-controls="nsd_eq_collapse_collapse"><b>Duplicate</b>  - <I>The source issue is a duplicate of the target issue (and vice versa).</I></a>
+      </h4>
+    </div>
+    <div id="nsd_eq_collapse_collapse" class="panel-collapse collapse">
+      <div id="nsd_eq_collapse_panel_body" class="panel-body"><p>The source issue is a duplicate of the target issue (and vice versa).</p>
+        <table class="table table-bordered">
+          <tr>
+            <th style="align:left">Literal</th>
+            <td style="white-space:pre-wrap;font-family:monospace">Duplicate</td>
+          </tr>
+          <tr>
+            <th style="align:left">Value</th>
+            <td>2</td>
+          </tr>
+        </table></div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div role="tab" id="nsd_er_collapse_heading" class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#nsd_en_accordion" href="#nsd_er_collapse_collapse" aria-expanded="false" aria-controls="nsd_er_collapse_collapse"><b>Related</b>  - <I>Unspecified relationship.</I></a>
+      </h4>
+    </div>
+    <div id="nsd_er_collapse_collapse" class="panel-collapse collapse">
+      <div id="nsd_er_collapse_panel_body" class="panel-body"><p>Unspecified relationship.</p>
+        <table class="table table-bordered">
+          <tr>
+            <th style="align:left">Literal</th>
+            <td style="white-space:pre-wrap;font-family:monospace">Related</td>
+          </tr>
+          <tr>
+            <th style="align:left">Value</th>
+            <td>3</td>
+          </tr>
+        </table></div>
+    </div>
+  </div>
+</div>

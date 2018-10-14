@@ -1,0 +1,17 @@
+models:
+  - tracker.genmodel
+  
+output:
+  site: /org.nasdanika.tracker.repository/src/site/resources/modeldoc
+
+apidocs:
+  - https://docs.oracle.com/javase/8/docs/api/
+  - https://www.nasdanika.org/products/server/org.nasdanika.cdo.security/apidocs/
+  - https://www.nasdanika.org/products/tracker/apidocs/model/
+  
+modeldocs:
+  site:
+    "http://www.eclipse.org/emf/2002/Ecore" : "https://www.nasdanika.org/products/server/org.nasdanika.cdo.security/modeldoc/index.html#router/doc-content/{{encoded-epackage-ns-uri}}/"
+    "urn:org.nasdanika.cdo.security" : "https://www.nasdanika.org/products/server/org.nasdanika.cdo.security/modeldoc/index.html#router/doc-content/{{encoded-epackage-ns-uri}}/"  
+  
+  
