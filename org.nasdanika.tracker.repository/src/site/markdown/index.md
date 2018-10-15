@@ -3,7 +3,7 @@
 Nasdanika Tracker is an issue tracker for Maven projects. It is a tool for development teams/organizations which own/maintain multiple maven artifacts and artifact-level issue tracking 
 is either not supported by other available tools or is associated with too much administrative overhead.
 
-TODO - roles, user stories or use cases, embodiments, plans, DSL (as a user story), ...   
+This product is in an early stage of development. The [vision](vision.html) document explains where development is intended to be headed.    
 
 ## Resources
 
