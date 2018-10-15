@@ -145,13 +145,13 @@ The archive shall contain:
 
 * changelog.xhtml - Generated static changelog up to the context version containing only closed issues.
 * roadmap.xhtml - static roadmap at the time of generation plus an AJAX call to pull the most recent roadmap or simply a link to the roadmap on the server - might be configurable.
-* issues/<id>.xhtml - issues included in the changelog and roadmap at the time of site publishing with dependencies. Only public issues.
+* issues/{id}.xhtml - issues included in the changelog and roadmap at the time of site publishing with dependencies. Only public issues.
 * report-issue.xhtml - contains a form to report an issue with the context version hardcoded.
 * developers.xhtml - A list of developers. Another approach would be to patch pom.xml with developer information, but it is more involved.      
 * For organizations:
     * artifacts.xhtml - a list of artifacts owned by the organization with links to artifact version sites.
     * members.xhtml - a list of organization members with links to additional details, e.g. number of artifacts which this member works on (is a developer) and with a link to member details which lists member roles in different artifacts.
-* groups/<group-id>.xhtml - group information - a list of artifacts in the group and sub-groups. Groups can be linked from site.xml menu. It is also possible to generate an xml file to be merged into site.xml - this way it doesn't have to be updated manually when new components/groups get added. But it is more involved and less flexible.    
+* groups/{group-id}.xhtml - group information - a list of artifacts in the group and sub-groups. Groups can be linked from site.xml menu. It is also possible to generate an xml file to be merged into site.xml - this way it doesn't have to be updated manually when new components/groups get added. But it is more involved and less flexible.    
 
 The editor embodiment may generate these files from the model to be published and pulled by artifact/organization sites, until the server embodiment is available. 
     
