@@ -11,6 +11,10 @@ import org.eclipse.emf.cdo.CDOObject;
  * A representation of the model object '<em><b>Note</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <!-- begin-model-doc -->
+ * A note/comment for an issue.
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * </p>
@@ -18,6 +22,7 @@ import org.eclipse.emf.cdo.CDOObject;
  *   <li>{@link org.nasdanika.tracker.Note#getDeveloper <em>Developer</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Note#getComment <em>Comment</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Note#getDate <em>Date</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Note#isPrivate <em>Private</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getNote()
@@ -103,5 +108,30 @@ public interface Note extends CDOObject {
 	 * @generated
 	 */
 	void setDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Private</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Private model elements are visible only by the members of containing organization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Private</em>' attribute.
+	 * @see #setPrivate(boolean)
+	 * @see org.nasdanika.tracker.TrackerPackage#getNote_Private()
+	 * @model
+	 * @generated
+	 */
+	boolean isPrivate();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.tracker.Note#isPrivate <em>Private</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Private</em>' attribute.
+	 * @see #isPrivate()
+	 * @generated
+	 */
+	void setPrivate(boolean value);
 
 } // Note

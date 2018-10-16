@@ -136,13 +136,31 @@ public interface TrackerPackage extends EPackage {
 	int TRACKER__ORGANIZATIONS = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Sites Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACKER__SITES_URL = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACKER__DESCRIPTION = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Tracker</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACKER_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 3;
+	int TRACKER_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Authenticate</em>' operation.
@@ -381,85 +399,31 @@ public interface TrackerPackage extends EPackage {
 	int ARTIFACT__ID = 0;
 
 	/**
+	 * The feature id for the '<em><b>Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__GROUP = 1;
+
+	/**
+	 * The feature id for the '<em><b>Group ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__GROUP_ID = 2;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Developers</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__DEVELOPERS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Modules</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__MODULES = 3;
-
-	/**
-	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__ISSUES = 4;
-
-	/**
-	 * The feature id for the '<em><b>Versions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__VERSIONS = 5;
-
-	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__URL = 6;
-
-	/**
-	 * The feature id for the '<em><b>Categories</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__CATEGORIES = 7;
-
-	/**
-	 * The feature id for the '<em><b>Increments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__INCREMENTS = 8;
-
-	/**
-	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__ROLES = 9;
+	int ARTIFACT__NAME = 3;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -468,7 +432,106 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__DESCRIPTION = 10;
+	int ARTIFACT__DESCRIPTION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Developers</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__DEVELOPERS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Modules</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__MODULES = 6;
+
+	/**
+	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__ISSUES = 7;
+
+	/**
+	 * The feature id for the '<em><b>Versions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__VERSIONS = 8;
+
+	/**
+	 * The feature id for the '<em><b>Categories</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__CATEGORIES = 9;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__ROLES = 10;
+
+	/**
+	 * The feature id for the '<em><b>Private</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__PRIVATE = 11;
+
+	/**
+	 * The feature id for the '<em><b>Issue Relationship Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__ISSUE_RELATIONSHIP_TYPES = 12;
+
+	/**
+	 * The feature id for the '<em><b>Issue Statuses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__ISSUE_STATUSES = 13;
+
+	/**
+	 * The feature id for the '<em><b>Issue Resolutions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__ISSUE_RESOLUTIONS = 14;
+
+	/**
+	 * The feature id for the '<em><b>Issue Priorities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__ISSUE_PRIORITIES = 15;
 
 	/**
 	 * The number of structural features of the '<em>Artifact</em>' class.
@@ -477,7 +540,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_FEATURE_COUNT = 11;
+	int ARTIFACT_FEATURE_COUNT = 16;
 
 	/**
 	 * The number of operations of the '<em>Artifact</em>' class.
@@ -563,6 +626,24 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION__ID = ARTIFACT__ID;
 
 	/**
+	 * The feature id for the '<em><b>Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__GROUP = ARTIFACT__GROUP;
+
+	/**
+	 * The feature id for the '<em><b>Group ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__GROUP_ID = ARTIFACT__GROUP_ID;
+
+	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -570,6 +651,15 @@ public interface TrackerPackage extends EPackage {
 	 * @ordered
 	 */
 	int ORGANIZATION__NAME = ARTIFACT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__DESCRIPTION = ARTIFACT__DESCRIPTION;
 
 	/**
 	 * The feature id for the '<em><b>Developers</b></em>' containment reference list.
@@ -608,15 +698,6 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION__VERSIONS = ARTIFACT__VERSIONS;
 
 	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANIZATION__URL = ARTIFACT__URL;
-
-	/**
 	 * The feature id for the '<em><b>Categories</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -624,15 +705,6 @@ public interface TrackerPackage extends EPackage {
 	 * @ordered
 	 */
 	int ORGANIZATION__CATEGORIES = ARTIFACT__CATEGORIES;
-
-	/**
-	 * The feature id for the '<em><b>Increments</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANIZATION__INCREMENTS = ARTIFACT__INCREMENTS;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
@@ -644,13 +716,49 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION__ROLES = ARTIFACT__ROLES;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Private</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION__DESCRIPTION = ARTIFACT__DESCRIPTION;
+	int ORGANIZATION__PRIVATE = ARTIFACT__PRIVATE;
+
+	/**
+	 * The feature id for the '<em><b>Issue Relationship Types</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__ISSUE_RELATIONSHIP_TYPES = ARTIFACT__ISSUE_RELATIONSHIP_TYPES;
+
+	/**
+	 * The feature id for the '<em><b>Issue Statuses</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__ISSUE_STATUSES = ARTIFACT__ISSUE_STATUSES;
+
+	/**
+	 * The feature id for the '<em><b>Issue Resolutions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__ISSUE_RESOLUTIONS = ARTIFACT__ISSUE_RESOLUTIONS;
+
+	/**
+	 * The feature id for the '<em><b>Issue Priorities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__ISSUE_PRIORITIES = ARTIFACT__ISSUE_PRIORITIES;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -662,13 +770,22 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION__MEMBERS = ARTIFACT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Org Info Artifact ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Groups</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION__ORG_INFO_ARTIFACT_ID = ARTIFACT_FEATURE_COUNT + 1;
+	int ORGANIZATION__GROUPS = ARTIFACT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Increments</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__INCREMENTS = ARTIFACT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Organization</em>' class.
@@ -677,7 +794,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION_FEATURE_COUNT = ARTIFACT_FEATURE_COUNT + 2;
+	int ORGANIZATION_FEATURE_COUNT = ARTIFACT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Organization</em>' class.
@@ -689,6 +806,88 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION_OPERATION_COUNT = ARTIFACT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.GroupImpl <em>Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.GroupImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getGroup()
+	 * @generated
+	 */
+	int GROUP = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__DESCRIPTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CHILDREN = 3;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__MEMBERS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Private</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__PRIVATE = 5;
+
+	/**
+	 * The number of structural features of the '<em>Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP_FEATURE_COUNT = 6;
+
+	/**
+	 * The number of operations of the '<em>Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.tracker.impl.VersionImpl <em>Version</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -696,7 +895,7 @@ public interface TrackerPackage extends EPackage {
 	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getVersion()
 	 * @generated
 	 */
-	int VERSION = 5;
+	int VERSION = 6;
 
 	/**
 	 * The feature id for the '<em><b>Number</b></em>' attribute.
@@ -708,13 +907,22 @@ public interface TrackerPackage extends EPackage {
 	int VERSION__NUMBER = 0;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VERSION__DESCRIPTION = 1;
+
+	/**
 	 * The feature id for the '<em><b>Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VERSION__DATE = 1;
+	int VERSION__DATE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Increment</b></em>' reference.
@@ -723,7 +931,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VERSION__INCREMENT = 2;
+	int VERSION__INCREMENT = 3;
 
 	/**
 	 * The feature id for the '<em><b>Released</b></em>' attribute.
@@ -732,7 +940,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VERSION__RELEASED = 3;
+	int VERSION__RELEASED = 4;
 
 	/**
 	 * The number of structural features of the '<em>Version</em>' class.
@@ -741,7 +949,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VERSION_FEATURE_COUNT = 4;
+	int VERSION_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Version</em>' class.
@@ -760,7 +968,7 @@ public interface TrackerPackage extends EPackage {
 	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getCategory()
 	 * @generated
 	 */
-	int CATEGORY = 6;
+	int CATEGORY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -815,7 +1023,7 @@ public interface TrackerPackage extends EPackage {
 	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssue()
 	 * @generated
 	 */
-	int ISSUE = 7;
+	int ISSUE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Reporter</b></em>' reference.
@@ -881,13 +1089,22 @@ public interface TrackerPackage extends EPackage {
 	int ISSUE__FIXED_IN_VERSION = 6;
 
 	/**
-	 * The feature id for the '<em><b>Relationships</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Outbound Relationships</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__RELATIONSHIPS = 7;
+	int ISSUE__OUTBOUND_RELATIONSHIPS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Inbound Relationships</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__INBOUND_RELATIONSHIPS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Assigned To</b></em>' reference.
@@ -896,7 +1113,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__ASSIGNED_TO = 8;
+	int ISSUE__ASSIGNED_TO = 9;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
@@ -905,7 +1122,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__NOTES = 9;
+	int ISSUE__NOTES = 10;
 
 	/**
 	 * The feature id for the '<em><b>Subscribers</b></em>' reference list.
@@ -914,7 +1131,70 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__SUBSCRIBERS = 10;
+	int ISSUE__SUBSCRIBERS = 11;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__CHILDREN = 12;
+
+	/**
+	 * The feature id for the '<em><b>Private</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__PRIVATE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__STATUS = 14;
+
+	/**
+	 * The feature id for the '<em><b>Resolution</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__RESOLUTION = 15;
+
+	/**
+	 * The feature id for the '<em><b>Submitted</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__SUBMITTED = 16;
+
+	/**
+	 * The feature id for the '<em><b>Last Update</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__LAST_UPDATE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Estimated Effort</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__ESTIMATED_EFFORT = 18;
 
 	/**
 	 * The number of structural features of the '<em>Issue</em>' class.
@@ -923,7 +1203,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE_FEATURE_COUNT = 11;
+	int ISSUE_FEATURE_COUNT = 19;
 
 	/**
 	 * The number of operations of the '<em>Issue</em>' class.
@@ -942,25 +1222,343 @@ public interface TrackerPackage extends EPackage {
 	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIncrement()
 	 * @generated
 	 */
-	int INCREMENT = 8;
+	int INCREMENT = 14;
 
 	/**
-	 * The feature id for the '<em><b>Versions</b></em>' reference list.
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.OrganizationMemberImpl <em>Organization Member</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.OrganizationMemberImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getOrganizationMember()
+	 * @generated
+	 */
+	int ORGANIZATION_MEMBER = 15;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.DeveloperImpl <em>Developer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.DeveloperImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getDeveloper()
+	 * @generated
+	 */
+	int DEVELOPER = 16;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.IssueRelationshipImpl <em>Issue Relationship</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.IssueRelationshipImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueRelationship()
+	 * @generated
+	 */
+	int ISSUE_RELATIONSHIP = 10;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.IssueStatusImpl <em>Issue Status</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.IssueStatusImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueStatus()
+	 * @generated
+	 */
+	int ISSUE_STATUS = 11;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.IssueResolutionImpl <em>Issue Resolution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.IssueResolutionImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueResolution()
+	 * @generated
+	 */
+	int ISSUE_RESOLUTION = 12;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.IssuePriorityImpl <em>Issue Priority</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.IssuePriorityImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssuePriority()
+	 * @generated
+	 */
+	int ISSUE_PRIORITY = 13;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.NoteImpl <em>Note</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.NoteImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getNote()
+	 * @generated
+	 */
+	int NOTE = 17;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.ProgressReportImpl <em>Progress Report</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.ProgressReportImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getProgressReport()
+	 * @generated
+	 */
+	int PROGRESS_REPORT = 18;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.AvailabilityImpl <em>Availability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.AvailabilityImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getAvailability()
+	 * @generated
+	 */
+	int AVAILABILITY = 19;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.IssueRelationshipBlockingDirection <em>Issue Relationship Blocking Direction</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.IssueRelationshipBlockingDirection
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueRelationshipBlockingDirection()
+	 * @generated
+	 */
+	int ISSUE_RELATIONSHIP_BLOCKING_DIRECTION = 20;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.IssueRelationshipTypeImpl <em>Issue Relationship Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.IssueRelationshipTypeImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueRelationshipType()
+	 * @generated
+	 */
+	int ISSUE_RELATIONSHIP_TYPE = 9;
+
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCREMENT__VERSIONS = 0;
+	int ISSUE_RELATIONSHIP_TYPE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCREMENT__CHILDREN = 1;
+	int ISSUE_RELATIONSHIP_TYPE__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Blocking Direction</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP_TYPE__BLOCKING_DIRECTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Opposite</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP_TYPE__OPPOSITE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Issue Relationship Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP_TYPE_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Issue Relationship Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP_TYPE_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Target</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP__TARGET = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP__DESCRIPTION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Issue Relationship</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Issue Relationship</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RELATIONSHIP_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_STATUS__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_STATUS__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Issue Status</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_STATUS_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Issue Status</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_STATUS_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RESOLUTION__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RESOLUTION__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Issue Resolution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RESOLUTION_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Issue Resolution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_RESOLUTION_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_PRIORITY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_PRIORITY__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Issue Priority</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_PRIORITY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Issue Priority</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE_PRIORITY_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCREMENT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCREMENT__DESCRIPTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Start</b></em>' attribute.
@@ -981,13 +1579,31 @@ public interface TrackerPackage extends EPackage {
 	int INCREMENT__END = 3;
 
 	/**
+	 * The feature id for the '<em><b>Versions</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCREMENT__VERSIONS = 4;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCREMENT__CHILDREN = 5;
+
+	/**
 	 * The number of structural features of the '<em>Increment</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCREMENT_FEATURE_COUNT = 4;
+	int INCREMENT_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Increment</em>' class.
@@ -997,16 +1613,6 @@ public interface TrackerPackage extends EPackage {
 	 * @ordered
 	 */
 	int INCREMENT_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.tracker.impl.OrganizationMemberImpl <em>Organization Member</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.tracker.impl.OrganizationMemberImpl
-	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getOrganizationMember()
-	 * @generated
-	 */
-	int ORGANIZATION_MEMBER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' reference list.
@@ -1027,13 +1633,22 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION_MEMBER__NAME = 1;
 
 	/**
-	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * The feature id for the '<em><b>Availability</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION_MEMBER__URL = 2;
+	int ORGANIZATION_MEMBER__AVAILABILITY = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION_MEMBER__DESCRIPTION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Organization Member</em>' class.
@@ -1042,7 +1657,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION_MEMBER_FEATURE_COUNT = 3;
+	int ORGANIZATION_MEMBER_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Organization Member</em>' class.
@@ -1054,23 +1669,13 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION_MEMBER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.tracker.impl.DeveloperImpl <em>Developer</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.tracker.impl.DeveloperImpl
-	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getDeveloper()
-	 * @generated
-	 */
-	int DEVELOPER = 10;
-
-	/**
-	 * The feature id for the '<em><b>Developer</b></em>' reference.
+	 * The feature id for the '<em><b>Organization Member</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEVELOPER__DEVELOPER = 0;
+	int DEVELOPER__ORGANIZATION_MEMBER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' reference list.
@@ -1082,13 +1687,22 @@ public interface TrackerPackage extends EPackage {
 	int DEVELOPER__ROLES = 1;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVELOPER__DESCRIPTION = 2;
+
+	/**
 	 * The number of structural features of the '<em>Developer</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEVELOPER_FEATURE_COUNT = 2;
+	int DEVELOPER_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Developer</em>' class.
@@ -1098,62 +1712,6 @@ public interface TrackerPackage extends EPackage {
 	 * @ordered
 	 */
 	int DEVELOPER_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.tracker.impl.IssueRelationshipImpl <em>Issue Relationship</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.tracker.impl.IssueRelationshipImpl
-	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueRelationship()
-	 * @generated
-	 */
-	int ISSUE_RELATIONSHIP = 11;
-
-	/**
-	 * The feature id for the '<em><b>Target</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_RELATIONSHIP__TARGET = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_RELATIONSHIP__TYPE = 1;
-
-	/**
-	 * The number of structural features of the '<em>Issue Relationship</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_RELATIONSHIP_FEATURE_COUNT = 2;
-
-	/**
-	 * The number of operations of the '<em>Issue Relationship</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE_RELATIONSHIP_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.tracker.impl.NoteImpl <em>Note</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.tracker.impl.NoteImpl
-	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getNote()
-	 * @generated
-	 */
-	int NOTE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Developer</b></em>' reference.
@@ -1183,13 +1741,22 @@ public interface TrackerPackage extends EPackage {
 	int NOTE__DATE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Private</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__PRIVATE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Note</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTE_FEATURE_COUNT = 3;
+	int NOTE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Note</em>' class.
@@ -1199,16 +1766,6 @@ public interface TrackerPackage extends EPackage {
 	 * @ordered
 	 */
 	int NOTE_OPERATION_COUNT = 0;
-
-	/**
-	 * The meta object id for the '{@link org.nasdanika.tracker.impl.ProgressReportImpl <em>Progress Report</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.tracker.impl.ProgressReportImpl
-	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getProgressReport()
-	 * @generated
-	 */
-	int PROGRESS_REPORT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Developer</b></em>' reference.
@@ -1236,6 +1793,15 @@ public interface TrackerPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROGRESS_REPORT__DATE = NOTE__DATE;
+
+	/**
+	 * The feature id for the '<em><b>Private</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRESS_REPORT__PRIVATE = NOTE__PRIVATE;
 
 	/**
 	 * The feature id for the '<em><b>Period Start</b></em>' attribute.
@@ -1292,14 +1858,49 @@ public interface TrackerPackage extends EPackage {
 	int PROGRESS_REPORT_OPERATION_COUNT = NOTE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.tracker.IssueRelationshipType <em>Issue Relationship Type</em>}' enum.
+	 * The feature id for the '<em><b>Increment</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.tracker.IssueRelationshipType
-	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueRelationshipType()
 	 * @generated
+	 * @ordered
 	 */
-	int ISSUE_RELATIONSHIP_TYPE = 14;
+	int AVAILABILITY__INCREMENT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Availability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY__AVAILABILITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Comment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY__COMMENT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Availability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Availability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AVAILABILITY_OPERATION_COUNT = 0;
 
 
 	/**
@@ -1344,6 +1945,28 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTracker_Organizations();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Tracker#getSitesUrl <em>Sites Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sites Url</em>'.
+	 * @see org.nasdanika.tracker.Tracker#getSitesUrl()
+	 * @see #getTracker()
+	 * @generated
+	 */
+	EAttribute getTracker_SitesUrl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Tracker#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.Tracker#getDescription()
+	 * @see #getTracker()
+	 * @generated
+	 */
+	EAttribute getTracker_Description();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.User <em>User</em>}'.
@@ -1443,6 +2066,28 @@ public interface TrackerPackage extends EPackage {
 	EAttribute getArtifact_Id();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Artifact#getGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Group</em>'.
+	 * @see org.nasdanika.tracker.Artifact#getGroup()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	EReference getArtifact_Group();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Artifact#getGroupID <em>Group ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group ID</em>'.
+	 * @see org.nasdanika.tracker.Artifact#getGroupID()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	EAttribute getArtifact_GroupID();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Artifact#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1498,17 +2143,6 @@ public interface TrackerPackage extends EPackage {
 	EReference getArtifact_Versions();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Artifact#getUrl <em>Url</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Url</em>'.
-	 * @see org.nasdanika.tracker.Artifact#getUrl()
-	 * @see #getArtifact()
-	 * @generated
-	 */
-	EAttribute getArtifact_Url();
-
-	/**
 	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Artifact#getCategories <em>Categories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1520,17 +2154,6 @@ public interface TrackerPackage extends EPackage {
 	EReference getArtifact_Categories();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Artifact#getIncrements <em>Increments</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Increments</em>'.
-	 * @see org.nasdanika.tracker.Artifact#getIncrements()
-	 * @see #getArtifact()
-	 * @generated
-	 */
-	EReference getArtifact_Increments();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Artifact#getRoles <em>Roles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1540,6 +2163,61 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArtifact_Roles();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Artifact#isPrivate <em>Private</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Private</em>'.
+	 * @see org.nasdanika.tracker.Artifact#isPrivate()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	EAttribute getArtifact_Private();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Artifact#getIssueRelationshipTypes <em>Issue Relationship Types</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Issue Relationship Types</em>'.
+	 * @see org.nasdanika.tracker.Artifact#getIssueRelationshipTypes()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	EReference getArtifact_IssueRelationshipTypes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Artifact#getIssueStatuses <em>Issue Statuses</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Issue Statuses</em>'.
+	 * @see org.nasdanika.tracker.Artifact#getIssueStatuses()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	EReference getArtifact_IssueStatuses();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Artifact#getIssueResolutions <em>Issue Resolutions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Issue Resolutions</em>'.
+	 * @see org.nasdanika.tracker.Artifact#getIssueResolutions()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	EReference getArtifact_IssueResolutions();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Artifact#getIssuePriorities <em>Issue Priorities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Issue Priorities</em>'.
+	 * @see org.nasdanika.tracker.Artifact#getIssuePriorities()
+	 * @see #getArtifact()
+	 * @generated
+	 */
+	EReference getArtifact_IssuePriorities();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Artifact#getDescription <em>Description</em>}'.
@@ -1617,15 +2295,102 @@ public interface TrackerPackage extends EPackage {
 	EReference getOrganization_Members();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Organization#getOrgInfoArtifactID <em>Org Info Artifact ID</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Organization#getGroups <em>Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Org Info Artifact ID</em>'.
-	 * @see org.nasdanika.tracker.Organization#getOrgInfoArtifactID()
+	 * @return the meta object for the containment reference list '<em>Groups</em>'.
+	 * @see org.nasdanika.tracker.Organization#getGroups()
 	 * @see #getOrganization()
 	 * @generated
 	 */
-	EAttribute getOrganization_OrgInfoArtifactID();
+	EReference getOrganization_Groups();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Organization#getIncrements <em>Increments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Increments</em>'.
+	 * @see org.nasdanika.tracker.Organization#getIncrements()
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	EReference getOrganization_Increments();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.Group <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Group</em>'.
+	 * @see org.nasdanika.tracker.Group
+	 * @generated
+	 */
+	EClass getGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Group#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.tracker.Group#getId()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EAttribute getGroup_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Group#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.tracker.Group#getName()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EAttribute getGroup_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Group#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.Group#getDescription()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EAttribute getGroup_Description();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Group#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.nasdanika.tracker.Group#getChildren()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EReference getGroup_Children();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.Group#getMembers <em>Members</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Members</em>'.
+	 * @see org.nasdanika.tracker.Group#getMembers()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EReference getGroup_Members();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Group#isPrivate <em>Private</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Private</em>'.
+	 * @see org.nasdanika.tracker.Group#isPrivate()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EAttribute getGroup_Private();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Version <em>Version</em>}'.
@@ -1647,6 +2412,17 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVersion_Number();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Version#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.Version#getDescription()
+	 * @see #getVersion()
+	 * @generated
+	 */
+	EAttribute getVersion_Description();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Version#getDate <em>Date</em>}'.
@@ -1812,15 +2588,26 @@ public interface TrackerPackage extends EPackage {
 	EReference getIssue_FixedInVersion();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Issue#getRelationships <em>Relationships</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Issue#getOutboundRelationships <em>Outbound Relationships</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Relationships</em>'.
-	 * @see org.nasdanika.tracker.Issue#getRelationships()
+	 * @return the meta object for the containment reference list '<em>Outbound Relationships</em>'.
+	 * @see org.nasdanika.tracker.Issue#getOutboundRelationships()
 	 * @see #getIssue()
 	 * @generated
 	 */
-	EReference getIssue_Relationships();
+	EReference getIssue_OutboundRelationships();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.Issue#getInboundRelationships <em>Inbound Relationships</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Inbound Relationships</em>'.
+	 * @see org.nasdanika.tracker.Issue#getInboundRelationships()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EReference getIssue_InboundRelationships();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Issue#getAssignedTo <em>Assigned To</em>}'.
@@ -1856,6 +2643,83 @@ public interface TrackerPackage extends EPackage {
 	EReference getIssue_Subscribers();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Issue#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.nasdanika.tracker.Issue#getChildren()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EReference getIssue_Children();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Issue#isPrivate <em>Private</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Private</em>'.
+	 * @see org.nasdanika.tracker.Issue#isPrivate()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_Private();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Issue#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Status</em>'.
+	 * @see org.nasdanika.tracker.Issue#getStatus()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EReference getIssue_Status();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Issue#getResolution <em>Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resolution</em>'.
+	 * @see org.nasdanika.tracker.Issue#getResolution()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EReference getIssue_Resolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Issue#getSubmitted <em>Submitted</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Submitted</em>'.
+	 * @see org.nasdanika.tracker.Issue#getSubmitted()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_Submitted();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Issue#getLastUpdate <em>Last Update</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Update</em>'.
+	 * @see org.nasdanika.tracker.Issue#getLastUpdate()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_LastUpdate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Issue#getEstimatedEffort <em>Estimated Effort</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Estimated Effort</em>'.
+	 * @see org.nasdanika.tracker.Issue#getEstimatedEffort()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_EstimatedEffort();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Increment <em>Increment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1864,6 +2728,28 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIncrement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Increment#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.tracker.Increment#getName()
+	 * @see #getIncrement()
+	 * @generated
+	 */
+	EAttribute getIncrement_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Increment#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.Increment#getDescription()
+	 * @see #getIncrement()
+	 * @generated
+	 */
+	EAttribute getIncrement_Description();
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.Increment#getVersions <em>Versions</em>}'.
@@ -1942,15 +2828,26 @@ public interface TrackerPackage extends EPackage {
 	EAttribute getOrganizationMember_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.OrganizationMember#getUrl <em>Url</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.OrganizationMember#getAvailability <em>Availability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Url</em>'.
-	 * @see org.nasdanika.tracker.OrganizationMember#getUrl()
+	 * @return the meta object for the containment reference list '<em>Availability</em>'.
+	 * @see org.nasdanika.tracker.OrganizationMember#getAvailability()
 	 * @see #getOrganizationMember()
 	 * @generated
 	 */
-	EAttribute getOrganizationMember_Url();
+	EReference getOrganizationMember_Availability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.OrganizationMember#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.OrganizationMember#getDescription()
+	 * @see #getOrganizationMember()
+	 * @generated
+	 */
+	EAttribute getOrganizationMember_Description();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Developer <em>Developer</em>}'.
@@ -1963,15 +2860,15 @@ public interface TrackerPackage extends EPackage {
 	EClass getDeveloper();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Developer#getDeveloper <em>Developer</em>}'.
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Developer#getOrganizationMember <em>Organization Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Developer</em>'.
-	 * @see org.nasdanika.tracker.Developer#getDeveloper()
+	 * @return the meta object for the reference '<em>Organization Member</em>'.
+	 * @see org.nasdanika.tracker.Developer#getOrganizationMember()
 	 * @see #getDeveloper()
 	 * @generated
 	 */
-	EReference getDeveloper_Developer();
+	EReference getDeveloper_OrganizationMember();
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.Developer#getRoles <em>Roles</em>}'.
@@ -1983,6 +2880,17 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDeveloper_Roles();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Developer#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.Developer#getDescription()
+	 * @see #getDeveloper()
+	 * @generated
+	 */
+	EAttribute getDeveloper_Description();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.IssueRelationship <em>Issue Relationship</em>}'.
@@ -2006,15 +2914,122 @@ public interface TrackerPackage extends EPackage {
 	EReference getIssueRelationship_Target();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueRelationship#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.IssueRelationship#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @return the meta object for the reference '<em>Type</em>'.
 	 * @see org.nasdanika.tracker.IssueRelationship#getType()
 	 * @see #getIssueRelationship()
 	 * @generated
 	 */
-	EAttribute getIssueRelationship_Type();
+	EReference getIssueRelationship_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueRelationship#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.IssueRelationship#getDescription()
+	 * @see #getIssueRelationship()
+	 * @generated
+	 */
+	EAttribute getIssueRelationship_Description();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.IssueStatus <em>Issue Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Issue Status</em>'.
+	 * @see org.nasdanika.tracker.IssueStatus
+	 * @generated
+	 */
+	EClass getIssueStatus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueStatus#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.tracker.IssueStatus#getName()
+	 * @see #getIssueStatus()
+	 * @generated
+	 */
+	EAttribute getIssueStatus_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueStatus#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.IssueStatus#getDescription()
+	 * @see #getIssueStatus()
+	 * @generated
+	 */
+	EAttribute getIssueStatus_Description();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.IssueResolution <em>Issue Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Issue Resolution</em>'.
+	 * @see org.nasdanika.tracker.IssueResolution
+	 * @generated
+	 */
+	EClass getIssueResolution();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueResolution#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.tracker.IssueResolution#getName()
+	 * @see #getIssueResolution()
+	 * @generated
+	 */
+	EAttribute getIssueResolution_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueResolution#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.IssueResolution#getDescription()
+	 * @see #getIssueResolution()
+	 * @generated
+	 */
+	EAttribute getIssueResolution_Description();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.IssuePriority <em>Issue Priority</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Issue Priority</em>'.
+	 * @see org.nasdanika.tracker.IssuePriority
+	 * @generated
+	 */
+	EClass getIssuePriority();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssuePriority#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.tracker.IssuePriority#getName()
+	 * @see #getIssuePriority()
+	 * @generated
+	 */
+	EAttribute getIssuePriority_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssuePriority#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.IssuePriority#getDescription()
+	 * @see #getIssuePriority()
+	 * @generated
+	 */
+	EAttribute getIssuePriority_Description();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Note <em>Note</em>}'.
@@ -2058,6 +3073,17 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNote_Date();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Note#isPrivate <em>Private</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Private</em>'.
+	 * @see org.nasdanika.tracker.Note#isPrivate()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Private();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.ProgressReport <em>Progress Report</em>}'.
@@ -2114,14 +3140,111 @@ public interface TrackerPackage extends EPackage {
 	EAttribute getProgressReport_RemainingEffort();
 
 	/**
-	 * Returns the meta object for enum '{@link org.nasdanika.tracker.IssueRelationshipType <em>Issue Relationship Type</em>}'.
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.Availability <em>Availability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Issue Relationship Type</em>'.
+	 * @return the meta object for class '<em>Availability</em>'.
+	 * @see org.nasdanika.tracker.Availability
+	 * @generated
+	 */
+	EClass getAvailability();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Availability#getIncrement <em>Increment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Increment</em>'.
+	 * @see org.nasdanika.tracker.Availability#getIncrement()
+	 * @see #getAvailability()
+	 * @generated
+	 */
+	EReference getAvailability_Increment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Availability#getAvailability <em>Availability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Availability</em>'.
+	 * @see org.nasdanika.tracker.Availability#getAvailability()
+	 * @see #getAvailability()
+	 * @generated
+	 */
+	EAttribute getAvailability_Availability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Availability#getComment <em>Comment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Comment</em>'.
+	 * @see org.nasdanika.tracker.Availability#getComment()
+	 * @see #getAvailability()
+	 * @generated
+	 */
+	EAttribute getAvailability_Comment();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.tracker.IssueRelationshipBlockingDirection <em>Issue Relationship Blocking Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Issue Relationship Blocking Direction</em>'.
+	 * @see org.nasdanika.tracker.IssueRelationshipBlockingDirection
+	 * @generated
+	 */
+	EEnum getIssueRelationshipBlockingDirection();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.IssueRelationshipType <em>Issue Relationship Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Issue Relationship Type</em>'.
 	 * @see org.nasdanika.tracker.IssueRelationshipType
 	 * @generated
 	 */
-	EEnum getIssueRelationshipType();
+	EClass getIssueRelationshipType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueRelationshipType#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.tracker.IssueRelationshipType#getName()
+	 * @see #getIssueRelationshipType()
+	 * @generated
+	 */
+	EAttribute getIssueRelationshipType_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueRelationshipType#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.IssueRelationshipType#getDescription()
+	 * @see #getIssueRelationshipType()
+	 * @generated
+	 */
+	EAttribute getIssueRelationshipType_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.IssueRelationshipType#getBlockingDirection <em>Blocking Direction</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Blocking Direction</em>'.
+	 * @see org.nasdanika.tracker.IssueRelationshipType#getBlockingDirection()
+	 * @see #getIssueRelationshipType()
+	 * @generated
+	 */
+	EAttribute getIssueRelationshipType_BlockingDirection();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.IssueRelationshipType#getOpposite <em>Opposite</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Opposite</em>'.
+	 * @see org.nasdanika.tracker.IssueRelationshipType#getOpposite()
+	 * @see #getIssueRelationshipType()
+	 * @generated
+	 */
+	EReference getIssueRelationshipType_Opposite();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2179,6 +3302,22 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRACKER__ORGANIZATIONS = eINSTANCE.getTracker_Organizations();
+
+		/**
+		 * The meta object literal for the '<em><b>Sites Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRACKER__SITES_URL = eINSTANCE.getTracker_SitesUrl();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRACKER__DESCRIPTION = eINSTANCE.getTracker_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.UserImpl <em>User</em>}' class.
@@ -2257,6 +3396,22 @@ public interface TrackerPackage extends EPackage {
 		EAttribute ARTIFACT__ID = eINSTANCE.getArtifact_Id();
 
 		/**
+		 * The meta object literal for the '<em><b>Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARTIFACT__GROUP = eINSTANCE.getArtifact_Group();
+
+		/**
+		 * The meta object literal for the '<em><b>Group ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARTIFACT__GROUP_ID = eINSTANCE.getArtifact_GroupID();
+
+		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2297,14 +3452,6 @@ public interface TrackerPackage extends EPackage {
 		EReference ARTIFACT__VERSIONS = eINSTANCE.getArtifact_Versions();
 
 		/**
-		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ARTIFACT__URL = eINSTANCE.getArtifact_Url();
-
-		/**
 		 * The meta object literal for the '<em><b>Categories</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2313,20 +3460,52 @@ public interface TrackerPackage extends EPackage {
 		EReference ARTIFACT__CATEGORIES = eINSTANCE.getArtifact_Categories();
 
 		/**
-		 * The meta object literal for the '<em><b>Increments</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARTIFACT__INCREMENTS = eINSTANCE.getArtifact_Increments();
-
-		/**
 		 * The meta object literal for the '<em><b>Roles</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ARTIFACT__ROLES = eINSTANCE.getArtifact_Roles();
+
+		/**
+		 * The meta object literal for the '<em><b>Private</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ARTIFACT__PRIVATE = eINSTANCE.getArtifact_Private();
+
+		/**
+		 * The meta object literal for the '<em><b>Issue Relationship Types</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARTIFACT__ISSUE_RELATIONSHIP_TYPES = eINSTANCE.getArtifact_IssueRelationshipTypes();
+
+		/**
+		 * The meta object literal for the '<em><b>Issue Statuses</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARTIFACT__ISSUE_STATUSES = eINSTANCE.getArtifact_IssueStatuses();
+
+		/**
+		 * The meta object literal for the '<em><b>Issue Resolutions</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARTIFACT__ISSUE_RESOLUTIONS = eINSTANCE.getArtifact_IssueResolutions();
+
+		/**
+		 * The meta object literal for the '<em><b>Issue Priorities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARTIFACT__ISSUE_PRIORITIES = eINSTANCE.getArtifact_IssuePriorities();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -2389,12 +3568,78 @@ public interface TrackerPackage extends EPackage {
 		EReference ORGANIZATION__MEMBERS = eINSTANCE.getOrganization_Members();
 
 		/**
-		 * The meta object literal for the '<em><b>Org Info Artifact ID</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Groups</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ORGANIZATION__ORG_INFO_ARTIFACT_ID = eINSTANCE.getOrganization_OrgInfoArtifactID();
+		EReference ORGANIZATION__GROUPS = eINSTANCE.getOrganization_Groups();
+
+		/**
+		 * The meta object literal for the '<em><b>Increments</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANIZATION__INCREMENTS = eINSTANCE.getOrganization_Increments();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.GroupImpl <em>Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.GroupImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getGroup()
+		 * @generated
+		 */
+		EClass GROUP = eINSTANCE.getGroup();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GROUP__ID = eINSTANCE.getGroup_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GROUP__NAME = eINSTANCE.getGroup_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GROUP__DESCRIPTION = eINSTANCE.getGroup_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP__CHILDREN = eINSTANCE.getGroup_Children();
+
+		/**
+		 * The meta object literal for the '<em><b>Members</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP__MEMBERS = eINSTANCE.getGroup_Members();
+
+		/**
+		 * The meta object literal for the '<em><b>Private</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GROUP__PRIVATE = eINSTANCE.getGroup_Private();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.VersionImpl <em>Version</em>}' class.
@@ -2413,6 +3658,14 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VERSION__NUMBER = eINSTANCE.getVersion_Number();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VERSION__DESCRIPTION = eINSTANCE.getVersion_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Date</b></em>' attribute feature.
@@ -2539,12 +3792,20 @@ public interface TrackerPackage extends EPackage {
 		EReference ISSUE__FIXED_IN_VERSION = eINSTANCE.getIssue_FixedInVersion();
 
 		/**
-		 * The meta object literal for the '<em><b>Relationships</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Outbound Relationships</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ISSUE__RELATIONSHIPS = eINSTANCE.getIssue_Relationships();
+		EReference ISSUE__OUTBOUND_RELATIONSHIPS = eINSTANCE.getIssue_OutboundRelationships();
+
+		/**
+		 * The meta object literal for the '<em><b>Inbound Relationships</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISSUE__INBOUND_RELATIONSHIPS = eINSTANCE.getIssue_InboundRelationships();
 
 		/**
 		 * The meta object literal for the '<em><b>Assigned To</b></em>' reference feature.
@@ -2571,6 +3832,62 @@ public interface TrackerPackage extends EPackage {
 		EReference ISSUE__SUBSCRIBERS = eINSTANCE.getIssue_Subscribers();
 
 		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISSUE__CHILDREN = eINSTANCE.getIssue_Children();
+
+		/**
+		 * The meta object literal for the '<em><b>Private</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__PRIVATE = eINSTANCE.getIssue_Private();
+
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISSUE__STATUS = eINSTANCE.getIssue_Status();
+
+		/**
+		 * The meta object literal for the '<em><b>Resolution</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISSUE__RESOLUTION = eINSTANCE.getIssue_Resolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Submitted</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__SUBMITTED = eINSTANCE.getIssue_Submitted();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Update</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__LAST_UPDATE = eINSTANCE.getIssue_LastUpdate();
+
+		/**
+		 * The meta object literal for the '<em><b>Estimated Effort</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__ESTIMATED_EFFORT = eINSTANCE.getIssue_EstimatedEffort();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.IncrementImpl <em>Increment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2579,6 +3896,22 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EClass INCREMENT = eINSTANCE.getIncrement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INCREMENT__NAME = eINSTANCE.getIncrement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INCREMENT__DESCRIPTION = eINSTANCE.getIncrement_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Versions</b></em>' reference list feature.
@@ -2639,12 +3972,20 @@ public interface TrackerPackage extends EPackage {
 		EAttribute ORGANIZATION_MEMBER__NAME = eINSTANCE.getOrganizationMember_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Availability</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ORGANIZATION_MEMBER__URL = eINSTANCE.getOrganizationMember_Url();
+		EReference ORGANIZATION_MEMBER__AVAILABILITY = eINSTANCE.getOrganizationMember_Availability();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORGANIZATION_MEMBER__DESCRIPTION = eINSTANCE.getOrganizationMember_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.DeveloperImpl <em>Developer</em>}' class.
@@ -2657,12 +3998,12 @@ public interface TrackerPackage extends EPackage {
 		EClass DEVELOPER = eINSTANCE.getDeveloper();
 
 		/**
-		 * The meta object literal for the '<em><b>Developer</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Organization Member</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference DEVELOPER__DEVELOPER = eINSTANCE.getDeveloper_Developer();
+		EReference DEVELOPER__ORGANIZATION_MEMBER = eINSTANCE.getDeveloper_OrganizationMember();
 
 		/**
 		 * The meta object literal for the '<em><b>Roles</b></em>' reference list feature.
@@ -2671,6 +4012,14 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DEVELOPER__ROLES = eINSTANCE.getDeveloper_Roles();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEVELOPER__DESCRIPTION = eINSTANCE.getDeveloper_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.IssueRelationshipImpl <em>Issue Relationship</em>}' class.
@@ -2691,12 +4040,98 @@ public interface TrackerPackage extends EPackage {
 		EReference ISSUE_RELATIONSHIP__TARGET = eINSTANCE.getIssueRelationship_Target();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ISSUE_RELATIONSHIP__TYPE = eINSTANCE.getIssueRelationship_Type();
+		EReference ISSUE_RELATIONSHIP__TYPE = eINSTANCE.getIssueRelationship_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_RELATIONSHIP__DESCRIPTION = eINSTANCE.getIssueRelationship_Description();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.IssueStatusImpl <em>Issue Status</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.IssueStatusImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueStatus()
+		 * @generated
+		 */
+		EClass ISSUE_STATUS = eINSTANCE.getIssueStatus();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_STATUS__NAME = eINSTANCE.getIssueStatus_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_STATUS__DESCRIPTION = eINSTANCE.getIssueStatus_Description();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.IssueResolutionImpl <em>Issue Resolution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.IssueResolutionImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueResolution()
+		 * @generated
+		 */
+		EClass ISSUE_RESOLUTION = eINSTANCE.getIssueResolution();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_RESOLUTION__NAME = eINSTANCE.getIssueResolution_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_RESOLUTION__DESCRIPTION = eINSTANCE.getIssueResolution_Description();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.IssuePriorityImpl <em>Issue Priority</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.IssuePriorityImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssuePriority()
+		 * @generated
+		 */
+		EClass ISSUE_PRIORITY = eINSTANCE.getIssuePriority();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_PRIORITY__NAME = eINSTANCE.getIssuePriority_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_PRIORITY__DESCRIPTION = eINSTANCE.getIssuePriority_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.NoteImpl <em>Note</em>}' class.
@@ -2731,6 +4166,14 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NOTE__DATE = eINSTANCE.getNote_Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Private</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__PRIVATE = eINSTANCE.getNote_Private();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.ProgressReportImpl <em>Progress Report</em>}' class.
@@ -2775,14 +4218,90 @@ public interface TrackerPackage extends EPackage {
 		EAttribute PROGRESS_REPORT__REMAINING_EFFORT = eINSTANCE.getProgressReport_RemainingEffort();
 
 		/**
-		 * The meta object literal for the '{@link org.nasdanika.tracker.IssueRelationshipType <em>Issue Relationship Type</em>}' enum.
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.AvailabilityImpl <em>Availability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.nasdanika.tracker.IssueRelationshipType
+		 * @see org.nasdanika.tracker.impl.AvailabilityImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getAvailability()
+		 * @generated
+		 */
+		EClass AVAILABILITY = eINSTANCE.getAvailability();
+
+		/**
+		 * The meta object literal for the '<em><b>Increment</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference AVAILABILITY__INCREMENT = eINSTANCE.getAvailability_Increment();
+
+		/**
+		 * The meta object literal for the '<em><b>Availability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AVAILABILITY__AVAILABILITY = eINSTANCE.getAvailability_Availability();
+
+		/**
+		 * The meta object literal for the '<em><b>Comment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute AVAILABILITY__COMMENT = eINSTANCE.getAvailability_Comment();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.IssueRelationshipBlockingDirection <em>Issue Relationship Blocking Direction</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.IssueRelationshipBlockingDirection
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueRelationshipBlockingDirection()
+		 * @generated
+		 */
+		EEnum ISSUE_RELATIONSHIP_BLOCKING_DIRECTION = eINSTANCE.getIssueRelationshipBlockingDirection();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.IssueRelationshipTypeImpl <em>Issue Relationship Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.IssueRelationshipTypeImpl
 		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueRelationshipType()
 		 * @generated
 		 */
-		EEnum ISSUE_RELATIONSHIP_TYPE = eINSTANCE.getIssueRelationshipType();
+		EClass ISSUE_RELATIONSHIP_TYPE = eINSTANCE.getIssueRelationshipType();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_RELATIONSHIP_TYPE__NAME = eINSTANCE.getIssueRelationshipType_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_RELATIONSHIP_TYPE__DESCRIPTION = eINSTANCE.getIssueRelationshipType_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Blocking Direction</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE_RELATIONSHIP_TYPE__BLOCKING_DIRECTION = eINSTANCE.getIssueRelationshipType_BlockingDirection();
+
+		/**
+		 * The meta object literal for the '<em><b>Opposite</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISSUE_RELATIONSHIP_TYPE__OPPOSITE = eINSTANCE.getIssueRelationshipType_Opposite();
 
 	}
 

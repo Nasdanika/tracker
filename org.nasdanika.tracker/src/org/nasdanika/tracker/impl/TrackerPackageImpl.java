@@ -13,12 +13,18 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.cdo.security.SecurityPackage;
 
 import org.nasdanika.tracker.Artifact;
+import org.nasdanika.tracker.Availability;
 import org.nasdanika.tracker.Category;
 import org.nasdanika.tracker.Developer;
+import org.nasdanika.tracker.Group;
 import org.nasdanika.tracker.Increment;
 import org.nasdanika.tracker.Issue;
+import org.nasdanika.tracker.IssuePriority;
 import org.nasdanika.tracker.IssueRelationship;
+import org.nasdanika.tracker.IssueRelationshipBlockingDirection;
 import org.nasdanika.tracker.IssueRelationshipType;
+import org.nasdanika.tracker.IssueResolution;
+import org.nasdanika.tracker.IssueStatus;
 import org.nasdanika.tracker.Note;
 import org.nasdanika.tracker.Organization;
 import org.nasdanika.tracker.OrganizationMember;
@@ -77,6 +83,13 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass groupEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass versionEClass = null;
 
 	/**
@@ -92,6 +105,13 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	private EClass issueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass issueRelationshipTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -126,6 +146,27 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass issueStatusEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass issueResolutionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass issuePriorityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass noteEClass = null;
 
 	/**
@@ -140,7 +181,14 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum issueRelationshipTypeEEnum = null;
+	private EClass availabilityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum issueRelationshipBlockingDirectionEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -247,6 +295,24 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTracker_SitesUrl() {
+		return (EAttribute)trackerEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTracker_Description() {
+		return (EAttribute)trackerEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUser() {
 		return userEClass;
 	}
@@ -328,8 +394,26 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getArtifact_Group() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getArtifact_GroupID() {
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getArtifact_Name() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -338,33 +422,6 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_Developers() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getArtifact_Modules() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getArtifact_Issues() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getArtifact_Versions() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -373,8 +430,8 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArtifact_Url() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(6);
+	public EReference getArtifact_Modules() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -382,7 +439,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_Categories() {
+	public EReference getArtifact_Issues() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -391,7 +448,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_Increments() {
+	public EReference getArtifact_Versions() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -400,7 +457,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_Roles() {
+	public EReference getArtifact_Categories() {
 		return (EReference)artifactEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -409,8 +466,62 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getArtifact_Roles() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getArtifact_Private() {
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getArtifact_IssueRelationshipTypes() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getArtifact_IssueStatuses() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getArtifact_IssueResolutions() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getArtifact_IssuePriorities() {
+		return (EReference)artifactEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getArtifact_Description() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(10);
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -472,8 +583,80 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOrganization_OrgInfoArtifactID() {
-		return (EAttribute)organizationEClass.getEStructuralFeatures().get(1);
+	public EReference getOrganization_Groups() {
+		return (EReference)organizationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOrganization_Increments() {
+		return (EReference)organizationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGroup() {
+		return groupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGroup_Id() {
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGroup_Name() {
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGroup_Description() {
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup_Children() {
+		return (EReference)groupEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup_Members() {
+		return (EReference)groupEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getGroup_Private() {
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -499,7 +682,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVersion_Date() {
+	public EAttribute getVersion_Description() {
 		return (EAttribute)versionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -508,8 +691,17 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getVersion_Date() {
+		return (EAttribute)versionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getVersion_Increment() {
-		return (EReference)versionEClass.getEStructuralFeatures().get(2);
+		return (EReference)versionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -518,7 +710,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EAttribute getVersion_Released() {
-		return (EAttribute)versionEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)versionEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -634,7 +826,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIssue_Relationships() {
+	public EReference getIssue_OutboundRelationships() {
 		return (EReference)issueEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -643,7 +835,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIssue_AssignedTo() {
+	public EReference getIssue_InboundRelationships() {
 		return (EReference)issueEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -652,7 +844,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIssue_Notes() {
+	public EReference getIssue_AssignedTo() {
 		return (EReference)issueEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -661,8 +853,80 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIssue_Subscribers() {
+	public EReference getIssue_Notes() {
 		return (EReference)issueEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIssue_Subscribers() {
+		return (EReference)issueEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIssue_Children() {
+		return (EReference)issueEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssue_Private() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIssue_Status() {
+		return (EReference)issueEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIssue_Resolution() {
+		return (EReference)issueEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssue_Submitted() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssue_LastUpdate() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssue_EstimatedEffort() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(18);
 	}
 
 	/**
@@ -679,8 +943,26 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getIncrement_Name() {
+		return (EAttribute)incrementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIncrement_Description() {
+		return (EAttribute)incrementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getIncrement_Versions() {
-		return (EReference)incrementEClass.getEStructuralFeatures().get(0);
+		return (EReference)incrementEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -689,7 +971,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getIncrement_Children() {
-		return (EReference)incrementEClass.getEStructuralFeatures().get(1);
+		return (EReference)incrementEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -742,8 +1024,17 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOrganizationMember_Url() {
-		return (EAttribute)organizationMemberEClass.getEStructuralFeatures().get(2);
+	public EReference getOrganizationMember_Availability() {
+		return (EReference)organizationMemberEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOrganizationMember_Description() {
+		return (EAttribute)organizationMemberEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -760,7 +1051,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDeveloper_Developer() {
+	public EReference getDeveloper_OrganizationMember() {
 		return (EReference)developerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -771,6 +1062,15 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 */
 	public EReference getDeveloper_Roles() {
 		return (EReference)developerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDeveloper_Description() {
+		return (EAttribute)developerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -796,8 +1096,98 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getIssueRelationship_Type() {
-		return (EAttribute)issueRelationshipEClass.getEStructuralFeatures().get(1);
+	public EReference getIssueRelationship_Type() {
+		return (EReference)issueRelationshipEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueRelationship_Description() {
+		return (EAttribute)issueRelationshipEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIssueStatus() {
+		return issueStatusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueStatus_Name() {
+		return (EAttribute)issueStatusEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueStatus_Description() {
+		return (EAttribute)issueStatusEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIssueResolution() {
+		return issueResolutionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueResolution_Name() {
+		return (EAttribute)issueResolutionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueResolution_Description() {
+		return (EAttribute)issueResolutionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIssuePriority() {
+		return issuePriorityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssuePriority_Name() {
+		return (EAttribute)issuePriorityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssuePriority_Description() {
+		return (EAttribute)issuePriorityEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -834,6 +1224,15 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 */
 	public EAttribute getNote_Date() {
 		return (EAttribute)noteEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNote_Private() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -886,8 +1285,89 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getIssueRelationshipType() {
-		return issueRelationshipTypeEEnum;
+	public EClass getAvailability() {
+		return availabilityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAvailability_Increment() {
+		return (EReference)availabilityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAvailability_Availability() {
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAvailability_Comment() {
+		return (EAttribute)availabilityEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getIssueRelationshipBlockingDirection() {
+		return issueRelationshipBlockingDirectionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIssueRelationshipType() {
+		return issueRelationshipTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueRelationshipType_Name() {
+		return (EAttribute)issueRelationshipTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueRelationshipType_Description() {
+		return (EAttribute)issueRelationshipTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIssueRelationshipType_BlockingDirection() {
+		return (EAttribute)issueRelationshipTypeEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIssueRelationshipType_Opposite() {
+		return (EReference)issueRelationshipTypeEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -922,6 +1402,8 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		createEReference(trackerEClass, TRACKER__USERS);
 		createEAttribute(trackerEClass, TRACKER__AUTO_CREATE_USERS);
 		createEReference(trackerEClass, TRACKER__ORGANIZATIONS);
+		createEAttribute(trackerEClass, TRACKER__SITES_URL);
+		createEAttribute(trackerEClass, TRACKER__DESCRIPTION);
 
 		userEClass = createEClass(USER);
 		createEAttribute(userEClass, USER__NAME);
@@ -933,16 +1415,21 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 
 		artifactEClass = createEClass(ARTIFACT);
 		createEAttribute(artifactEClass, ARTIFACT__ID);
+		createEReference(artifactEClass, ARTIFACT__GROUP);
+		createEAttribute(artifactEClass, ARTIFACT__GROUP_ID);
 		createEAttribute(artifactEClass, ARTIFACT__NAME);
+		createEAttribute(artifactEClass, ARTIFACT__DESCRIPTION);
 		createEReference(artifactEClass, ARTIFACT__DEVELOPERS);
 		createEReference(artifactEClass, ARTIFACT__MODULES);
 		createEReference(artifactEClass, ARTIFACT__ISSUES);
 		createEReference(artifactEClass, ARTIFACT__VERSIONS);
-		createEAttribute(artifactEClass, ARTIFACT__URL);
 		createEReference(artifactEClass, ARTIFACT__CATEGORIES);
-		createEReference(artifactEClass, ARTIFACT__INCREMENTS);
 		createEReference(artifactEClass, ARTIFACT__ROLES);
-		createEAttribute(artifactEClass, ARTIFACT__DESCRIPTION);
+		createEAttribute(artifactEClass, ARTIFACT__PRIVATE);
+		createEReference(artifactEClass, ARTIFACT__ISSUE_RELATIONSHIP_TYPES);
+		createEReference(artifactEClass, ARTIFACT__ISSUE_STATUSES);
+		createEReference(artifactEClass, ARTIFACT__ISSUE_RESOLUTIONS);
+		createEReference(artifactEClass, ARTIFACT__ISSUE_PRIORITIES);
 
 		roleEClass = createEClass(ROLE);
 		createEAttribute(roleEClass, ROLE__NAME);
@@ -951,10 +1438,20 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 
 		organizationEClass = createEClass(ORGANIZATION);
 		createEReference(organizationEClass, ORGANIZATION__MEMBERS);
-		createEAttribute(organizationEClass, ORGANIZATION__ORG_INFO_ARTIFACT_ID);
+		createEReference(organizationEClass, ORGANIZATION__GROUPS);
+		createEReference(organizationEClass, ORGANIZATION__INCREMENTS);
+
+		groupEClass = createEClass(GROUP);
+		createEAttribute(groupEClass, GROUP__ID);
+		createEAttribute(groupEClass, GROUP__NAME);
+		createEAttribute(groupEClass, GROUP__DESCRIPTION);
+		createEReference(groupEClass, GROUP__CHILDREN);
+		createEReference(groupEClass, GROUP__MEMBERS);
+		createEAttribute(groupEClass, GROUP__PRIVATE);
 
 		versionEClass = createEClass(VERSION);
 		createEAttribute(versionEClass, VERSION__NUMBER);
+		createEAttribute(versionEClass, VERSION__DESCRIPTION);
 		createEAttribute(versionEClass, VERSION__DATE);
 		createEReference(versionEClass, VERSION__INCREMENT);
 		createEAttribute(versionEClass, VERSION__RELEASED);
@@ -972,34 +1469,66 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		createEReference(issueEClass, ISSUE__ARTIFACT_VERSION);
 		createEReference(issueEClass, ISSUE__TARGET_VERSION);
 		createEReference(issueEClass, ISSUE__FIXED_IN_VERSION);
-		createEReference(issueEClass, ISSUE__RELATIONSHIPS);
+		createEReference(issueEClass, ISSUE__OUTBOUND_RELATIONSHIPS);
+		createEReference(issueEClass, ISSUE__INBOUND_RELATIONSHIPS);
 		createEReference(issueEClass, ISSUE__ASSIGNED_TO);
 		createEReference(issueEClass, ISSUE__NOTES);
 		createEReference(issueEClass, ISSUE__SUBSCRIBERS);
+		createEReference(issueEClass, ISSUE__CHILDREN);
+		createEAttribute(issueEClass, ISSUE__PRIVATE);
+		createEReference(issueEClass, ISSUE__STATUS);
+		createEReference(issueEClass, ISSUE__RESOLUTION);
+		createEAttribute(issueEClass, ISSUE__SUBMITTED);
+		createEAttribute(issueEClass, ISSUE__LAST_UPDATE);
+		createEAttribute(issueEClass, ISSUE__ESTIMATED_EFFORT);
+
+		issueRelationshipTypeEClass = createEClass(ISSUE_RELATIONSHIP_TYPE);
+		createEAttribute(issueRelationshipTypeEClass, ISSUE_RELATIONSHIP_TYPE__NAME);
+		createEAttribute(issueRelationshipTypeEClass, ISSUE_RELATIONSHIP_TYPE__DESCRIPTION);
+		createEAttribute(issueRelationshipTypeEClass, ISSUE_RELATIONSHIP_TYPE__BLOCKING_DIRECTION);
+		createEReference(issueRelationshipTypeEClass, ISSUE_RELATIONSHIP_TYPE__OPPOSITE);
+
+		issueRelationshipEClass = createEClass(ISSUE_RELATIONSHIP);
+		createEReference(issueRelationshipEClass, ISSUE_RELATIONSHIP__TARGET);
+		createEReference(issueRelationshipEClass, ISSUE_RELATIONSHIP__TYPE);
+		createEAttribute(issueRelationshipEClass, ISSUE_RELATIONSHIP__DESCRIPTION);
+
+		issueStatusEClass = createEClass(ISSUE_STATUS);
+		createEAttribute(issueStatusEClass, ISSUE_STATUS__NAME);
+		createEAttribute(issueStatusEClass, ISSUE_STATUS__DESCRIPTION);
+
+		issueResolutionEClass = createEClass(ISSUE_RESOLUTION);
+		createEAttribute(issueResolutionEClass, ISSUE_RESOLUTION__NAME);
+		createEAttribute(issueResolutionEClass, ISSUE_RESOLUTION__DESCRIPTION);
+
+		issuePriorityEClass = createEClass(ISSUE_PRIORITY);
+		createEAttribute(issuePriorityEClass, ISSUE_PRIORITY__NAME);
+		createEAttribute(issuePriorityEClass, ISSUE_PRIORITY__DESCRIPTION);
 
 		incrementEClass = createEClass(INCREMENT);
-		createEReference(incrementEClass, INCREMENT__VERSIONS);
-		createEReference(incrementEClass, INCREMENT__CHILDREN);
+		createEAttribute(incrementEClass, INCREMENT__NAME);
+		createEAttribute(incrementEClass, INCREMENT__DESCRIPTION);
 		createEAttribute(incrementEClass, INCREMENT__START);
 		createEAttribute(incrementEClass, INCREMENT__END);
+		createEReference(incrementEClass, INCREMENT__VERSIONS);
+		createEReference(incrementEClass, INCREMENT__CHILDREN);
 
 		organizationMemberEClass = createEClass(ORGANIZATION_MEMBER);
 		createEReference(organizationMemberEClass, ORGANIZATION_MEMBER__ROLES);
 		createEAttribute(organizationMemberEClass, ORGANIZATION_MEMBER__NAME);
-		createEAttribute(organizationMemberEClass, ORGANIZATION_MEMBER__URL);
+		createEReference(organizationMemberEClass, ORGANIZATION_MEMBER__AVAILABILITY);
+		createEAttribute(organizationMemberEClass, ORGANIZATION_MEMBER__DESCRIPTION);
 
 		developerEClass = createEClass(DEVELOPER);
-		createEReference(developerEClass, DEVELOPER__DEVELOPER);
+		createEReference(developerEClass, DEVELOPER__ORGANIZATION_MEMBER);
 		createEReference(developerEClass, DEVELOPER__ROLES);
-
-		issueRelationshipEClass = createEClass(ISSUE_RELATIONSHIP);
-		createEReference(issueRelationshipEClass, ISSUE_RELATIONSHIP__TARGET);
-		createEAttribute(issueRelationshipEClass, ISSUE_RELATIONSHIP__TYPE);
+		createEAttribute(developerEClass, DEVELOPER__DESCRIPTION);
 
 		noteEClass = createEClass(NOTE);
 		createEReference(noteEClass, NOTE__DEVELOPER);
 		createEAttribute(noteEClass, NOTE__COMMENT);
 		createEAttribute(noteEClass, NOTE__DATE);
+		createEAttribute(noteEClass, NOTE__PRIVATE);
 
 		progressReportEClass = createEClass(PROGRESS_REPORT);
 		createEAttribute(progressReportEClass, PROGRESS_REPORT__PERIOD_START);
@@ -1007,8 +1536,13 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		createEAttribute(progressReportEClass, PROGRESS_REPORT__TIME_SPENT);
 		createEAttribute(progressReportEClass, PROGRESS_REPORT__REMAINING_EFFORT);
 
+		availabilityEClass = createEClass(AVAILABILITY);
+		createEReference(availabilityEClass, AVAILABILITY__INCREMENT);
+		createEAttribute(availabilityEClass, AVAILABILITY__AVAILABILITY);
+		createEAttribute(availabilityEClass, AVAILABILITY__COMMENT);
+
 		// Create enums
-		issueRelationshipTypeEEnum = createEEnum(ISSUE_RELATIONSHIP_TYPE);
+		issueRelationshipBlockingDirectionEEnum = createEEnum(ISSUE_RELATIONSHIP_BLOCKING_DIRECTION);
 	}
 
 	/**
@@ -1052,6 +1586,8 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		initEReference(getTracker_Users(), this.getUser(), null, "users", null, 0, -1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTracker_AutoCreateUsers(), ecorePackage.getEBoolean(), "autoCreateUsers", null, 0, 1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTracker_Organizations(), this.getOrganization(), null, "organizations", null, 0, -1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTracker_SitesUrl(), ecorePackage.getEString(), "sitesUrl", null, 0, 1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTracker_Description(), ecorePackage.getEString(), "description", null, 0, 1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUser_Name(), ecorePackage.getEString(), "name", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1063,16 +1599,21 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Id(), ecorePackage.getEString(), "id", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_Group(), this.getGroup(), null, "group", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArtifact_GroupID(), ecorePackage.getEString(), "groupID", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArtifact_Description(), ecorePackage.getEString(), "description", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Developers(), this.getDeveloper(), null, "developers", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Modules(), this.getArtifact(), null, "modules", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Issues(), this.getIssue(), null, "issues", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Versions(), this.getVersion(), null, "versions", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getArtifact_Url(), ecorePackage.getEString(), "url", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Categories(), this.getCategory(), null, "categories", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArtifact_Increments(), this.getIncrement(), null, "increments", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Roles(), this.getRole(), null, "roles", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getArtifact_Description(), ecorePackage.getEString(), "description", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getArtifact_Private(), ecorePackage.getEBoolean(), "private", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_IssueRelationshipTypes(), this.getIssueRelationshipType(), null, "issueRelationshipTypes", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_IssueStatuses(), this.getIssueStatus(), null, "issueStatuses", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_IssueResolutions(), this.getIssueResolution(), null, "issueResolutions", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_IssuePriorities(), this.getIssuePriority(), null, "issuePriorities", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roleEClass, Role.class, "Role", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRole_Name(), ecorePackage.getEString(), "name", null, 1, 1, Role.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1081,10 +1622,20 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 
 		initEClass(organizationEClass, Organization.class, "Organization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOrganization_Members(), this.getOrganizationMember(), null, "members", null, 0, -1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrganization_OrgInfoArtifactID(), ecorePackage.getEString(), "orgInfoArtifactID", null, 0, 1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganization_Groups(), this.getGroup(), null, "groups", null, 0, -1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganization_Increments(), this.getIncrement(), null, "increments", null, 0, -1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getGroup_Id(), ecorePackage.getEString(), "id", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_Description(), ecorePackage.getEString(), "description", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup_Children(), this.getGroup(), null, "children", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup_Members(), this.getOrganizationMember(), null, "members", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_Private(), ecorePackage.getEBoolean(), "private", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(versionEClass, Version.class, "Version", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVersion_Number(), ecorePackage.getEString(), "number", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVersion_Description(), ecorePackage.getEString(), "description", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVersion_Date(), ecorePackage.getEDate(), "date", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVersion_Increment(), this.getIncrement(), this.getIncrement_Versions(), "increment", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVersion_Released(), ecorePackage.getEBoolean(), "released", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1102,50 +1653,664 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		initEReference(getIssue_ArtifactVersion(), this.getVersion(), null, "artifactVersion", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_TargetVersion(), this.getVersion(), null, "targetVersion", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_FixedInVersion(), this.getVersion(), null, "fixedInVersion", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIssue_Relationships(), this.getIssueRelationship(), null, "relationships", null, 0, -1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssue_OutboundRelationships(), this.getIssueRelationship(), null, "outboundRelationships", null, 0, -1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssue_InboundRelationships(), this.getIssueRelationship(), this.getIssueRelationship_Target(), "inboundRelationships", null, 0, -1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_AssignedTo(), this.getDeveloper(), null, "assignedTo", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_Notes(), this.getNote(), null, "notes", null, 0, -1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_Subscribers(), this.getUser(), null, "subscribers", null, 0, -1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssue_Children(), this.getIssue(), null, "children", null, 0, -1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssue_Private(), ecorePackage.getEBoolean(), "private", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssue_Status(), this.getIssueStatus(), null, "status", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssue_Resolution(), this.getIssueResolution(), null, "resolution", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssue_Submitted(), ecorePackage.getEDate(), "submitted", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssue_LastUpdate(), ecorePackage.getEDate(), "lastUpdate", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssue_EstimatedEffort(), ecorePackage.getEDoubleObject(), "estimatedEffort", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(incrementEClass, Increment.class, "Increment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIncrement_Versions(), this.getVersion(), this.getVersion_Increment(), "versions", null, 0, -1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIncrement_Children(), this.getIncrement(), null, "children", null, 0, -1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIncrement_Start(), ecorePackage.getEDate(), "start", null, 0, 1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIncrement_End(), ecorePackage.getEDate(), "end", null, 0, 1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(organizationMemberEClass, OrganizationMember.class, "OrganizationMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOrganizationMember_Roles(), this.getDeveloper(), this.getDeveloper_Developer(), "roles", null, 0, -1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrganizationMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrganizationMember_Url(), ecorePackage.getEString(), "url", null, 0, 1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(developerEClass, Developer.class, "Developer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDeveloper_Developer(), this.getOrganizationMember(), this.getOrganizationMember_Roles(), "developer", null, 0, 1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeveloper_Roles(), this.getRole(), this.getRole_Developers(), "roles", null, 0, -1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(issueRelationshipTypeEClass, IssueRelationshipType.class, "IssueRelationshipType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIssueRelationshipType_Name(), ecorePackage.getEString(), "name", null, 0, 1, IssueRelationshipType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssueRelationshipType_Description(), ecorePackage.getEString(), "description", null, 0, 1, IssueRelationshipType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssueRelationshipType_BlockingDirection(), this.getIssueRelationshipBlockingDirection(), "blockingDirection", null, 0, 1, IssueRelationshipType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssueRelationshipType_Opposite(), this.getIssueRelationshipType(), null, "opposite", null, 0, 1, IssueRelationshipType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(issueRelationshipEClass, IssueRelationship.class, "IssueRelationship", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIssueRelationship_Target(), this.getIssue(), null, "target", null, 0, 1, IssueRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIssueRelationship_Type(), this.getIssueRelationshipType(), "type", null, 0, 1, IssueRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssueRelationship_Target(), this.getIssue(), this.getIssue_InboundRelationships(), "target", null, 0, 1, IssueRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssueRelationship_Type(), this.getIssueRelationshipType(), null, "type", null, 0, 1, IssueRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssueRelationship_Description(), ecorePackage.getEString(), "description", null, 0, 1, IssueRelationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(issueStatusEClass, IssueStatus.class, "IssueStatus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIssueStatus_Name(), ecorePackage.getEString(), "name", null, 0, 1, IssueStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssueStatus_Description(), ecorePackage.getEString(), "description", null, 0, 1, IssueStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(issueResolutionEClass, IssueResolution.class, "IssueResolution", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIssueResolution_Name(), ecorePackage.getEString(), "name", null, 0, 1, IssueResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssueResolution_Description(), ecorePackage.getEString(), "description", null, 0, 1, IssueResolution.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(issuePriorityEClass, IssuePriority.class, "IssuePriority", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIssuePriority_Name(), ecorePackage.getEString(), "name", null, 0, 1, IssuePriority.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssuePriority_Description(), ecorePackage.getEString(), "description", null, 0, 1, IssuePriority.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(incrementEClass, Increment.class, "Increment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIncrement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIncrement_Description(), ecorePackage.getEString(), "description", null, 0, 1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIncrement_Start(), ecorePackage.getEDate(), "start", null, 0, 1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIncrement_End(), ecorePackage.getEDate(), "end", null, 0, 1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIncrement_Versions(), this.getVersion(), this.getVersion_Increment(), "versions", null, 0, -1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIncrement_Children(), this.getIncrement(), null, "children", null, 0, -1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(organizationMemberEClass, OrganizationMember.class, "OrganizationMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOrganizationMember_Roles(), this.getDeveloper(), this.getDeveloper_OrganizationMember(), "roles", null, 0, -1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrganizationMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganizationMember_Availability(), this.getAvailability(), null, "availability", null, 0, -1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrganizationMember_Description(), ecorePackage.getEString(), "description", null, 0, 1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(developerEClass, Developer.class, "Developer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDeveloper_OrganizationMember(), this.getOrganizationMember(), this.getOrganizationMember_Roles(), "organizationMember", null, 0, 1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeveloper_Roles(), this.getRole(), this.getRole_Developers(), "roles", null, 0, -1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeveloper_Description(), ecorePackage.getEString(), "description", null, 0, 1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNote_Developer(), this.getDeveloper(), null, "developer", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNote_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getNote_Date(), ecorePackage.getEDate(), "date", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Private(), ecorePackage.getEBoolean(), "private", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(progressReportEClass, ProgressReport.class, "ProgressReport", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgressReport_PeriodStart(), ecorePackage.getEDate(), "periodStart", null, 0, 1, ProgressReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgressReport_PeriodEnd(), ecorePackage.getEDate(), "periodEnd", null, 0, 1, ProgressReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProgressReport_TimeSpent(), ecorePackage.getEString(), "timeSpent", null, 0, 1, ProgressReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getProgressReport_RemainingEffort(), ecorePackage.getEString(), "remainingEffort", null, 0, 1, ProgressReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgressReport_TimeSpent(), ecorePackage.getEDoubleObject(), "timeSpent", null, 0, 1, ProgressReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgressReport_RemainingEffort(), ecorePackage.getEDoubleObject(), "remainingEffort", null, 0, 1, ProgressReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(availabilityEClass, Availability.class, "Availability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAvailability_Increment(), this.getIncrement(), null, "increment", null, 1, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailability_Availability(), ecorePackage.getEInt(), "availability", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAvailability_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(issueRelationshipTypeEEnum, IssueRelationshipType.class, "IssueRelationshipType");
-		addEEnumLiteral(issueRelationshipTypeEEnum, IssueRelationshipType.PARENT);
-		addEEnumLiteral(issueRelationshipTypeEEnum, IssueRelationshipType.CHILD);
-		addEEnumLiteral(issueRelationshipTypeEEnum, IssueRelationshipType.DUPLICATE);
-		addEEnumLiteral(issueRelationshipTypeEEnum, IssueRelationshipType.RELATED);
+		initEEnum(issueRelationshipBlockingDirectionEEnum, IssueRelationshipBlockingDirection.class, "IssueRelationshipBlockingDirection");
+		addEEnumLiteral(issueRelationshipBlockingDirectionEEnum, IssueRelationshipBlockingDirection.NONE);
+		addEEnumLiteral(issueRelationshipBlockingDirectionEEnum, IssueRelationshipBlockingDirection.SOURCE);
+		addEEnumLiteral(issueRelationshipBlockingDirectionEEnum, IssueRelationshipBlockingDirection.TARGET);
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/GenModel
+		createGenModelAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/GenModel</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createGenModelAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/GenModel";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+			   "documentation", "Issue tracker for Maven projects. "
+		   });
+		addAnnotation
+		  (trackerEClass,
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (getTracker_AutoCreateUsers(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is set to true users are automatically created by getUser(String) method.\nThis attribute shall be set to true in SSO deployments where users are authenticated\nby external systems which pass user ID\'s to the application."
+		   });
+		addAnnotation
+		  (getTracker_SitesUrl(),
+		   source,
+		   new String[] {
+			   "documentation", "Base URL for artifact sites. Full URL of an artifact site is formed by adding group id, artifact id, and version to the base URL."
+		   });
+		addAnnotation
+		  (getTracker_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (userEClass,
+		   source,
+		   new String[] {
+			   "documentation", ""
+		   });
+		addAnnotation
+		  (getUser_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "User name, e.g. \"Joe Smith\""
+		   });
+		addAnnotation
+		  (getUser_EMail(),
+		   source,
+		   new String[] {
+			   "documentation", "User e-mail."
+		   });
+		addAnnotation
+		  (getUser_Comment(),
+		   source,
+		   new String[] {
+			   "documentation", "Comment in markdown."
+		   });
+		addAnnotation
+		  (getUser_Url(),
+		   source,
+		   new String[] {
+			   "documentation", "User \"home page\", e.g. Github profile or an entry in the organization directory."
+		   });
+		addAnnotation
+		  (getUser_Avatar(),
+		   source,
+		   new String[] {
+			   "documentation", "URL of a user picture."
+		   });
+		addAnnotation
+		  (getUser_Timezone(),
+		   source,
+		   new String[] {
+			   "documentation", "Time zone of user location."
+		   });
+		addAnnotation
+		  (artifactEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Maven artifact, a.k.a. Component. Artifacts can be of different types such as services, libraries, tools (Eclipse plug-ins), documentation, organization info sites. \nThere are two special cases of artifacts:\n\n- Organizations - artifacts with users as members who work as developers on organization\'s artifacts. For an organization a deliverable is an organization\'s site which provides information about the organization, its developers and its artifacts.\n- Projects - artifacts without binary deliverables. Projects typically would have a site containing project documentation. There is no special \"Project\" class in the model.\n"
+		   });
+		addAnnotation
+		  (getArtifact_Id(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifact ID, shall be unique within the group ID. "
+		   });
+		addAnnotation
+		  (getArtifact_GroupID(),
+		   source,
+		   new String[] {
+			   "documentation", "Maven group ID, e.g. ``org.nasdanika.tracker``. If there is no dot in the group ID it is appended to the container\'s or group\'s group ID. If it is blank, it is inherited from group/container group ID."
+		   });
+		addAnnotation
+		  (getArtifact_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifact name, e.g. Nasdanika Tracker."
+		   });
+		addAnnotation
+		  (getArtifact_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getArtifact_Developers(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifact is worked on by developers playing different roles."
+		   });
+		addAnnotation
+		  (getArtifact_Modules(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifacts can be nested. A typical case is artirfacts owned by an organization, which is a special type of an artifact."
+		   });
+		addAnnotation
+		  (getArtifact_Issues(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifacts have zero or more Issues associated with them - something which has to be taken care of in order to deliver a new version."
+		   });
+		addAnnotation
+		  (getArtifact_Versions(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifacts have multiple versions which can be used by different other artifact\'s versions.\nFor projects versions are means for grouping of issues, a.k.a. phases/milestones."
+		   });
+		addAnnotation
+		  (getArtifact_Categories(),
+		   source,
+		   new String[] {
+			   "documentation", "Issue categories."
+		   });
+		addAnnotation
+		  (getArtifact_Private(),
+		   source,
+		   new String[] {
+			   "documentation", "Private model elements are visible only by the members of containing organization."
+		   });
+		addAnnotation
+		  (roleEClass,
+		   source,
+		   new String[] {
+			   "documentation", "User/member role."
+		   });
+		addAnnotation
+		  (getRole_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Role name, e.g. \"Architect\"."
+		   });
+		addAnnotation
+		  (getRole_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (organizationEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Organization is a development team with developers or a grouping of organizations."
+		   });
+		addAnnotation
+		  (getOrganization_Members(),
+		   source,
+		   new String[] {
+			   "documentation", "Organization members participating in development of organization\'s artifacts in different roles."
+		   });
+		addAnnotation
+		  (getOrganization_Groups(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifacts can be organized into groups."
+		   });
+		addAnnotation
+		  (getOrganization_Increments(),
+		   source,
+		   new String[] {
+			   "documentation", "Organization\'s work is organized into increments."
+		   });
+		addAnnotation
+		  (groupEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Time zone of user location."
+		   });
+		addAnnotation
+		  (getGroup_Id(),
+		   source,
+		   new String[] {
+			   "documentation", "Group ID. If group ID does not contain a dot it is considered relative to the parent organization/group id and full group id is formed by appending this group ID to the container group ID "
+		   });
+		addAnnotation
+		  (getGroup_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Group name."
+		   });
+		addAnnotation
+		  (getGroup_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getGroup_Children(),
+		   source,
+		   new String[] {
+			   "documentation", "Groups form a hierarchy."
+		   });
+		addAnnotation
+		  (getGroup_Members(),
+		   source,
+		   new String[] {
+			   "documentation", "Containing organization members \"aligned\" with this group, i.e. having expertise in technologies used by the group artifacts and familiarity with the group artifacts. Typically group members would also be developers of group artifacts. "
+		   });
+		addAnnotation
+		  (getGroup_Private(),
+		   source,
+		   new String[] {
+			   "documentation", "Private model elements are visible only by the members of containing organization."
+		   });
+		addAnnotation
+		  (versionEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Artifacts have multiple versions. \nVersion URL is constructed by adding version number to the artifact URL."
+		   });
+		addAnnotation
+		  (getVersion_Number(),
+		   source,
+		   new String[] {
+			   "documentation", "Version number, unique withing group ID/artifact ID."
+		   });
+		addAnnotation
+		  (getVersion_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getVersion_Date(),
+		   source,
+		   new String[] {
+			   "documentation", "Date when a version is planned to be released or was released."
+		   });
+		addAnnotation
+		  (getVersion_Increment(),
+		   source,
+		   new String[] {
+			   "documentation", "Increment in which a version was released or is planned to be released. \nThis relationship is used for capacity planning.\n"
+		   });
+		addAnnotation
+		  (categoryEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Issue category."
+		   });
+		addAnnotation
+		  (getCategory_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Category name."
+		   });
+		addAnnotation
+		  (getCategory_AssignedTo(),
+		   source,
+		   new String[] {
+			   "documentation", "If this reference is set all issues reported to this category get assigned to the referenced developer."
+		   });
+		addAnnotation
+		  (getCategory_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (issueEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Issue is something that needs to be acted upon to modify the state of the artifact. It is a \"command\" which may or may not be \"executed\".\n"
+		   });
+		addAnnotation
+		  (getIssue_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getIssue_ArtifactVersion(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifact verion where issue was discovered (for bugs)."
+		   });
+		addAnnotation
+		  (getIssue_TargetVersion(),
+		   source,
+		   new String[] {
+			   "documentation", "Version in which this issue is planned to be resolved/closed."
+		   });
+		addAnnotation
+		  (getIssue_FixedInVersion(),
+		   source,
+		   new String[] {
+			   "documentation", "Artifact version where issue was resolved/closed, e.g. but fixed."
+		   });
+		addAnnotation
+		  (getIssue_OutboundRelationships(),
+		   source,
+		   new String[] {
+			   "documentation", "Relationships with other issues. Relationships can be cross-deliverable. E.g. a quality improvement project spanning many components may \ncontain issues related to issues in those components. "
+		   });
+		addAnnotation
+		  (getIssue_InboundRelationships(),
+		   source,
+		   new String[] {
+			   "documentation", "Relationships with other issues. Relationships can be cross-deliverable. E.g. a quality improvement project spanning many components may \ncontain issues related to issues in those components. "
+		   });
+		addAnnotation
+		  (getIssue_AssignedTo(),
+		   source,
+		   new String[] {
+			   "documentation", "Developer assigned to work on the issue/own it. \nThe developer may work on the issue with other developers and people outside of the team, but they are a go-to person for any questions about the issue.\nFor small components this relationship might be implicit - the owner of the component also owns component issues."
+		   });
+		addAnnotation
+		  (getIssue_Subscribers(),
+		   source,
+		   new String[] {
+			   "documentation", "Users monitoring the issue and getting notified of changes in the issue."
+		   });
+		addAnnotation
+		  (getIssue_Children(),
+		   source,
+		   new String[] {
+			   "documentation", "Issues can be nested. Issue containment is equivalent to parent/child issue relationship.\nEither or both can be used depending on a situation. \n\nExplicit issue nesting is conceptually similar to a project plan where a larger parent issue is resolved\nby resolving child issues."
+		   });
+		addAnnotation
+		  (getIssue_Private(),
+		   source,
+		   new String[] {
+			   "documentation", "Private model elements are visible only by the members of containing organization."
+		   });
+		addAnnotation
+		  (getIssue_EstimatedEffort(),
+		   source,
+		   new String[] {
+			   "documentation", "Estimated effort in hours."
+		   });
+		addAnnotation
+		  (getIssueRelationshipType_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Relationship name."
+		   });
+		addAnnotation
+		  (getIssueRelationshipType_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getIssueRelationshipType_BlockingDirection(),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates blocking direction. E.g. \"Parent\" relationship is source blocking. The source issue (parent) is blocked by the target (child)."
+		   });
+		addAnnotation
+		  (issueRelationshipEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Relationship between issues."
+		   });
+		addAnnotation
+		  (getIssueRelationship_Target(),
+		   source,
+		   new String[] {
+			   "documentation", "Relationship target issue. The container is the source."
+		   });
+		addAnnotation
+		  (getIssueRelationship_Type(),
+		   source,
+		   new String[] {
+			   "documentation", "Relationship type."
+		   });
+		addAnnotation
+		  (getIssueRelationship_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getIssueStatus_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Status name."
+		   });
+		addAnnotation
+		  (getIssueStatus_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getIssueResolution_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Resolution name."
+		   });
+		addAnnotation
+		  (getIssueResolution_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getIssuePriority_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Status name."
+		   });
+		addAnnotation
+		  (getIssuePriority_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (incrementEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Time period during which an organization works on issues in its components. \nIncrements can be nested. \n\nIn the long term time periods can be years or quarters. In this case assignments of versions to increments would be a roadmap subject to change. Versions in this case would be more like \"roadmap items\"  or \"milestones\" - defined at a high level to be refined later.\nIn near term increments would be sprints and version to increment assignment would be used for capacity planning.\n\n"
+		   });
+		addAnnotation
+		  (getIncrement_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Increment name. E.g. \"2019\" or \"Sprint 1\"."
+		   });
+		addAnnotation
+		  (getIncrement_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getIncrement_Start(),
+		   source,
+		   new String[] {
+			   "documentation", "Increment start date."
+		   });
+		addAnnotation
+		  (getIncrement_End(),
+		   source,
+		   new String[] {
+			   "documentation", "Increment end date."
+		   });
+		addAnnotation
+		  (getIncrement_Versions(),
+		   source,
+		   new String[] {
+			   "documentation", "Versions planned for this increment or released in this increment."
+		   });
+		addAnnotation
+		  (getIncrement_Children(),
+		   source,
+		   new String[] {
+			   "documentation", "Increments can be nested. E.g.  Sprints can be nested into year or quarter increments."
+		   });
+		addAnnotation
+		  (organizationMemberEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A member of a development team."
+		   });
+		addAnnotation
+		  (getOrganizationMember_Roles(),
+		   source,
+		   new String[] {
+			   "documentation", "Developer may play different roles for different artifacts/components."
+		   });
+		addAnnotation
+		  (getOrganizationMember_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Developer name."
+		   });
+		addAnnotation
+		  (getOrganizationMember_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (developerEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Roles an organization member plays in development of the containing artifact."
+		   });
+		addAnnotation
+		  (getDeveloper_OrganizationMember(),
+		   source,
+		   new String[] {
+			   "documentation", "Organization member."
+		   });
+		addAnnotation
+		  (getDeveloper_Roles(),
+		   source,
+		   new String[] {
+			   "documentation", "Developer roles."
+		   });
+		addAnnotation
+		  (getDeveloper_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (noteEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A note/comment for an issue."
+		   });
+		addAnnotation
+		  (getNote_Private(),
+		   source,
+		   new String[] {
+			   "documentation", "Private model elements are visible only by the members of containing organization."
+		   });
+		addAnnotation
+		  (progressReportEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Progress reports are submitted by developers working on issues and are aggregated for issues/versions/projects. \nProgress reports are used in reporting. E.g. building a burndown chart for an increment or earned value/remaining effort calculation for a version and/or increment.\n\nFor progress reports it is recommended to have comments in the format:\n\n* Progress - what was done.\n* Plans - what is planned for the next reporting period (day/week)\n* Problems - impediments and risks which may need to be addressed."
+		   });
+		addAnnotation
+		  (getProgressReport_TimeSpent(),
+		   source,
+		   new String[] {
+			   "documentation", "Time spent in hours."
+		   });
+		addAnnotation
+		  (getProgressReport_RemainingEffort(),
+		   source,
+		   new String[] {
+			   "documentation", "Remaining effort estimation."
+		   });
+		addAnnotation
+		  (availabilityEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Number of hours an organization member can spend working on organization\'s artifacts in a particular increment. It is used incremente planning when artifact versions are assigned to increments."
+		   });
+		addAnnotation
+		  (getAvailability_Availability(),
+		   source,
+		   new String[] {
+			   "documentation", "Availability in hours."
+		   });
+		addAnnotation
+		  (getAvailability_Comment(),
+		   source,
+		   new String[] {
+			   "documentation", "Comment in markdown."
+		   });
 	}
 
 } //TrackerPackageImpl

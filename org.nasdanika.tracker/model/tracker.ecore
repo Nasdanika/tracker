@@ -22,6 +22,11 @@
         <details key="documentation" value="Base URL for artifact sites. Full URL of an artifact site is formed by adding group id, artifact id, and version to the base URL."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="User" eSuperTypes="../../org.nasdanika.cdo.security/model/security.ecore#//LoginPasswordHashUser">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -114,6 +119,19 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="roles" upperBound="-1"
         eType="#//Role" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="private" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Private model elements are visible only by the members of containing organization."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueRelationshipTypes"
+        upperBound="-1" eType="#//IssueRelationshipType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueStatuses" upperBound="-1"
+        eType="#//IssueStatus" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issueResolutions" upperBound="-1"
+        eType="#//IssueResolution" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issuePriorities" upperBound="-1"
+        eType="#//IssuePriority" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Role">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -169,10 +187,26 @@
         <details key="documentation" value="Group name."/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
         eType="#//Group" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Groups form a hierarchy."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//OrganizationMember">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Containing organization members &quot;aligned&quot; with this group, i.e. having expertise in technologies used by the group artifacts and familiarity with the group artifacts. Typically group members would also be developers of group artifacts. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="private" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Private model elements are visible only by the members of containing organization."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -183,6 +217,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Version number, unique withing group ID/artifact ID."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
@@ -246,8 +285,14 @@
         <details key="documentation" value="Artifact version where issue was resolved/closed, e.g. but fixed."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
-        eType="#//IssueRelationship" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outboundRelationships"
+        upperBound="-1" eType="#//IssueRelationship" containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Relationships with other issues. Relationships can be cross-deliverable. E.g. a quality improvement project spanning many components may &#xA;contain issues related to issues in those components. "/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inboundRelationships" upperBound="-1"
+        eType="#//IssueRelationship" eOpposite="#//IssueRelationship/target">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Relationships with other issues. Relationships can be cross-deliverable. E.g. a quality improvement project spanning many components may &#xA;contain issues related to issues in those components. "/>
       </eAnnotations>
@@ -269,6 +314,100 @@
         eType="#//Issue" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Issues can be nested. Issue containment is equivalent to parent/child issue relationship.&#xA;Either or both can be used depending on a situation. &#xA;&#xA;Explicit issue nesting is conceptually similar to a project plan where a larger parent issue is resolved&#xA;by resolving child issues."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="private" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Private model elements are visible only by the members of containing organization."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="status" eType="#//IssueStatus"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resolution" eType="#//IssueResolution"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="submitted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastUpdate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="estimatedEffort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Estimated effort in hours."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueRelationshipType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Relationship name."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="blockingDirection" eType="#//IssueRelationshipBlockingDirection">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicates blocking direction. E.g. &quot;Parent&quot; relationship is source blocking. The source issue (parent) is blocked by the target (child)."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="opposite" eType="#//IssueRelationshipType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="IssueRelationshipBlockingDirection">
+    <eLiterals name="NONE"/>
+    <eLiterals name="SOURCE" value="1"/>
+    <eLiterals name="TARGET" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueRelationship">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Relationship between issues."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Issue"
+        eOpposite="#//Issue/inboundRelationships">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Relationship target issue. The container is the source."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//IssueRelationshipType">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Relationship type."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueStatus">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Status name."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssueResolution">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Resolution name."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IssuePriority">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Status name."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -326,6 +465,11 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="availability" upperBound="-1"
         eType="#//Availability" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Description in markdown."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Developer">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -343,46 +487,11 @@
         <details key="documentation" value="Developer roles."/>
       </eAnnotations>
     </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IssueRelationship">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Relationship between issues."/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Issue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Relationship target issue. The container is the source."/>
+        <details key="documentation" value="Description in markdown."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//IssueRelationshipType">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Relationship type."/>
-      </eAnnotations>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="IssueRelationshipType">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="Issue relationships may be of different types. This enumeration lists some of them."/>
-    </eAnnotations>
-    <eLiterals name="Parent">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The containing issue is the &quot;parent&quot; of target &quot;child&quot; issues and can be closed/resolved only after all children are resolved. A child issue may have multiple parents - it is a graph, not a tree."/>
-      </eAnnotations>
-    </eLiterals>
-    <eLiterals name="Child" value="1">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The opposite to the parent relationship."/>
-      </eAnnotations>
-    </eLiterals>
-    <eLiterals name="Duplicate" value="2">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="The source issue is a duplicate of the target issue (and vice versa)."/>
-      </eAnnotations>
-    </eLiterals>
-    <eLiterals name="Related" value="3">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Unspecified relationship."/>
-      </eAnnotations>
-    </eLiterals>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Note">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -391,6 +500,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="developer" eType="#//Developer"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="comment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="private" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Private model elements are visible only by the members of containing organization."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProgressReport" eSuperTypes="#//Note">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -398,8 +512,12 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodStart" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="periodEnd" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeSpent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remainingEffort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeSpent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Time spent in hours."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="remainingEffort" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Remaining effort estimation."/>
       </eAnnotations>

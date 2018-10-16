@@ -62,15 +62,21 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 			case TrackerPackage.ARTIFACT: return (EObject)createArtifact();
 			case TrackerPackage.ROLE: return (EObject)createRole();
 			case TrackerPackage.ORGANIZATION: return (EObject)createOrganization();
+			case TrackerPackage.GROUP: return (EObject)createGroup();
 			case TrackerPackage.VERSION: return (EObject)createVersion();
 			case TrackerPackage.CATEGORY: return (EObject)createCategory();
 			case TrackerPackage.ISSUE: return (EObject)createIssue();
+			case TrackerPackage.ISSUE_RELATIONSHIP_TYPE: return (EObject)createIssueRelationshipType();
+			case TrackerPackage.ISSUE_RELATIONSHIP: return (EObject)createIssueRelationship();
+			case TrackerPackage.ISSUE_STATUS: return (EObject)createIssueStatus();
+			case TrackerPackage.ISSUE_RESOLUTION: return (EObject)createIssueResolution();
+			case TrackerPackage.ISSUE_PRIORITY: return (EObject)createIssuePriority();
 			case TrackerPackage.INCREMENT: return (EObject)createIncrement();
 			case TrackerPackage.ORGANIZATION_MEMBER: return (EObject)createOrganizationMember();
 			case TrackerPackage.DEVELOPER: return (EObject)createDeveloper();
-			case TrackerPackage.ISSUE_RELATIONSHIP: return (EObject)createIssueRelationship();
 			case TrackerPackage.NOTE: return (EObject)createNote();
 			case TrackerPackage.PROGRESS_REPORT: return (EObject)createProgressReport();
+			case TrackerPackage.AVAILABILITY: return (EObject)createAvailability();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -84,8 +90,8 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case TrackerPackage.ISSUE_RELATIONSHIP_TYPE:
-				return createIssueRelationshipTypeFromString(eDataType, initialValue);
+			case TrackerPackage.ISSUE_RELATIONSHIP_BLOCKING_DIRECTION:
+				return createIssueRelationshipBlockingDirectionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -99,8 +105,8 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case TrackerPackage.ISSUE_RELATIONSHIP_TYPE:
-				return convertIssueRelationshipTypeToString(eDataType, instanceValue);
+			case TrackerPackage.ISSUE_RELATIONSHIP_BLOCKING_DIRECTION:
+				return convertIssueRelationshipBlockingDirectionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -161,6 +167,16 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Group createGroup() {
+		GroupImpl group = new GroupImpl();
+		return group;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Version createVersion() {
 		VersionImpl version = new VersionImpl();
 		return version;
@@ -184,6 +200,16 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	public Issue createIssue() {
 		IssueImpl issue = new IssueImpl();
 		return issue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IssueRelationshipType createIssueRelationshipType() {
+		IssueRelationshipTypeImpl issueRelationshipType = new IssueRelationshipTypeImpl();
+		return issueRelationshipType;
 	}
 
 	/**
@@ -231,6 +257,36 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public IssueStatus createIssueStatus() {
+		IssueStatusImpl issueStatus = new IssueStatusImpl();
+		return issueStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IssueResolution createIssueResolution() {
+		IssueResolutionImpl issueResolution = new IssueResolutionImpl();
+		return issueResolution;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IssuePriority createIssuePriority() {
+		IssuePriorityImpl issuePriority = new IssuePriorityImpl();
+		return issuePriority;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Note createNote() {
 		NoteImpl note = new NoteImpl();
 		return note;
@@ -251,8 +307,18 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public IssueRelationshipType createIssueRelationshipTypeFromString(EDataType eDataType, String initialValue) {
-		IssueRelationshipType result = IssueRelationshipType.get(initialValue);
+	public Availability createAvailability() {
+		AvailabilityImpl availability = new AvailabilityImpl();
+		return availability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IssueRelationshipBlockingDirection createIssueRelationshipBlockingDirectionFromString(EDataType eDataType, String initialValue) {
+		IssueRelationshipBlockingDirection result = IssueRelationshipBlockingDirection.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -262,7 +328,7 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertIssueRelationshipTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertIssueRelationshipBlockingDirectionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

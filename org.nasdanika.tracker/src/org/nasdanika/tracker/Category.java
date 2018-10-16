@@ -10,7 +10,7 @@ import org.eclipse.emf.cdo.CDOObject;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Issue category
+ * Issue category.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -33,7 +33,7 @@ public interface Category extends CDOObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Artifact name, e.g. Nasdanika Tracker.
+	 * Category name.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -61,6 +61,9 @@ public interface Category extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * If this reference is set all issues reported to this category get assigned to the referenced developer.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Assigned To</em>' reference.
 	 * @see #setAssignedTo(Developer)
 	 * @see org.nasdanika.tracker.TrackerPackage#getCategory_AssignedTo()

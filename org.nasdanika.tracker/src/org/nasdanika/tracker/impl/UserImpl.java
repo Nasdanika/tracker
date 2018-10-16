@@ -33,6 +33,70 @@ import org.nasdanika.tracker.User;
  */
 public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements User {
 	/**
+	 * The default value of the '{@link #getPasswordHash() <em>Password Hash</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPasswordHash()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final byte[] PASSWORD_HASH_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getEMail() <em>EMail</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEMail()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EMAIL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getComment() <em>Comment</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComment()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUrl()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String URL_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getAvatar() <em>Avatar</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAvatar()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String AVATAR_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getTimezone() <em>Timezone</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTimezone()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TIMEZONE_EDEFAULT = null;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -57,7 +121,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public byte[] getPasswordHash() {
-		return (byte[])eGet(SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__PASSWORD_HASH, true);
+		return (byte[])eDynamicGet(TrackerPackage.USER__PASSWORD_HASH, SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__PASSWORD_HASH, true, true);
 	}
 
 	/**
@@ -66,7 +130,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public void setPasswordHash(byte[] newPasswordHash) {
-		eSet(SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__PASSWORD_HASH, newPasswordHash);
+		eDynamicSet(TrackerPackage.USER__PASSWORD_HASH, SecurityPackage.Literals.LOGIN_PASSWORD_HASH_USER__PASSWORD_HASH, newPasswordHash);
 	}
 
 	/**
@@ -75,7 +139,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public String getName() {
-		return (String)eGet(TrackerPackage.Literals.USER__NAME, true);
+		return (String)eDynamicGet(TrackerPackage.USER__NAME, TrackerPackage.Literals.USER__NAME, true, true);
 	}
 
 	/**
@@ -84,7 +148,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public void setName(String newName) {
-		eSet(TrackerPackage.Literals.USER__NAME, newName);
+		eDynamicSet(TrackerPackage.USER__NAME, TrackerPackage.Literals.USER__NAME, newName);
 	}
 
 	/**
@@ -93,7 +157,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public String getEMail() {
-		return (String)eGet(TrackerPackage.Literals.USER__EMAIL, true);
+		return (String)eDynamicGet(TrackerPackage.USER__EMAIL, TrackerPackage.Literals.USER__EMAIL, true, true);
 	}
 
 	/**
@@ -102,7 +166,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public void setEMail(String newEMail) {
-		eSet(TrackerPackage.Literals.USER__EMAIL, newEMail);
+		eDynamicSet(TrackerPackage.USER__EMAIL, TrackerPackage.Literals.USER__EMAIL, newEMail);
 	}
 
 	/**
@@ -111,7 +175,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public String getComment() {
-		return (String)eGet(TrackerPackage.Literals.USER__COMMENT, true);
+		return (String)eDynamicGet(TrackerPackage.USER__COMMENT, TrackerPackage.Literals.USER__COMMENT, true, true);
 	}
 
 	/**
@@ -120,7 +184,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public void setComment(String newComment) {
-		eSet(TrackerPackage.Literals.USER__COMMENT, newComment);
+		eDynamicSet(TrackerPackage.USER__COMMENT, TrackerPackage.Literals.USER__COMMENT, newComment);
 	}
 
 	/**
@@ -129,7 +193,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public String getUrl() {
-		return (String)eGet(TrackerPackage.Literals.USER__URL, true);
+		return (String)eDynamicGet(TrackerPackage.USER__URL, TrackerPackage.Literals.USER__URL, true, true);
 	}
 
 	/**
@@ -138,7 +202,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public void setUrl(String newUrl) {
-		eSet(TrackerPackage.Literals.USER__URL, newUrl);
+		eDynamicSet(TrackerPackage.USER__URL, TrackerPackage.Literals.USER__URL, newUrl);
 	}
 
 	/**
@@ -147,7 +211,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public String getAvatar() {
-		return (String)eGet(TrackerPackage.Literals.USER__AVATAR, true);
+		return (String)eDynamicGet(TrackerPackage.USER__AVATAR, TrackerPackage.Literals.USER__AVATAR, true, true);
 	}
 
 	/**
@@ -156,7 +220,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public void setAvatar(String newAvatar) {
-		eSet(TrackerPackage.Literals.USER__AVATAR, newAvatar);
+		eDynamicSet(TrackerPackage.USER__AVATAR, TrackerPackage.Literals.USER__AVATAR, newAvatar);
 	}
 
 	/**
@@ -165,7 +229,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public String getTimezone() {
-		return (String)eGet(TrackerPackage.Literals.USER__TIMEZONE, true);
+		return (String)eDynamicGet(TrackerPackage.USER__TIMEZONE, TrackerPackage.Literals.USER__TIMEZONE, true, true);
 	}
 
 	/**
@@ -174,7 +238,125 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * @generated
 	 */
 	public void setTimezone(String newTimezone) {
-		eSet(TrackerPackage.Literals.USER__TIMEZONE, newTimezone);
+		eDynamicSet(TrackerPackage.USER__TIMEZONE, TrackerPackage.Literals.USER__TIMEZONE, newTimezone);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
+			case TrackerPackage.USER__PASSWORD_HASH:
+				return getPasswordHash();
+			case TrackerPackage.USER__NAME:
+				return getName();
+			case TrackerPackage.USER__EMAIL:
+				return getEMail();
+			case TrackerPackage.USER__COMMENT:
+				return getComment();
+			case TrackerPackage.USER__URL:
+				return getUrl();
+			case TrackerPackage.USER__AVATAR:
+				return getAvatar();
+			case TrackerPackage.USER__TIMEZONE:
+				return getTimezone();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
+			case TrackerPackage.USER__PASSWORD_HASH:
+				setPasswordHash((byte[])newValue);
+				return;
+			case TrackerPackage.USER__NAME:
+				setName((String)newValue);
+				return;
+			case TrackerPackage.USER__EMAIL:
+				setEMail((String)newValue);
+				return;
+			case TrackerPackage.USER__COMMENT:
+				setComment((String)newValue);
+				return;
+			case TrackerPackage.USER__URL:
+				setUrl((String)newValue);
+				return;
+			case TrackerPackage.USER__AVATAR:
+				setAvatar((String)newValue);
+				return;
+			case TrackerPackage.USER__TIMEZONE:
+				setTimezone((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void eUnset(int featureID) {
+		switch (featureID) {
+			case TrackerPackage.USER__PASSWORD_HASH:
+				setPasswordHash(PASSWORD_HASH_EDEFAULT);
+				return;
+			case TrackerPackage.USER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case TrackerPackage.USER__EMAIL:
+				setEMail(EMAIL_EDEFAULT);
+				return;
+			case TrackerPackage.USER__COMMENT:
+				setComment(COMMENT_EDEFAULT);
+				return;
+			case TrackerPackage.USER__URL:
+				setUrl(URL_EDEFAULT);
+				return;
+			case TrackerPackage.USER__AVATAR:
+				setAvatar(AVATAR_EDEFAULT);
+				return;
+			case TrackerPackage.USER__TIMEZONE:
+				setTimezone(TIMEZONE_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
+			case TrackerPackage.USER__PASSWORD_HASH:
+				return PASSWORD_HASH_EDEFAULT == null ? getPasswordHash() != null : !PASSWORD_HASH_EDEFAULT.equals(getPasswordHash());
+			case TrackerPackage.USER__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case TrackerPackage.USER__EMAIL:
+				return EMAIL_EDEFAULT == null ? getEMail() != null : !EMAIL_EDEFAULT.equals(getEMail());
+			case TrackerPackage.USER__COMMENT:
+				return COMMENT_EDEFAULT == null ? getComment() != null : !COMMENT_EDEFAULT.equals(getComment());
+			case TrackerPackage.USER__URL:
+				return URL_EDEFAULT == null ? getUrl() != null : !URL_EDEFAULT.equals(getUrl());
+			case TrackerPackage.USER__AVATAR:
+				return AVATAR_EDEFAULT == null ? getAvatar() != null : !AVATAR_EDEFAULT.equals(getAvatar());
+			case TrackerPackage.USER__TIMEZONE:
+				return TIMEZONE_EDEFAULT == null ? getTimezone() != null : !TIMEZONE_EDEFAULT.equals(getTimezone());
+		}
+		return super.eIsSet(featureID);
 	}
 
 } //UserImpl

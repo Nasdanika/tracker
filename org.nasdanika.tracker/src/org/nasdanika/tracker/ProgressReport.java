@@ -10,7 +10,14 @@ import java.util.Date;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Progress reports are submitted by developers working on issues and are aggregated for issues/versions/projects. Used in building burndown charts.
+ * Progress reports are submitted by developers working on issues and are aggregated for issues/versions/projects. 
+ * Progress reports are used in reporting. E.g. building a burndown chart for an increment or earned value/remaining effort calculation for a version and/or increment.
+ * 
+ * For progress reports it is recommended to have comments in the format:
+ * 
+ * * Progress - what was done.
+ * * Plans - what is planned for the next reporting period (day/week)
+ * * Problems - impediments and risks which may need to be addressed.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -88,13 +95,16 @@ public interface ProgressReport extends Note {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Time spent in hours.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Time Spent</em>' attribute.
-	 * @see #setTimeSpent(String)
+	 * @see #setTimeSpent(Double)
 	 * @see org.nasdanika.tracker.TrackerPackage#getProgressReport_TimeSpent()
 	 * @model
 	 * @generated
 	 */
-	String getTimeSpent();
+	Double getTimeSpent();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.tracker.ProgressReport#getTimeSpent <em>Time Spent</em>}' attribute.
@@ -104,7 +114,7 @@ public interface ProgressReport extends Note {
 	 * @see #getTimeSpent()
 	 * @generated
 	 */
-	void setTimeSpent(String value);
+	void setTimeSpent(Double value);
 
 	/**
 	 * Returns the value of the '<em><b>Remaining Effort</b></em>' attribute.
@@ -114,12 +124,12 @@ public interface ProgressReport extends Note {
 	 * Remaining effort estimation.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Remaining Effort</em>' attribute.
-	 * @see #setRemainingEffort(String)
+	 * @see #setRemainingEffort(Double)
 	 * @see org.nasdanika.tracker.TrackerPackage#getProgressReport_RemainingEffort()
 	 * @model
 	 * @generated
 	 */
-	String getRemainingEffort();
+	Double getRemainingEffort();
 
 	/**
 	 * Sets the value of the '{@link org.nasdanika.tracker.ProgressReport#getRemainingEffort <em>Remaining Effort</em>}' attribute.
@@ -129,6 +139,6 @@ public interface ProgressReport extends Note {
 	 * @see #getRemainingEffort()
 	 * @generated
 	 */
-	void setRemainingEffort(String value);
+	void setRemainingEffort(Double value);
 
 } // ProgressReport

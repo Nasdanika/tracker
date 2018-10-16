@@ -21,7 +21,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link org.nasdanika.tracker.OrganizationMember#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.tracker.OrganizationMember#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.tracker.OrganizationMember#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.OrganizationMember#getAvailability <em>Availability</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.OrganizationMember#getDescription <em>Description</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember()
@@ -33,7 +34,7 @@ public interface OrganizationMember extends CDOObject {
 	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.tracker.Developer}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.tracker.Developer#getDeveloper <em>Developer</em>}'.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.tracker.Developer#getOrganizationMember <em>Organization Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -41,8 +42,8 @@ public interface OrganizationMember extends CDOObject {
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Roles</em>' reference list.
 	 * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember_Roles()
-	 * @see org.nasdanika.tracker.Developer#getDeveloper
-	 * @model opposite="developer"
+	 * @see org.nasdanika.tracker.Developer#getOrganizationMember
+	 * @model opposite="organizationMember"
 	 * @generated
 	 */
 	EList<Developer> getRoles();
@@ -52,7 +53,7 @@ public interface OrganizationMember extends CDOObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Developer name, e.g. Daniel Vedamuthu.
+	 * Developer name.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
@@ -73,28 +74,44 @@ public interface OrganizationMember extends CDOObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Url</b></em>' attribute.
+	 * Returns the value of the '<em><b>Availability</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.Availability}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Availability</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Availability</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember_Availability()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Availability> getAvailability();
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * URL to contact the developer - e-mail address or home page in Citi collaborate.
+	 * Description in markdown.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Url</em>' attribute.
-	 * @see #setUrl(String)
-	 * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember_Url()
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember_Description()
 	 * @model
 	 * @generated
 	 */
-	String getUrl();
+	String getDescription();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.tracker.OrganizationMember#getUrl <em>Url</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.tracker.OrganizationMember#getDescription <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Url</em>' attribute.
-	 * @see #getUrl()
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
 	 * @generated
 	 */
-	void setUrl(String value);
+	void setDescription(String value);
 
 } // OrganizationMember

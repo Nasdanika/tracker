@@ -26,6 +26,12 @@
 			</repository>		
 		
 			<repository>
+				<id>nasdanika-presentation</id>
+				<url>https://www.nasdanika.org/products/presentation/repository</url>
+				<layout>p2</layout>
+			</repository>		
+		
+			<repository>
 				<id>eclipse</id>
 				<url>http://download.eclipse.org/releases/photon</url>
 				<layout>p2</layout>

@@ -97,6 +97,8 @@ To support this:
 * Issue notes shall be considered as Promise progress notifications and Completable Future/promise resolution. Therefore they shall have a type and also support ``configuration`` attribute to pass computer-readable information.
 * If there is no worker which accepts the issue or a worker cannot process the issue then it gets assigned to the developer associated with the category.
 
+Consider leveraging scheduler for automated execution, or services shall take care of scheduling themselves.
+
 ## Completion notifications
 
 As an issue is a completable future or Promise, issues shall support completion notification processing - when all child issues of a particular issue get resolved/closed the issue shall either notify the assigned developer or proceed to automated execution.    
@@ -124,6 +126,25 @@ When a large increment gets broken down - move versions to sub-increments. Maybe
 #### Capacity
 
 Create availability entries for organization members. Issue - version - increment association subtract remaining effort from availability.
+
+#### Prioritization
+
+Issue "importance" - cumulative priority - sum of priorities of the issue and dependent issues.
+
+The same for version - versions are dependent if at least one issue in one version is dependent on the other. Cumulative priority.
+
+Cumulative effort is the opposite - remaining effort for this issue and its pre-requisites. The same for versions.
+
+Version dependency graph.
+
+Ready to work issues and versions. 
+
+Ordering:
+
+- Remaining effort
+- Cumulative priority
+
+Get out smallest first or get out most important first or some combination - proportion of priority vs remaining effort.
 
 ### Reporting
 
@@ -170,4 +191,14 @@ The editor embodiment may generate these files from the model to be published an
 * Elaborate issue, including effort estimate.
 * Token expansion in artifact/version URL's - similar to how it is done in pom.xml
 * Issue lifecycle and reference data such as severity/priority - in the model so can be configured differently for different orgs/artifacts. Lifecycle transitions relationship. Reference data is inherited. If reference data has at least one entry in replaces the parent reference - no addition - would be too complicated. Edit should scope selection choices.
-* API token GUUID generation for added security
+* API token GUUID generation for added security.
+* Group lead/members - organization members aligned with the group?
+* Edit icons.
+* Model elements visibility - isPrivate - artifact, group, issue, note.
+* Developer notes/scorecards?
+* Validations:
+    * Circular dependency of issues.
+    * Issue in a version planned for an increment depends on an issue in the backlog (no version assigned) or on a version planned for a later increment or not planned for an increment. In addition to validation - limit selection. 
+* Resource leveling, ... - versions critical path.
+* Issue severity?
+* Attachments?    

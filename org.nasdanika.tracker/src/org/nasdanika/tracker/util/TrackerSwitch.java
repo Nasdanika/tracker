@@ -109,6 +109,12 @@ public class TrackerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TrackerPackage.GROUP: {
+				Group group = (Group)theEObject;
+				T result = caseGroup(group);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case TrackerPackage.VERSION: {
 				Version version = (Version)theEObject;
 				T result = caseVersion(version);
@@ -124,6 +130,36 @@ public class TrackerSwitch<T> extends Switch<T> {
 			case TrackerPackage.ISSUE: {
 				Issue issue = (Issue)theEObject;
 				T result = caseIssue(issue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.ISSUE_RELATIONSHIP_TYPE: {
+				IssueRelationshipType issueRelationshipType = (IssueRelationshipType)theEObject;
+				T result = caseIssueRelationshipType(issueRelationshipType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.ISSUE_RELATIONSHIP: {
+				IssueRelationship issueRelationship = (IssueRelationship)theEObject;
+				T result = caseIssueRelationship(issueRelationship);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.ISSUE_STATUS: {
+				IssueStatus issueStatus = (IssueStatus)theEObject;
+				T result = caseIssueStatus(issueStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.ISSUE_RESOLUTION: {
+				IssueResolution issueResolution = (IssueResolution)theEObject;
+				T result = caseIssueResolution(issueResolution);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.ISSUE_PRIORITY: {
+				IssuePriority issuePriority = (IssuePriority)theEObject;
+				T result = caseIssuePriority(issuePriority);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -145,12 +181,6 @@ public class TrackerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case TrackerPackage.ISSUE_RELATIONSHIP: {
-				IssueRelationship issueRelationship = (IssueRelationship)theEObject;
-				T result = caseIssueRelationship(issueRelationship);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case TrackerPackage.NOTE: {
 				Note note = (Note)theEObject;
 				T result = caseNote(note);
@@ -161,6 +191,12 @@ public class TrackerSwitch<T> extends Switch<T> {
 				ProgressReport progressReport = (ProgressReport)theEObject;
 				T result = caseProgressReport(progressReport);
 				if (result == null) result = caseNote(progressReport);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.AVAILABILITY: {
+				Availability availability = (Availability)theEObject;
+				T result = caseAvailability(availability);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -244,6 +280,21 @@ public class TrackerSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGroup(Group object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Version</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -285,6 +336,21 @@ public class TrackerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseIssue(Issue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Issue Relationship Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Issue Relationship Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIssueRelationshipType(IssueRelationshipType object) {
 		return null;
 	}
 
@@ -349,6 +415,51 @@ public class TrackerSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Issue Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Issue Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIssueStatus(IssueStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Issue Resolution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Issue Resolution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIssueResolution(IssueResolution object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Issue Priority</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Issue Priority</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIssuePriority(IssuePriority object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Note</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -375,6 +486,21 @@ public class TrackerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProgressReport(ProgressReport object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Availability</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Availability</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAvailability(Availability object) {
 		return null;
 	}
 

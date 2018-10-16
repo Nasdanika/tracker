@@ -21,6 +21,7 @@ import org.eclipse.emf.cdo.CDOObject;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.Version#getNumber <em>Number</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Version#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Version#getDate <em>Date</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Version#getIncrement <em>Increment</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Version#isReleased <em>Released</em>}</li>
@@ -58,11 +59,36 @@ public interface Version extends CDOObject {
 	void setNumber(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Description in markdown.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see org.nasdanika.tracker.TrackerPackage#getVersion_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.tracker.Version#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Date when a version was released, i.e. published to a binary repository.
+	 * Date when a version is planned to be released or was released.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Date</em>' attribute.
 	 * @see #setDate(Date)
@@ -88,7 +114,9 @@ public interface Version extends CDOObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Sprint in which a version was released. This relationship is needed because tracebility through issues and work items can be ambiguous - e.g. a work item may belong to some sprint before the release sprint. Also it is possible that a release may be put on hold for some reasons.
+	 * Increment in which a version was released or is planned to be released. 
+	 * This relationship is used for capacity planning.
+	 * 
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Increment</em>' reference.
 	 * @see #setIncrement(Increment)

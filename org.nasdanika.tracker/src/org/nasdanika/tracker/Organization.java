@@ -18,7 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.Organization#getMembers <em>Members</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Organization#getOrgInfoArtifactID <em>Org Info Artifact ID</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Organization#getGroups <em>Groups</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Organization#getIncrements <em>Increments</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getOrganization()
@@ -32,7 +33,7 @@ public interface Organization extends Artifact {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Development team contains developers. 
+	 * Organization members participating in development of organization's artifacts in different roles.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Members</em>' containment reference list.
 	 * @see org.nasdanika.tracker.TrackerPackage#getOrganization_Members()
@@ -42,28 +43,33 @@ public interface Organization extends Artifact {
 	EList<OrganizationMember> getMembers();
 
 	/**
-	 * Returns the value of the '<em><b>Org Info Artifact ID</b></em>' attribute.
+	 * Returns the value of the '<em><b>Groups</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.Group}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Maven group ID, e.g. ``com.citi.169073.ccp.rel``. Departments with blank groupID inherit it from parent/container.
+	 * Artifacts can be organized into groups.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Org Info Artifact ID</em>' attribute.
-	 * @see #setOrgInfoArtifactID(String)
-	 * @see org.nasdanika.tracker.TrackerPackage#getOrganization_OrgInfoArtifactID()
-	 * @model
+	 * @return the value of the '<em>Groups</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getOrganization_Groups()
+	 * @model containment="true"
 	 * @generated
 	 */
-	String getOrgInfoArtifactID();
+	EList<Group> getGroups();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.tracker.Organization#getOrgInfoArtifactID <em>Org Info Artifact ID</em>}' attribute.
+	 * Returns the value of the '<em><b>Increments</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.Increment}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Org Info Artifact ID</em>' attribute.
-	 * @see #getOrgInfoArtifactID()
+	 * <!-- begin-model-doc -->
+	 * Organization's work is organized into increments.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Increments</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getOrganization_Increments()
+	 * @model containment="true"
 	 * @generated
 	 */
-	void setOrgInfoArtifactID(String value);
+	EList<Increment> getIncrements();
 
 } // Organization

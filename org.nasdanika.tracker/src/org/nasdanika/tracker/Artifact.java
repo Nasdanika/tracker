@@ -13,6 +13,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <!-- begin-model-doc -->
  * Maven artifact, a.k.a. Component. Artifacts can be of different types such as services, libraries, tools (Eclipse plug-ins), documentation, organization info sites. 
+ * There are two special cases of artifacts:
+ * 
+ * - Organizations - artifacts with users as members who work as developers on organization's artifacts. For an organization a deliverable is an organization's site which provides information about the organization, its developers and its artifacts.
+ * - Projects - artifacts without binary deliverables. Projects typically would have a site containing project documentation. There is no special "Project" class in the model.
  * 
  * <!-- end-model-doc -->
  *
@@ -21,16 +25,21 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.Artifact#getId <em>Id</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Artifact#getGroup <em>Group</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Artifact#getGroupID <em>Group ID</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Artifact#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getDevelopers <em>Developers</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getModules <em>Modules</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getIssues <em>Issues</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getVersions <em>Versions</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Artifact#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getCategories <em>Categories</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Artifact#getIncrements <em>Increments</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getRoles <em>Roles</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Artifact#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Artifact#isPrivate <em>Private</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Artifact#getIssueRelationshipTypes <em>Issue Relationship Types</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Artifact#getIssueStatuses <em>Issue Statuses</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Artifact#getIssueResolutions <em>Issue Resolutions</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Artifact#getIssuePriorities <em>Issue Priorities</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getArtifact()
@@ -63,6 +72,57 @@ public interface Artifact extends CDOObject {
 	 * @generated
 	 */
 	void setId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Group</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Group</em>' reference.
+	 * @see #setGroup(Group)
+	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Group()
+	 * @model
+	 * @generated
+	 */
+	Group getGroup();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#getGroup <em>Group</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Group</em>' reference.
+	 * @see #getGroup()
+	 * @generated
+	 */
+	void setGroup(Group value);
+
+	/**
+	 * Returns the value of the '<em><b>Group ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Maven group ID, e.g. ``org.nasdanika.tracker``. If there is no dot in the group ID it is appended to the container's or group's group ID. If it is blank, it is inherited from group/container group ID.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Group ID</em>' attribute.
+	 * @see #setGroupID(String)
+	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_GroupID()
+	 * @model
+	 * @generated
+	 */
+	String getGroupID();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#getGroupID <em>Group ID</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Group ID</em>' attribute.
+	 * @see #getGroupID()
+	 * @generated
+	 */
+	void setGroupID(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -110,7 +170,7 @@ public interface Artifact extends CDOObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Projects can be nested. E.g. Developer Experience Journey project may contain Developer Education project which can in turn contain "CIS Eclipse Help" artifact.
+	 * Artifacts can be nested. A typical case is artirfacts owned by an organization, which is a special type of an artifact.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Modules</em>' reference list.
 	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Modules()
@@ -125,7 +185,7 @@ public interface Artifact extends CDOObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Projects have zero or more Issues associated with them - something which has to be taken care of in order to deliver the project/version.
+	 * Artifacts have zero or more Issues associated with them - something which has to be taken care of in order to deliver a new version.
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Issues</em>' containment reference list.
 	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Issues()
@@ -151,36 +211,6 @@ public interface Artifact extends CDOObject {
 	EList<Version> getVersions();
 
 	/**
-	 * Returns the value of the '<em><b>Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * URL of organization's home page - absolute or relative to the base URL. 
-	 * 
-	 * E.g. for the Cloud & Integration Services organization:
-	 * 
-	 * * Absolute - http://nexus.consumer.nam.nsroot.net/sites/com.citi.169073.ccp.rel/ccp-site/current/
-	 * * Relative - ccp-site/current/
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Url</em>' attribute.
-	 * @see #setUrl(String)
-	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Url()
-	 * @model
-	 * @generated
-	 */
-	String getUrl();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#getUrl <em>Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Url</em>' attribute.
-	 * @see #getUrl()
-	 * @generated
-	 */
-	void setUrl(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Categories</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -188,6 +218,9 @@ public interface Artifact extends CDOObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Issue categories.
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Categories</em>' reference.
 	 * @see #setCategories(Category)
 	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Categories()
@@ -207,22 +240,6 @@ public interface Artifact extends CDOObject {
 	void setCategories(Category value);
 
 	/**
-	 * Returns the value of the '<em><b>Increments</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.tracker.Increment}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Increments</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Increments</em>' containment reference list.
-	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Increments()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Increment> getIncrements();
-
-	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.tracker.Role}.
 	 * <!-- begin-user-doc -->
@@ -237,6 +254,95 @@ public interface Artifact extends CDOObject {
 	 * @generated
 	 */
 	EList<Role> getRoles();
+
+	/**
+	 * Returns the value of the '<em><b>Private</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Private model elements are visible only by the members of containing organization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Private</em>' attribute.
+	 * @see #setPrivate(boolean)
+	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Private()
+	 * @model
+	 * @generated
+	 */
+	boolean isPrivate();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#isPrivate <em>Private</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Private</em>' attribute.
+	 * @see #isPrivate()
+	 * @generated
+	 */
+	void setPrivate(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Issue Relationship Types</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.IssueRelationshipType}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Issue Relationship Types</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Issue Relationship Types</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_IssueRelationshipTypes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<IssueRelationshipType> getIssueRelationshipTypes();
+
+	/**
+	 * Returns the value of the '<em><b>Issue Statuses</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.IssueStatus}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Issue Statuses</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Issue Statuses</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_IssueStatuses()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<IssueStatus> getIssueStatuses();
+
+	/**
+	 * Returns the value of the '<em><b>Issue Resolutions</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.IssueResolution}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Issue Resolutions</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Issue Resolutions</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_IssueResolutions()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<IssueResolution> getIssueResolutions();
+
+	/**
+	 * Returns the value of the '<em><b>Issue Priorities</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.IssuePriority}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Issue Priorities</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Issue Priorities</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_IssuePriorities()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<IssuePriority> getIssuePriorities();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

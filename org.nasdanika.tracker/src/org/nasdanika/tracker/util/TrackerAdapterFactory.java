@@ -94,6 +94,10 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 				return createOrganizationAdapter();
 			}
 			@Override
+			public Adapter caseGroup(Group object) {
+				return createGroupAdapter();
+			}
+			@Override
 			public Adapter caseVersion(Version object) {
 				return createVersionAdapter();
 			}
@@ -104,6 +108,26 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseIssue(Issue object) {
 				return createIssueAdapter();
+			}
+			@Override
+			public Adapter caseIssueRelationshipType(IssueRelationshipType object) {
+				return createIssueRelationshipTypeAdapter();
+			}
+			@Override
+			public Adapter caseIssueRelationship(IssueRelationship object) {
+				return createIssueRelationshipAdapter();
+			}
+			@Override
+			public Adapter caseIssueStatus(IssueStatus object) {
+				return createIssueStatusAdapter();
+			}
+			@Override
+			public Adapter caseIssueResolution(IssueResolution object) {
+				return createIssueResolutionAdapter();
+			}
+			@Override
+			public Adapter caseIssuePriority(IssuePriority object) {
+				return createIssuePriorityAdapter();
 			}
 			@Override
 			public Adapter caseIncrement(Increment object) {
@@ -118,16 +142,16 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 				return createDeveloperAdapter();
 			}
 			@Override
-			public Adapter caseIssueRelationship(IssueRelationship object) {
-				return createIssueRelationshipAdapter();
-			}
-			@Override
 			public Adapter caseNote(Note object) {
 				return createNoteAdapter();
 			}
 			@Override
 			public Adapter caseProgressReport(ProgressReport object) {
 				return createProgressReportAdapter();
+			}
+			@Override
+			public Adapter caseAvailability(Availability object) {
+				return createAvailabilityAdapter();
 			}
 			@Override
 			public <CR> Adapter caseRealm(Realm<CR> object) {
@@ -244,6 +268,20 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Group <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.Group
+	 * @generated
+	 */
+	public Adapter createGroupAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Version <em>Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -282,6 +320,20 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIssueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.IssueRelationshipType <em>Issue Relationship Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.IssueRelationshipType
+	 * @generated
+	 */
+	public Adapter createIssueRelationshipTypeAdapter() {
 		return null;
 	}
 
@@ -342,6 +394,48 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.IssueStatus <em>Issue Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.IssueStatus
+	 * @generated
+	 */
+	public Adapter createIssueStatusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.IssueResolution <em>Issue Resolution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.IssueResolution
+	 * @generated
+	 */
+	public Adapter createIssueResolutionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.IssuePriority <em>Issue Priority</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.IssuePriority
+	 * @generated
+	 */
+	public Adapter createIssuePriorityAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Note <em>Note</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -366,6 +460,20 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProgressReportAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Availability <em>Availability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.Availability
+	 * @generated
+	 */
+	public Adapter createAvailabilityAdapter() {
 		return null;
 	}
 

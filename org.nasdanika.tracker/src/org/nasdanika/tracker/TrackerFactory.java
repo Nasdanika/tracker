@@ -67,6 +67,15 @@ public interface TrackerFactory extends EFactory {
 	Organization createOrganization();
 
 	/**
+	 * Returns a new object of class '<em>Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group</em>'.
+	 * @generated
+	 */
+	Group createGroup();
+
+	/**
 	 * Returns a new object of class '<em>Version</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +101,15 @@ public interface TrackerFactory extends EFactory {
 	 * @generated
 	 */
 	Issue createIssue();
+
+	/**
+	 * Returns a new object of class '<em>Issue Relationship Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Issue Relationship Type</em>'.
+	 * @generated
+	 */
+	IssueRelationshipType createIssueRelationshipType();
 
 	/**
 	 * Returns a new object of class '<em>Increment</em>'.
@@ -130,6 +148,33 @@ public interface TrackerFactory extends EFactory {
 	IssueRelationship createIssueRelationship();
 
 	/**
+	 * Returns a new object of class '<em>Issue Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Issue Status</em>'.
+	 * @generated
+	 */
+	IssueStatus createIssueStatus();
+
+	/**
+	 * Returns a new object of class '<em>Issue Resolution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Issue Resolution</em>'.
+	 * @generated
+	 */
+	IssueResolution createIssueResolution();
+
+	/**
+	 * Returns a new object of class '<em>Issue Priority</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Issue Priority</em>'.
+	 * @generated
+	 */
+	IssuePriority createIssuePriority();
+
+	/**
 	 * Returns a new object of class '<em>Note</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +191,15 @@ public interface TrackerFactory extends EFactory {
 	 * @generated
 	 */
 	ProgressReport createProgressReport();
+
+	/**
+	 * Returns a new object of class '<em>Availability</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Availability</em>'.
+	 * @generated
+	 */
+	Availability createAvailability();
 
 	/**
 	 * Returns the package supported by this factory.
