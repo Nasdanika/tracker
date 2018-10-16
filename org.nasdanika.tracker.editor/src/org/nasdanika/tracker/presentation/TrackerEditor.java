@@ -160,6 +160,8 @@ import org.nasdanika.tracker.provider.TrackerItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 import org.nasdanika.cdo.security.provider.SecurityItemProviderAdapterFactory;
+import org.nasdanika.presentation.MasterDetailForm;
+import org.nasdanika.presentation.MasterDetailViewer;
 
 
 /**
@@ -1009,7 +1011,7 @@ public class TrackerEditor
 	 * This is the method used by the framework to install your own controls.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void createPages() {
@@ -1027,9 +1029,8 @@ public class TrackerEditor
 					new ViewerPane(getSite().getPage(), TrackerEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
-							Tree tree = new Tree(composite, SWT.MULTI);
-							TreeViewer newTreeViewer = new TreeViewer(tree);
-							return newTreeViewer;
+							MasterDetailForm masterDetailForm = new MasterDetailForm(composite, SWT.NONE, editingDomain);
+							return new MasterDetailViewer(masterDetailForm);
 						}
 						@Override
 						public void requestActivation() {
@@ -1039,7 +1040,7 @@ public class TrackerEditor
 					};
 				viewerPane.createControl(getContainer());
 
-				selectionViewer = (TreeViewer)viewerPane.getViewer();
+				selectionViewer = ((MasterDetailViewer) viewerPane.getViewer()).getTreeViewer();
 				selectionViewer.setContentProvider(new AdapterFactoryContentProvider(adapterFactory));
 				selectionViewer.setUseHashlookup(true);
 
