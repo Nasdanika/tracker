@@ -12,7 +12,7 @@
  
    <menu name="Main">
       <item name="Overview" href="index.html" />
-      <item name="Model Documentation" href="modeldoc/index.html" />
+      <item name="Model Documentation" href="https://www.nasdanika.org/products/tracker/modeldoc/index.html#router/doc-content/75726e3a6f72672e6e617364616e696b612e747261636b6572/package-summary.html" />
       <item name="User Guide" href="user-guide.html" />
       <!-- <item name="User Stories" href="storydoc/index.html" /> -->
       <item name="Project information" href="project-info.html" />      
@@ -20,8 +20,8 @@
 
    <menu name="Java API">
       <item name="Model" href="apidocs/model/index.html" />
-      <item name="Model" href="apidocs/edit/index.html" />
-      <item name="Model" href="apidocs/editor/index.html" />
+      <item name="Edit" href="apidocs/edit/index.html" />
+      <item name="Editor" href="apidocs/editor/index.html" />
       <!-- <item name="Web" href="apidocs/web/index.html" /> -->
    </menu>
    
