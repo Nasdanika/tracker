@@ -148,7 +148,7 @@ Ordering:
 
 Get out smallest first or get out most important first or some combination - proportion of priority vs remaining effort.
 
-### Reporting
+### Increment Execution and Reporting
 
 Roadmap.
 
@@ -157,6 +157,11 @@ Burndown charts, remaining effort, spent effort at different levels - organizati
 Developer allocation at different levels.
 
 Issue relationships.
+
+Support of tracking ad-hoc activities draining team capacity - not issues, but may be related to other model elements - introduce "Actionable" abstract class to track relationships? Action/activity has start/end date, org members involved. Another option is to have organization issues linked to the current increment version in "Ad-hoc" category. Issues may be private. The latter option is better from the Occam's razor perspective. 
+
+Status call reports - accordion with team members or a table with a button to open a details dialog. The dialog shall show assigned open issues and allow to create a new issue (ad-hoc activities). Remaining effort shall be computed 
+assuming "ideal" burndown. Call host confirms the remaining effort and changes if necessary. Ability to bring up issue details including past reports. Status report EClass - date, attendees (checkboxes), notes, linked progress reports.
 
 #### Artifact site reports
 
@@ -212,3 +217,5 @@ The editor embodiment may generate these files from the model to be published an
 * Ownership assignment assistant - even load, member leave fault tolerance.
 * Ownership change "recipe"/actions - creates KT private issues so they don't show up in the published changelog.
 * Action contribution
+* Overview page - a more detailed of "real-life agile" and an explanation what the tracker does - planning, skill requirements, distributed team, ...
+* Scrum meeting/call view - a table to enter spent effort since last report and remaining effort. Like a composite transaction - results in multiple progress report entries. Progress report start date shall default to the previous progress report end date or on the increment start date.
