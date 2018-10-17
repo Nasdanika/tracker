@@ -9,13 +9,13 @@
    <extension point="org.eclipse.ui.newWizards">
       <!-- @generated tracker -->
       <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            id="org.nasdanika"
             name="%_UI_Wizard_category"/>
       <wizard
             id="org.nasdanika.tracker.presentation.TrackerModelWizardID"
             name="%_UI_TrackerModelWizard_label"
             class="org.nasdanika.tracker.presentation.TrackerModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            category="org.nasdanika"
             icon="icons/full/obj16/TrackerModelFile.gif">
          <description>%_UI_TrackerModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>

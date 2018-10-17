@@ -11,7 +11,9 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import org.nasdanika.tracker.Organization;
@@ -46,8 +48,31 @@ public class OrganizationItemProvider extends ArtifactItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSitesUrlPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Sites Url feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSitesUrlPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Organization_sitesUrl_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Organization_sitesUrl_feature", "_UI_Organization_type"),
+				 TrackerPackage.Literals.ORGANIZATION__SITES_URL,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -65,6 +90,7 @@ public class OrganizationItemProvider extends ArtifactItemProvider {
 			childrenFeatures.add(TrackerPackage.Literals.ORGANIZATION__MEMBERS);
 			childrenFeatures.add(TrackerPackage.Literals.ORGANIZATION__GROUPS);
 			childrenFeatures.add(TrackerPackage.Literals.ORGANIZATION__INCREMENTS);
+			childrenFeatures.add(TrackerPackage.Literals.ORGANIZATION__TECHNOLOGIES);
 		}
 		return childrenFeatures;
 	}
@@ -120,9 +146,13 @@ public class OrganizationItemProvider extends ArtifactItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Organization.class)) {
+			case TrackerPackage.ORGANIZATION__SITES_URL:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case TrackerPackage.ORGANIZATION__MEMBERS:
 			case TrackerPackage.ORGANIZATION__GROUPS:
 			case TrackerPackage.ORGANIZATION__INCREMENTS:
+			case TrackerPackage.ORGANIZATION__TECHNOLOGIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,6 +184,11 @@ public class OrganizationItemProvider extends ArtifactItemProvider {
 			(createChildParameter
 				(TrackerPackage.Literals.ORGANIZATION__INCREMENTS,
 				 TrackerFactory.eINSTANCE.createIncrement()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TrackerPackage.Literals.ORGANIZATION__TECHNOLOGIES,
+				 TrackerFactory.eINSTANCE.createTechnology()));
 	}
 
 }

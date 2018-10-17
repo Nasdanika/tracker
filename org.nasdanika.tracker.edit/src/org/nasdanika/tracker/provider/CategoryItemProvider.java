@@ -62,8 +62,8 @@ public class CategoryItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addAssignedToPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addAssignedToPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

@@ -10,12 +10,9 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-
 import org.nasdanika.tracker.Artifact;
 import org.nasdanika.tracker.Category;
 import org.nasdanika.tracker.Developer;
-import org.nasdanika.tracker.Group;
 import org.nasdanika.tracker.Issue;
 import org.nasdanika.tracker.IssuePriority;
 import org.nasdanika.tracker.IssueRelationshipType;
@@ -34,10 +31,7 @@ import org.nasdanika.tracker.Version;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.impl.ArtifactImpl#getId <em>Id</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.ArtifactImpl#getGroup <em>Group</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.ArtifactImpl#getGroupID <em>Group ID</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.ArtifactImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.ArtifactImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.ArtifactImpl#getDevelopers <em>Developers</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.ArtifactImpl#getModules <em>Modules</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.ArtifactImpl#getIssues <em>Issues</em>}</li>
@@ -53,7 +47,7 @@ import org.nasdanika.tracker.Version;
  *
  * @generated
  */
-public class ArtifactImpl extends CDOObjectImpl implements Artifact {
+public class ArtifactImpl extends KnowledgeImpl implements Artifact {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,24 +66,6 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 	 * @ordered
 	 */
 	protected static final String GROUP_ID_EDEFAULT = null;
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
-	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDescription()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #isPrivate() <em>Private</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -124,16 +100,6 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getId() {
 		return (String)eDynamicGet(TrackerPackage.ARTIFACT__ID, TrackerPackage.Literals.ARTIFACT__ID, true, true);
 	}
@@ -152,33 +118,6 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Group getGroup() {
-		return (Group)eDynamicGet(TrackerPackage.ARTIFACT__GROUP, TrackerPackage.Literals.ARTIFACT__GROUP, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Group basicGetGroup() {
-		return (Group)eDynamicGet(TrackerPackage.ARTIFACT__GROUP, TrackerPackage.Literals.ARTIFACT__GROUP, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setGroup(Group newGroup) {
-		eDynamicSet(TrackerPackage.ARTIFACT__GROUP, TrackerPackage.Literals.ARTIFACT__GROUP, newGroup);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getGroupID() {
 		return (String)eDynamicGet(TrackerPackage.ARTIFACT__GROUP_ID, TrackerPackage.Literals.ARTIFACT__GROUP_ID, true, true);
 	}
@@ -190,24 +129,6 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 	 */
 	public void setGroupID(String newGroupID) {
 		eDynamicSet(TrackerPackage.ARTIFACT__GROUP_ID, TrackerPackage.Literals.ARTIFACT__GROUP_ID, newGroupID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getName() {
-		return (String)eDynamicGet(TrackerPackage.ARTIFACT__NAME, TrackerPackage.Literals.ARTIFACT__NAME, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setName(String newName) {
-		eDynamicSet(TrackerPackage.ARTIFACT__NAME, TrackerPackage.Literals.ARTIFACT__NAME, newName);
 	}
 
 	/**
@@ -264,8 +185,9 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Category basicGetCategories() {
-		return (Category)eDynamicGet(TrackerPackage.ARTIFACT__CATEGORIES, TrackerPackage.Literals.ARTIFACT__CATEGORIES, false, true);
+	public NotificationChain basicSetCategories(Category newCategories, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newCategories, TrackerPackage.ARTIFACT__CATEGORIES, msgs);
+		return msgs;
 	}
 
 	/**
@@ -355,10 +277,14 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 		switch (featureID) {
 			case TrackerPackage.ARTIFACT__DEVELOPERS:
 				return ((InternalEList<?>)getDevelopers()).basicRemove(otherEnd, msgs);
+			case TrackerPackage.ARTIFACT__MODULES:
+				return ((InternalEList<?>)getModules()).basicRemove(otherEnd, msgs);
 			case TrackerPackage.ARTIFACT__ISSUES:
 				return ((InternalEList<?>)getIssues()).basicRemove(otherEnd, msgs);
 			case TrackerPackage.ARTIFACT__VERSIONS:
 				return ((InternalEList<?>)getVersions()).basicRemove(otherEnd, msgs);
+			case TrackerPackage.ARTIFACT__CATEGORIES:
+				return basicSetCategories(null, msgs);
 			case TrackerPackage.ARTIFACT__ROLES:
 				return ((InternalEList<?>)getRoles()).basicRemove(otherEnd, msgs);
 			case TrackerPackage.ARTIFACT__ISSUE_RELATIONSHIP_TYPES:
@@ -383,15 +309,8 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 		switch (featureID) {
 			case TrackerPackage.ARTIFACT__ID:
 				return getId();
-			case TrackerPackage.ARTIFACT__GROUP:
-				if (resolve) return getGroup();
-				return basicGetGroup();
 			case TrackerPackage.ARTIFACT__GROUP_ID:
 				return getGroupID();
-			case TrackerPackage.ARTIFACT__NAME:
-				return getName();
-			case TrackerPackage.ARTIFACT__DESCRIPTION:
-				return getDescription();
 			case TrackerPackage.ARTIFACT__DEVELOPERS:
 				return getDevelopers();
 			case TrackerPackage.ARTIFACT__MODULES:
@@ -401,8 +320,7 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 			case TrackerPackage.ARTIFACT__VERSIONS:
 				return getVersions();
 			case TrackerPackage.ARTIFACT__CATEGORIES:
-				if (resolve) return getCategories();
-				return basicGetCategories();
+				return getCategories();
 			case TrackerPackage.ARTIFACT__ROLES:
 				return getRoles();
 			case TrackerPackage.ARTIFACT__PRIVATE:
@@ -431,17 +349,8 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 			case TrackerPackage.ARTIFACT__ID:
 				setId((String)newValue);
 				return;
-			case TrackerPackage.ARTIFACT__GROUP:
-				setGroup((Group)newValue);
-				return;
 			case TrackerPackage.ARTIFACT__GROUP_ID:
 				setGroupID((String)newValue);
-				return;
-			case TrackerPackage.ARTIFACT__NAME:
-				setName((String)newValue);
-				return;
-			case TrackerPackage.ARTIFACT__DESCRIPTION:
-				setDescription((String)newValue);
 				return;
 			case TrackerPackage.ARTIFACT__DEVELOPERS:
 				getDevelopers().clear();
@@ -500,17 +409,8 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 			case TrackerPackage.ARTIFACT__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case TrackerPackage.ARTIFACT__GROUP:
-				setGroup((Group)null);
-				return;
 			case TrackerPackage.ARTIFACT__GROUP_ID:
 				setGroupID(GROUP_ID_EDEFAULT);
-				return;
-			case TrackerPackage.ARTIFACT__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case TrackerPackage.ARTIFACT__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case TrackerPackage.ARTIFACT__DEVELOPERS:
 				getDevelopers().clear();
@@ -559,14 +459,8 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 		switch (featureID) {
 			case TrackerPackage.ARTIFACT__ID:
 				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
-			case TrackerPackage.ARTIFACT__GROUP:
-				return basicGetGroup() != null;
 			case TrackerPackage.ARTIFACT__GROUP_ID:
 				return GROUP_ID_EDEFAULT == null ? getGroupID() != null : !GROUP_ID_EDEFAULT.equals(getGroupID());
-			case TrackerPackage.ARTIFACT__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
-			case TrackerPackage.ARTIFACT__DESCRIPTION:
-				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case TrackerPackage.ARTIFACT__DEVELOPERS:
 				return !getDevelopers().isEmpty();
 			case TrackerPackage.ARTIFACT__MODULES:
@@ -576,7 +470,7 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 			case TrackerPackage.ARTIFACT__VERSIONS:
 				return !getVersions().isEmpty();
 			case TrackerPackage.ARTIFACT__CATEGORIES:
-				return basicGetCategories() != null;
+				return getCategories() != null;
 			case TrackerPackage.ARTIFACT__ROLES:
 				return !getRoles().isEmpty();
 			case TrackerPackage.ARTIFACT__PRIVATE:
@@ -591,24 +485,6 @@ public class ArtifactImpl extends CDOObjectImpl implements Artifact {
 				return !getIssuePriorities().isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDescription() {
-		return (String)eDynamicGet(TrackerPackage.ARTIFACT__DESCRIPTION, TrackerPackage.Literals.ARTIFACT__DESCRIPTION, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDescription(String newDescription) {
-		eDynamicSet(TrackerPackage.ARTIFACT__DESCRIPTION, TrackerPackage.Literals.ARTIFACT__DESCRIPTION, newDescription);
 	}
 
 } //ArtifactImpl

@@ -20,6 +20,7 @@ import org.nasdanika.tracker.IssueRelationship;
 import org.nasdanika.tracker.IssueResolution;
 import org.nasdanika.tracker.IssueStatus;
 import org.nasdanika.tracker.Note;
+import org.nasdanika.tracker.Requirement;
 import org.nasdanika.tracker.TrackerPackage;
 import org.nasdanika.tracker.User;
 import org.nasdanika.tracker.Version;
@@ -32,9 +33,9 @@ import org.nasdanika.tracker.Version;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getReporter <em>Reporter</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getCategory <em>Category</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getArtifactVersion <em>Artifact Version</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getTargetVersion <em>Target Version</em>}</li>
@@ -51,6 +52,7 @@ import org.nasdanika.tracker.Version;
  *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getSubmitted <em>Submitted</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getLastUpdate <em>Last Update</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getEstimatedEffort <em>Estimated Effort</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.IssueImpl#getRequirements <em>Requirements</em>}</li>
  * </ul>
  *
  * @generated
@@ -520,6 +522,16 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
+	public EList<Requirement> getRequirements() {
+		return (EList<Requirement>)eDynamicGet(TrackerPackage.ISSUE__REQUIREMENTS, TrackerPackage.Literals.ISSUE__REQUIREMENTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -545,6 +557,8 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case TrackerPackage.ISSUE__CHILDREN:
 				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+			case TrackerPackage.ISSUE__REQUIREMENTS:
+				return ((InternalEList<?>)getRequirements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -557,14 +571,14 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case TrackerPackage.ISSUE__SUMMARY:
+				return getSummary();
 			case TrackerPackage.ISSUE__REPORTER:
 				if (resolve) return getReporter();
 				return basicGetReporter();
 			case TrackerPackage.ISSUE__CATEGORY:
 				if (resolve) return getCategory();
 				return basicGetCategory();
-			case TrackerPackage.ISSUE__SUMMARY:
-				return getSummary();
 			case TrackerPackage.ISSUE__DESCRIPTION:
 				return getDescription();
 			case TrackerPackage.ISSUE__ARTIFACT_VERSION:
@@ -603,6 +617,8 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 				return getLastUpdate();
 			case TrackerPackage.ISSUE__ESTIMATED_EFFORT:
 				return getEstimatedEffort();
+			case TrackerPackage.ISSUE__REQUIREMENTS:
+				return getRequirements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -616,14 +632,14 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case TrackerPackage.ISSUE__SUMMARY:
+				setSummary((String)newValue);
+				return;
 			case TrackerPackage.ISSUE__REPORTER:
 				setReporter((User)newValue);
 				return;
 			case TrackerPackage.ISSUE__CATEGORY:
 				setCategory((Category)newValue);
-				return;
-			case TrackerPackage.ISSUE__SUMMARY:
-				setSummary((String)newValue);
 				return;
 			case TrackerPackage.ISSUE__DESCRIPTION:
 				setDescription((String)newValue);
@@ -678,6 +694,10 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 			case TrackerPackage.ISSUE__ESTIMATED_EFFORT:
 				setEstimatedEffort((Double)newValue);
 				return;
+			case TrackerPackage.ISSUE__REQUIREMENTS:
+				getRequirements().clear();
+				getRequirements().addAll((Collection<? extends Requirement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -690,14 +710,14 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case TrackerPackage.ISSUE__SUMMARY:
+				setSummary(SUMMARY_EDEFAULT);
+				return;
 			case TrackerPackage.ISSUE__REPORTER:
 				setReporter((User)null);
 				return;
 			case TrackerPackage.ISSUE__CATEGORY:
 				setCategory((Category)null);
-				return;
-			case TrackerPackage.ISSUE__SUMMARY:
-				setSummary(SUMMARY_EDEFAULT);
 				return;
 			case TrackerPackage.ISSUE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
@@ -747,6 +767,9 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 			case TrackerPackage.ISSUE__ESTIMATED_EFFORT:
 				setEstimatedEffort(ESTIMATED_EFFORT_EDEFAULT);
 				return;
+			case TrackerPackage.ISSUE__REQUIREMENTS:
+				getRequirements().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -759,12 +782,12 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case TrackerPackage.ISSUE__SUMMARY:
+				return SUMMARY_EDEFAULT == null ? getSummary() != null : !SUMMARY_EDEFAULT.equals(getSummary());
 			case TrackerPackage.ISSUE__REPORTER:
 				return basicGetReporter() != null;
 			case TrackerPackage.ISSUE__CATEGORY:
 				return basicGetCategory() != null;
-			case TrackerPackage.ISSUE__SUMMARY:
-				return SUMMARY_EDEFAULT == null ? getSummary() != null : !SUMMARY_EDEFAULT.equals(getSummary());
 			case TrackerPackage.ISSUE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case TrackerPackage.ISSUE__ARTIFACT_VERSION:
@@ -797,6 +820,8 @@ public class IssueImpl extends CDOObjectImpl implements Issue {
 				return LAST_UPDATE_EDEFAULT == null ? getLastUpdate() != null : !LAST_UPDATE_EDEFAULT.equals(getLastUpdate());
 			case TrackerPackage.ISSUE__ESTIMATED_EFFORT:
 				return ESTIMATED_EFFORT_EDEFAULT == null ? getEstimatedEffort() != null : !ESTIMATED_EFFORT_EDEFAULT.equals(getEstimatedEffort());
+			case TrackerPackage.ISSUE__REQUIREMENTS:
+				return !getRequirements().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -54,32 +54,31 @@ public class TrackerItemProvider extends LoginPasswordRealmItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addUsersPropertyDescriptor(object);
-			addAutoCreateUsersPropertyDescriptor(object);
-			addSitesUrlPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addAutoCreateUsersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Users feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addUsersPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Tracker_users_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tracker_users_feature", "_UI_Tracker_type"),
-				 TrackerPackage.Literals.TRACKER__USERS,
+				 getString("_UI_Tracker_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tracker_name_feature", "_UI_Tracker_type"),
+				 TrackerPackage.Literals.TRACKER__NAME,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -102,28 +101,6 @@ public class TrackerItemProvider extends LoginPasswordRealmItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Sites Url feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSitesUrlPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Tracker_sitesUrl_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tracker_sitesUrl_feature", "_UI_Tracker_type"),
-				 TrackerPackage.Literals.TRACKER__SITES_URL,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -162,6 +139,7 @@ public class TrackerItemProvider extends LoginPasswordRealmItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(TrackerPackage.Literals.TRACKER__USERS);
 			childrenFeatures.add(TrackerPackage.Literals.TRACKER__ORGANIZATIONS);
 		}
 		return childrenFeatures;
@@ -199,8 +177,10 @@ public class TrackerItemProvider extends LoginPasswordRealmItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Tracker tracker = (Tracker)object;
-		return getString("_UI_Tracker_type") + " " + tracker.isAutoCreateUsers();
+		String label = ((Tracker)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Tracker_type") :
+			getString("_UI_Tracker_type") + " " + label;
 	}
 
 
@@ -216,11 +196,12 @@ public class TrackerItemProvider extends LoginPasswordRealmItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Tracker.class)) {
-			case TrackerPackage.TRACKER__AUTO_CREATE_USERS:
-			case TrackerPackage.TRACKER__SITES_URL:
+			case TrackerPackage.TRACKER__NAME:
 			case TrackerPackage.TRACKER__DESCRIPTION:
+			case TrackerPackage.TRACKER__AUTO_CREATE_USERS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case TrackerPackage.TRACKER__USERS:
 			case TrackerPackage.TRACKER__ORGANIZATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -251,6 +232,11 @@ public class TrackerItemProvider extends LoginPasswordRealmItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(TrackerPackage.Literals.TRACKER__USERS,
+				 TrackerFactory.eINSTANCE.createUser()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(TrackerPackage.Literals.TRACKER__ORGANIZATIONS,
 				 TrackerFactory.eINSTANCE.createOrganization()));
 	}
@@ -268,7 +254,8 @@ public class TrackerItemProvider extends LoginPasswordRealmItemProvider {
 
 		boolean qualify =
 			childFeature == SecurityPackage.Literals.REALM__GUEST ||
-			childFeature == SecurityPackage.Literals.REALM__EVERYONE;
+			childFeature == SecurityPackage.Literals.REALM__EVERYONE ||
+			childFeature == TrackerPackage.Literals.TRACKER__USERS;
 
 		if (qualify) {
 			return getString

@@ -127,6 +127,8 @@ When a large increment gets broken down - move versions to sub-increments. Maybe
 
 Create availability entries for organization members. Issue - version - increment association subtract remaining effort from availability.
 
+Skills demand, remaining effort - assigned and not - backlog, increments.
+
 #### Prioritization
 
 Issue "importance" - cumulative priority - sum of priorities of the issue and dependent issues.
@@ -196,9 +198,17 @@ The editor embodiment may generate these files from the model to be published an
 * Edit icons.
 * Model elements visibility - isPrivate - artifact, group, issue, note.
 * Developer notes/scorecards?
+* Skills/technologies, experience, linkage from artifact/group/version to technologies.
+* Reference selectors from trees, not lists.  
 * Validations:
     * Circular dependency of issues.
     * Issue in a version planned for an increment depends on an issue in the backlog (no version assigned) or on a version planned for a later increment or not planned for an increment. In addition to validation - limit selection. 
 * Resource leveling, ... - versions critical path.
 * Issue severity?
-* Attachments?    
+* Attachments?
+* Validators extension point - extract from org.nasdanika.cdo into org.nasdanika.commons.emf in the util repository.
+* Web UI using edit providers for labels, icons, etc. - like in docgen.    
+* Virtual folders for containment references - users, organizations, ... at least in reports.
+* Ownership assignment assistant - even load, member leave fault tolerance.
+* Ownership change "recipe"/actions - creates KT private issues so they don't show up in the published changelog.
+* Action contribution

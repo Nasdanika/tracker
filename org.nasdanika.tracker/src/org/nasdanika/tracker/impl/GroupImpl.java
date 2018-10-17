@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
+import org.nasdanika.tracker.Artifact;
 import org.nasdanika.tracker.Group;
 import org.nasdanika.tracker.OrganizationMember;
 import org.nasdanika.tracker.TrackerPackage;
@@ -27,27 +28,18 @@ import org.nasdanika.tracker.TrackerPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#isPrivate <em>Private</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#getChildren <em>Children</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#getMembers <em>Members</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#isPrivate <em>Private</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.GroupImpl#getArtifacts <em>Artifacts</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class GroupImpl extends CDOObjectImpl implements Group {
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,14 +51,14 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDescription()
+	 * @see #getId()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String ID_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #isPrivate() <em>Private</em>}' attribute.
@@ -77,6 +69,16 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 	 * @ordered
 	 */
 	protected static final boolean PRIVATE_EDEFAULT = false;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -186,6 +188,16 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<Artifact> getArtifacts() {
+		return (EList<Artifact>)eDynamicGet(TrackerPackage.GROUP__ARTIFACTS, TrackerPackage.Literals.GROUP__ARTIFACTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean isPrivate() {
 		return (Boolean)eDynamicGet(TrackerPackage.GROUP__PRIVATE, TrackerPackage.Literals.GROUP__PRIVATE, true, true);
 	}
@@ -209,6 +221,8 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 		switch (featureID) {
 			case TrackerPackage.GROUP__CHILDREN:
 				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
+			case TrackerPackage.GROUP__ARTIFACTS:
+				return ((InternalEList<?>)getArtifacts()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -221,18 +235,20 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TrackerPackage.GROUP__ID:
-				return getId();
 			case TrackerPackage.GROUP__NAME:
 				return getName();
+			case TrackerPackage.GROUP__ID:
+				return getId();
+			case TrackerPackage.GROUP__PRIVATE:
+				return isPrivate();
 			case TrackerPackage.GROUP__DESCRIPTION:
 				return getDescription();
 			case TrackerPackage.GROUP__CHILDREN:
 				return getChildren();
 			case TrackerPackage.GROUP__MEMBERS:
 				return getMembers();
-			case TrackerPackage.GROUP__PRIVATE:
-				return isPrivate();
+			case TrackerPackage.GROUP__ARTIFACTS:
+				return getArtifacts();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -246,11 +262,14 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case TrackerPackage.GROUP__NAME:
+				setName((String)newValue);
+				return;
 			case TrackerPackage.GROUP__ID:
 				setId((String)newValue);
 				return;
-			case TrackerPackage.GROUP__NAME:
-				setName((String)newValue);
+			case TrackerPackage.GROUP__PRIVATE:
+				setPrivate((Boolean)newValue);
 				return;
 			case TrackerPackage.GROUP__DESCRIPTION:
 				setDescription((String)newValue);
@@ -263,8 +282,9 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 				getMembers().clear();
 				getMembers().addAll((Collection<? extends OrganizationMember>)newValue);
 				return;
-			case TrackerPackage.GROUP__PRIVATE:
-				setPrivate((Boolean)newValue);
+			case TrackerPackage.GROUP__ARTIFACTS:
+				getArtifacts().clear();
+				getArtifacts().addAll((Collection<? extends Artifact>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -278,11 +298,14 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case TrackerPackage.GROUP__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case TrackerPackage.GROUP__ID:
 				setId(ID_EDEFAULT);
 				return;
-			case TrackerPackage.GROUP__NAME:
-				setName(NAME_EDEFAULT);
+			case TrackerPackage.GROUP__PRIVATE:
+				setPrivate(PRIVATE_EDEFAULT);
 				return;
 			case TrackerPackage.GROUP__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
@@ -293,8 +316,8 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 			case TrackerPackage.GROUP__MEMBERS:
 				getMembers().clear();
 				return;
-			case TrackerPackage.GROUP__PRIVATE:
-				setPrivate(PRIVATE_EDEFAULT);
+			case TrackerPackage.GROUP__ARTIFACTS:
+				getArtifacts().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -308,18 +331,20 @@ public class GroupImpl extends CDOObjectImpl implements Group {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TrackerPackage.GROUP__ID:
-				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case TrackerPackage.GROUP__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case TrackerPackage.GROUP__ID:
+				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
+			case TrackerPackage.GROUP__PRIVATE:
+				return isPrivate() != PRIVATE_EDEFAULT;
 			case TrackerPackage.GROUP__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case TrackerPackage.GROUP__CHILDREN:
 				return !getChildren().isEmpty();
 			case TrackerPackage.GROUP__MEMBERS:
 				return !getMembers().isEmpty();
-			case TrackerPackage.GROUP__PRIVATE:
-				return isPrivate() != PRIVATE_EDEFAULT;
+			case TrackerPackage.GROUP__ARTIFACTS:
+				return !getArtifacts().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

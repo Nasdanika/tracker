@@ -25,34 +25,25 @@ import org.nasdanika.tracker.User;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#getUsers <em>Users</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#isAutoCreateUsers <em>Auto Create Users</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#getOrganizations <em>Organizations</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#getSitesUrl <em>Sites Url</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#isAutoCreateUsers <em>Auto Create Users</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.TrackerImpl#getOrganizations <em>Organizations</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	/**
-	 * The default value of the '{@link #isAutoCreateUsers() <em>Auto Create Users</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isAutoCreateUsers()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean AUTO_CREATE_USERS_EDEFAULT = false;
-	/**
-	 * The default value of the '{@link #getSitesUrl() <em>Sites Url</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSitesUrl()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String SITES_URL_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -62,7 +53,15 @@ public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	 * @ordered
 	 */
 	protected static final String DESCRIPTION_EDEFAULT = null;
-
+	/**
+	 * The default value of the '{@link #isAutoCreateUsers() <em>Auto Create Users</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isAutoCreateUsers()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean AUTO_CREATE_USERS_EDEFAULT = false;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,6 +79,24 @@ public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	@Override
 	protected EClass eStaticClass() {
 		return TrackerPackage.Literals.TRACKER;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return (String)eDynamicGet(TrackerPackage.TRACKER__NAME, TrackerPackage.Literals.TRACKER__NAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		eDynamicSet(TrackerPackage.TRACKER__NAME, TrackerPackage.Literals.TRACKER__NAME, newName);
 	}
 
 	/**
@@ -125,24 +142,6 @@ public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getSitesUrl() {
-		return (String)eDynamicGet(TrackerPackage.TRACKER__SITES_URL, TrackerPackage.Literals.TRACKER__SITES_URL, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSitesUrl(String newSitesUrl) {
-		eDynamicSet(TrackerPackage.TRACKER__SITES_URL, TrackerPackage.Literals.TRACKER__SITES_URL, newSitesUrl);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getDescription() {
 		return (String)eDynamicGet(TrackerPackage.TRACKER__DESCRIPTION, TrackerPackage.Literals.TRACKER__DESCRIPTION, true, true);
 	}
@@ -164,6 +163,8 @@ public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case TrackerPackage.TRACKER__USERS:
+				return ((InternalEList<?>)getUsers()).basicRemove(otherEnd, msgs);
 			case TrackerPackage.TRACKER__ORGANIZATIONS:
 				return ((InternalEList<?>)getOrganizations()).basicRemove(otherEnd, msgs);
 		}
@@ -178,16 +179,16 @@ public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TrackerPackage.TRACKER__USERS:
-				return getUsers();
-			case TrackerPackage.TRACKER__AUTO_CREATE_USERS:
-				return isAutoCreateUsers();
-			case TrackerPackage.TRACKER__ORGANIZATIONS:
-				return getOrganizations();
-			case TrackerPackage.TRACKER__SITES_URL:
-				return getSitesUrl();
+			case TrackerPackage.TRACKER__NAME:
+				return getName();
 			case TrackerPackage.TRACKER__DESCRIPTION:
 				return getDescription();
+			case TrackerPackage.TRACKER__AUTO_CREATE_USERS:
+				return isAutoCreateUsers();
+			case TrackerPackage.TRACKER__USERS:
+				return getUsers();
+			case TrackerPackage.TRACKER__ORGANIZATIONS:
+				return getOrganizations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -201,22 +202,22 @@ public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TrackerPackage.TRACKER__USERS:
-				getUsers().clear();
-				getUsers().addAll((Collection<? extends User>)newValue);
+			case TrackerPackage.TRACKER__NAME:
+				setName((String)newValue);
+				return;
+			case TrackerPackage.TRACKER__DESCRIPTION:
+				setDescription((String)newValue);
 				return;
 			case TrackerPackage.TRACKER__AUTO_CREATE_USERS:
 				setAutoCreateUsers((Boolean)newValue);
 				return;
+			case TrackerPackage.TRACKER__USERS:
+				getUsers().clear();
+				getUsers().addAll((Collection<? extends User>)newValue);
+				return;
 			case TrackerPackage.TRACKER__ORGANIZATIONS:
 				getOrganizations().clear();
 				getOrganizations().addAll((Collection<? extends Organization>)newValue);
-				return;
-			case TrackerPackage.TRACKER__SITES_URL:
-				setSitesUrl((String)newValue);
-				return;
-			case TrackerPackage.TRACKER__DESCRIPTION:
-				setDescription((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -230,20 +231,20 @@ public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TrackerPackage.TRACKER__USERS:
-				getUsers().clear();
+			case TrackerPackage.TRACKER__NAME:
+				setName(NAME_EDEFAULT);
+				return;
+			case TrackerPackage.TRACKER__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 			case TrackerPackage.TRACKER__AUTO_CREATE_USERS:
 				setAutoCreateUsers(AUTO_CREATE_USERS_EDEFAULT);
 				return;
+			case TrackerPackage.TRACKER__USERS:
+				getUsers().clear();
+				return;
 			case TrackerPackage.TRACKER__ORGANIZATIONS:
 				getOrganizations().clear();
-				return;
-			case TrackerPackage.TRACKER__SITES_URL:
-				setSitesUrl(SITES_URL_EDEFAULT);
-				return;
-			case TrackerPackage.TRACKER__DESCRIPTION:
-				setDescription(DESCRIPTION_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -257,16 +258,16 @@ public class TrackerImpl extends LoginPasswordRealmImpl implements Tracker {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TrackerPackage.TRACKER__USERS:
-				return !getUsers().isEmpty();
-			case TrackerPackage.TRACKER__AUTO_CREATE_USERS:
-				return isAutoCreateUsers() != AUTO_CREATE_USERS_EDEFAULT;
-			case TrackerPackage.TRACKER__ORGANIZATIONS:
-				return !getOrganizations().isEmpty();
-			case TrackerPackage.TRACKER__SITES_URL:
-				return SITES_URL_EDEFAULT == null ? getSitesUrl() != null : !SITES_URL_EDEFAULT.equals(getSitesUrl());
+			case TrackerPackage.TRACKER__NAME:
+				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case TrackerPackage.TRACKER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case TrackerPackage.TRACKER__AUTO_CREATE_USERS:
+				return isAutoCreateUsers() != AUTO_CREATE_USERS_EDEFAULT;
+			case TrackerPackage.TRACKER__USERS:
+				return !getUsers().isEmpty();
+			case TrackerPackage.TRACKER__ORGANIZATIONS:
+				return !getOrganizations().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

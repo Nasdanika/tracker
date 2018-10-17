@@ -20,8 +20,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.Developer#getOrganizationMember <em>Organization Member</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Developer#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Developer#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Developer#getRoles <em>Roles</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getDeveloper()

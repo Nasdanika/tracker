@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.nasdanika.tracker.edit;singleton:=true
 Automatic-Module-Name: org.nasdanika.tracker.edit
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.nasdanika.tracker.provider.TrackerEditPlugin$Implementation
 Bundle-Vendor: %providerName

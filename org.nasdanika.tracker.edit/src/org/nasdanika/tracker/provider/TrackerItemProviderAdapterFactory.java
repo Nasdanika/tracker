@@ -509,6 +509,52 @@ public class TrackerItemProviderAdapterFactory extends TrackerAdapterFactory imp
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.tracker.Capability} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CapabilityItemProvider capabilityItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.tracker.Capability}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCapabilityAdapter() {
+		if (capabilityItemProvider == null) {
+			capabilityItemProvider = new CapabilityItemProvider(this);
+		}
+
+		return capabilityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.tracker.Requirement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RequirementItemProvider requirementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.tracker.Requirement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRequirementAdapter() {
+		if (requirementItemProvider == null) {
+			requirementItemProvider = new RequirementItemProvider(this);
+		}
+
+		return requirementItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link org.nasdanika.tracker.Availability} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -529,6 +575,75 @@ public class TrackerItemProviderAdapterFactory extends TrackerAdapterFactory imp
 		}
 
 		return availabilityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.tracker.Technology} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TechnologyItemProvider technologyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.tracker.Technology}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTechnologyAdapter() {
+		if (technologyItemProvider == null) {
+			technologyItemProvider = new TechnologyItemProvider(this);
+		}
+
+		return technologyItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.tracker.Release} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ReleaseItemProvider releaseItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.tracker.Release}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createReleaseAdapter() {
+		if (releaseItemProvider == null) {
+			releaseItemProvider = new ReleaseItemProvider(this);
+		}
+
+		return releaseItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link org.nasdanika.tracker.Skill} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SkillItemProvider skillItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link org.nasdanika.tracker.Skill}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSkillAdapter() {
+		if (skillItemProvider == null) {
+			skillItemProvider = new SkillItemProvider(this);
+		}
+
+		return skillItemProvider;
 	}
 
 	/**
@@ -649,7 +764,12 @@ public class TrackerItemProviderAdapterFactory extends TrackerAdapterFactory imp
 		if (developerItemProvider != null) developerItemProvider.dispose();
 		if (noteItemProvider != null) noteItemProvider.dispose();
 		if (progressReportItemProvider != null) progressReportItemProvider.dispose();
+		if (capabilityItemProvider != null) capabilityItemProvider.dispose();
+		if (requirementItemProvider != null) requirementItemProvider.dispose();
 		if (availabilityItemProvider != null) availabilityItemProvider.dispose();
+		if (technologyItemProvider != null) technologyItemProvider.dispose();
+		if (releaseItemProvider != null) releaseItemProvider.dispose();
+		if (skillItemProvider != null) skillItemProvider.dispose();
 	}
 
 }

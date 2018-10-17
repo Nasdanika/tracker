@@ -19,8 +19,8 @@ import org.nasdanika.tracker.TrackerPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.impl.CategoryImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.CategoryImpl#getAssignedTo <em>Assigned To</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.CategoryImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.CategoryImpl#getAssignedTo <em>Assigned To</em>}</li>
  * </ul>
  *
  * @generated
@@ -147,11 +147,11 @@ public class CategoryImpl extends CDOObjectImpl implements Category {
 		switch (featureID) {
 			case TrackerPackage.CATEGORY__NAME:
 				return getName();
+			case TrackerPackage.CATEGORY__DESCRIPTION:
+				return getDescription();
 			case TrackerPackage.CATEGORY__ASSIGNED_TO:
 				if (resolve) return getAssignedTo();
 				return basicGetAssignedTo();
-			case TrackerPackage.CATEGORY__DESCRIPTION:
-				return getDescription();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -167,11 +167,11 @@ public class CategoryImpl extends CDOObjectImpl implements Category {
 			case TrackerPackage.CATEGORY__NAME:
 				setName((String)newValue);
 				return;
-			case TrackerPackage.CATEGORY__ASSIGNED_TO:
-				setAssignedTo((Developer)newValue);
-				return;
 			case TrackerPackage.CATEGORY__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case TrackerPackage.CATEGORY__ASSIGNED_TO:
+				setAssignedTo((Developer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -188,11 +188,11 @@ public class CategoryImpl extends CDOObjectImpl implements Category {
 			case TrackerPackage.CATEGORY__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case TrackerPackage.CATEGORY__ASSIGNED_TO:
-				setAssignedTo((Developer)null);
-				return;
 			case TrackerPackage.CATEGORY__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case TrackerPackage.CATEGORY__ASSIGNED_TO:
+				setAssignedTo((Developer)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -208,10 +208,10 @@ public class CategoryImpl extends CDOObjectImpl implements Category {
 		switch (featureID) {
 			case TrackerPackage.CATEGORY__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
-			case TrackerPackage.CATEGORY__ASSIGNED_TO:
-				return basicGetAssignedTo() != null;
 			case TrackerPackage.CATEGORY__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case TrackerPackage.CATEGORY__ASSIGNED_TO:
+				return basicGetAssignedTo() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -2,6 +2,7 @@
  */
 package org.nasdanika.tracker;
 
+import org.eclipse.emf.common.util.EList;
 import org.nasdanika.cdo.security.LoginPasswordHashUser;
 
 /**
@@ -23,6 +24,7 @@ import org.nasdanika.cdo.security.LoginPasswordHashUser;
  *   <li>{@link org.nasdanika.tracker.User#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.tracker.User#getAvatar <em>Avatar</em>}</li>
  *   <li>{@link org.nasdanika.tracker.User#getTimezone <em>Timezone</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.User#getMembership <em>Membership</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getUser()
@@ -179,5 +181,23 @@ public interface User extends LoginPasswordHashUser {
 	 * @generated
 	 */
 	void setTimezone(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Membership</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.OrganizationMember}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.tracker.OrganizationMember#getUser <em>User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Membership</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Membership</em>' reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getUser_Membership()
+	 * @see org.nasdanika.tracker.OrganizationMember#getUser
+	 * @model opposite="user"
+	 * @generated
+	 */
+	EList<OrganizationMember> getMembership();
 
 } // User

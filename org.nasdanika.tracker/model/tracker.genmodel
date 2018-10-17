@@ -16,12 +16,17 @@
       <genEnumLiterals ecoreEnumLiteral="tracker.ecore#//IssueRelationshipBlockingDirection/SOURCE"/>
       <genEnumLiterals ecoreEnumLiteral="tracker.ecore#//IssueRelationshipBlockingDirection/TARGET"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="tracker.ecore#//SkillLevel">
+      <genEnumLiterals ecoreEnumLiteral="tracker.ecore#//SkillLevel/Novice"/>
+      <genEnumLiterals ecoreEnumLiteral="tracker.ecore#//SkillLevel/Intermediate"/>
+      <genEnumLiterals ecoreEnumLiteral="tracker.ecore#//SkillLevel/Expert"/>
+    </genEnums>
     <genClasses ecoreClass="tracker.ecore#//Tracker">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Tracker/users"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Tracker/autoCreateUsers"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Tracker/organizations"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Tracker/sitesUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Tracker/name"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Tracker/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Tracker/autoCreateUsers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Tracker/users"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Tracker/organizations"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//User">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//User/name"/>
@@ -30,24 +35,26 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//User/url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//User/avatar"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//User/timezone"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//User/membership"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Artifact">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Artifact/id"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/group"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Artifact/groupID"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Artifact/name"/>
-      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Artifact/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/developers"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/modules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/modules"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issues"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/versions"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/categories"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/categories"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/roles"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Artifact/private"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issueRelationshipTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issueStatuses"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issueResolutions"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issuePriorities"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="Issue Metadata"
+          ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issueRelationshipTypes"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="Issue Metadata"
+          ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issueStatuses"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="Issue Metadata"
+          ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issueResolutions"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory="Issue Metadata"
+          ecoreFeature="ecore:EReference tracker.ecore#//Artifact/issuePriorities"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Role">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Role/name"/>
@@ -58,14 +65,17 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Organization/members"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Organization/groups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Organization/increments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Organization/sitesUrl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Organization/technologies"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Group">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Group/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Group/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Group/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Group/private"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Group/description"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Group/children"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Group/members"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Group/private"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Group/artifacts"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Version">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Version/number"/>
@@ -76,13 +86,13 @@
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Category">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Category/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Category/assignedTo"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Category/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Category/assignedTo"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Issue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Issue/summary"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Issue/reporter"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Issue/category"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Issue/summary"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Issue/description"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Issue/artifactVersion"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Issue/targetVersion"/>
@@ -99,6 +109,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Issue/submitted"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Issue/lastUpdate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Issue/estimatedEffort"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Issue/requirements"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//IssueRelationshipType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//IssueRelationshipType/name"/>
@@ -132,15 +143,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Increment/children"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//OrganizationMember">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//OrganizationMember/roles"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//OrganizationMember/name"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//OrganizationMember/availability"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//OrganizationMember/user"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//OrganizationMember/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//OrganizationMember/roles"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//OrganizationMember/availability"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//OrganizationMember/skills"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Developer">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Developer/organizationMember"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Developer/roles"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Developer/organizationMember"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Developer/description"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Developer/roles"/>
     </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Note">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Note/developer"/>
@@ -154,10 +166,32 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//ProgressReport/timeSpent"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//ProgressReport/remainingEffort"/>
     </genClasses>
+    <genClasses ecoreClass="tracker.ecore#//Capability">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Capability/name"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Capability/description"/>
+    </genClasses>
+    <genClasses ecoreClass="tracker.ecore#//Requirement">
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Requirement/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Requirement/capability"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Requirement/optional"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="tracker.ecore#//Knowledge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Knowledge/experts"/>
+    </genClasses>
     <genClasses ecoreClass="tracker.ecore#//Availability">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Availability/increment"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Availability/availability"/>
       <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Availability/comment"/>
+    </genClasses>
+    <genClasses ecoreClass="tracker.ecore#//Technology">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Technology/releases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference tracker.ecore#//Technology/children"/>
+    </genClasses>
+    <genClasses ecoreClass="tracker.ecore#//Release"/>
+    <genClasses ecoreClass="tracker.ecore#//Skill">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute tracker.ecore#//Skill/level"/>
+      <genFeatures createChild="false" propertyMultiLine="true" ecoreFeature="ecore:EAttribute tracker.ecore#//Skill/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference tracker.ecore#//Skill/knowledge"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

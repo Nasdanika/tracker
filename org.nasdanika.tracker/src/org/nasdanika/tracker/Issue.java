@@ -21,9 +21,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.tracker.Issue#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Issue#getReporter <em>Reporter</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Issue#getCategory <em>Category</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Issue#getSummary <em>Summary</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Issue#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Issue#getArtifactVersion <em>Artifact Version</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Issue#getTargetVersion <em>Target Version</em>}</li>
@@ -40,6 +40,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.tracker.Issue#getSubmitted <em>Submitted</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Issue#getLastUpdate <em>Last Update</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Issue#getEstimatedEffort <em>Estimated Effort</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Issue#getRequirements <em>Requirements</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getIssue()
@@ -490,5 +491,21 @@ public interface Issue extends CDOObject {
 	 * @generated
 	 */
 	void setEstimatedEffort(Double value);
+
+	/**
+	 * Returns the value of the '<em><b>Requirements</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.Requirement}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Requirements</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Requirements</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getIssue_Requirements()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Requirement> getRequirements();
 
 } // Issue

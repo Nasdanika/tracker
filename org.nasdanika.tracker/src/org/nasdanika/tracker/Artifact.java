@@ -2,8 +2,6 @@
  */
 package org.nasdanika.tracker;
 
-import org.eclipse.emf.cdo.CDOObject;
-
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -25,10 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.Artifact#getId <em>Id</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Artifact#getGroup <em>Group</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getGroupID <em>Group ID</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Artifact#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Artifact#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getDevelopers <em>Developers</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getModules <em>Modules</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Artifact#getIssues <em>Issues</em>}</li>
@@ -44,10 +39,9 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see org.nasdanika.tracker.TrackerPackage#getArtifact()
  * @model
- * @extends CDOObject
  * @generated
  */
-public interface Artifact extends CDOObject {
+public interface Artifact extends Knowledge {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,32 +66,6 @@ public interface Artifact extends CDOObject {
 	 * @generated
 	 */
 	void setId(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Group</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Group</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Group</em>' reference.
-	 * @see #setGroup(Group)
-	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Group()
-	 * @model
-	 * @generated
-	 */
-	Group getGroup();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#getGroup <em>Group</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Group</em>' reference.
-	 * @see #getGroup()
-	 * @generated
-	 */
-	void setGroup(Group value);
 
 	/**
 	 * Returns the value of the '<em><b>Group ID</b></em>' attribute.
@@ -125,31 +93,6 @@ public interface Artifact extends CDOObject {
 	void setGroupID(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Artifact name, e.g. Nasdanika Tracker.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Developers</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.tracker.Developer}.
 	 * <!-- begin-user-doc -->
@@ -165,16 +108,16 @@ public interface Artifact extends CDOObject {
 	EList<Developer> getDevelopers();
 
 	/**
-	 * Returns the value of the '<em><b>Modules</b></em>' reference list.
+	 * Returns the value of the '<em><b>Modules</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.tracker.Artifact}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Artifacts can be nested. A typical case is artirfacts owned by an organization, which is a special type of an artifact.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Modules</em>' reference list.
+	 * @return the value of the '<em>Modules</em>' containment reference list.
 	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Modules()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Artifact> getModules();
@@ -211,7 +154,7 @@ public interface Artifact extends CDOObject {
 	EList<Version> getVersions();
 
 	/**
-	 * Returns the value of the '<em><b>Categories</b></em>' reference.
+	 * Returns the value of the '<em><b>Categories</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Categories</em>' reference isn't clear,
@@ -221,19 +164,19 @@ public interface Artifact extends CDOObject {
 	 * <!-- begin-model-doc -->
 	 * Issue categories.
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Categories</em>' reference.
+	 * @return the value of the '<em>Categories</em>' containment reference.
 	 * @see #setCategories(Category)
 	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Categories()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	Category getCategories();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#getCategories <em>Categories</em>}' reference.
+	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#getCategories <em>Categories</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Categories</em>' reference.
+	 * @param value the new value of the '<em>Categories</em>' containment reference.
 	 * @see #getCategories()
 	 * @generated
 	 */
@@ -343,30 +286,5 @@ public interface Artifact extends CDOObject {
 	 * @generated
 	 */
 	EList<IssuePriority> getIssuePriorities();
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Description in markdown.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see org.nasdanika.tracker.TrackerPackage#getArtifact_Description()
-	 * @model
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.tracker.Artifact#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
 
 } // Artifact

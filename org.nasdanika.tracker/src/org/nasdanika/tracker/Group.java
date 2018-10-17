@@ -19,12 +19,13 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.tracker.Group#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Group#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Group#getId <em>Id</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Group#isPrivate <em>Private</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Group#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Group#getChildren <em>Children</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Group#getMembers <em>Members</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Group#isPrivate <em>Private</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Group#getArtifacts <em>Artifacts</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getGroup()
@@ -137,6 +138,21 @@ public interface Group extends CDOObject {
 	 * @generated
 	 */
 	EList<OrganizationMember> getMembers();
+
+	/**
+	 * Returns the value of the '<em><b>Artifacts</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.Artifact}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Group artifacts.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Artifacts</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getGroup_Artifacts()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Artifact> getArtifacts();
 
 	/**
 	 * Returns the value of the '<em><b>Private</b></em>' attribute.

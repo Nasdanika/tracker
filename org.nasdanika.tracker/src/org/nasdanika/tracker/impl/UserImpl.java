@@ -2,13 +2,19 @@
  */
 package org.nasdanika.tracker.impl;
 
+import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.cdo.security.LoginPasswordCredentials;
 import org.nasdanika.cdo.security.SecurityPackage;
 
 import org.nasdanika.cdo.security.impl.LoginUserImpl;
 
+import org.nasdanika.tracker.OrganizationMember;
 import org.nasdanika.tracker.TrackerPackage;
 import org.nasdanika.tracker.User;
 
@@ -27,6 +33,7 @@ import org.nasdanika.tracker.User;
  *   <li>{@link org.nasdanika.tracker.impl.UserImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.UserImpl#getAvatar <em>Avatar</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.UserImpl#getTimezone <em>Timezone</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.UserImpl#getMembership <em>Membership</em>}</li>
  * </ul>
  *
  * @generated
@@ -246,6 +253,45 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	public EList<OrganizationMember> getMembership() {
+		return (EList<OrganizationMember>)eDynamicGet(TrackerPackage.USER__MEMBERSHIP, TrackerPackage.Literals.USER__MEMBERSHIP, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case TrackerPackage.USER__MEMBERSHIP:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMembership()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case TrackerPackage.USER__MEMBERSHIP:
+				return ((InternalEList<?>)getMembership()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -263,6 +309,8 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 				return getAvatar();
 			case TrackerPackage.USER__TIMEZONE:
 				return getTimezone();
+			case TrackerPackage.USER__MEMBERSHIP:
+				return getMembership();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,6 +320,7 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -295,6 +344,10 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 				return;
 			case TrackerPackage.USER__TIMEZONE:
 				setTimezone((String)newValue);
+				return;
+			case TrackerPackage.USER__MEMBERSHIP:
+				getMembership().clear();
+				getMembership().addAll((Collection<? extends OrganizationMember>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -329,6 +382,9 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 			case TrackerPackage.USER__TIMEZONE:
 				setTimezone(TIMEZONE_EDEFAULT);
 				return;
+			case TrackerPackage.USER__MEMBERSHIP:
+				getMembership().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -355,6 +411,8 @@ public class UserImpl extends LoginUserImpl<LoginPasswordCredentials> implements
 				return AVATAR_EDEFAULT == null ? getAvatar() != null : !AVATAR_EDEFAULT.equals(getAvatar());
 			case TrackerPackage.USER__TIMEZONE:
 				return TIMEZONE_EDEFAULT == null ? getTimezone() != null : !TIMEZONE_EDEFAULT.equals(getTimezone());
+			case TrackerPackage.USER__MEMBERSHIP:
+				return !getMembership().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

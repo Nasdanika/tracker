@@ -64,9 +64,9 @@ public class IssueItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSummaryPropertyDescriptor(object);
 			addReporterPropertyDescriptor(object);
 			addCategoryPropertyDescriptor(object);
-			addSummaryPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addArtifactVersionPropertyDescriptor(object);
 			addTargetVersionPropertyDescriptor(object);
@@ -451,6 +451,7 @@ public class IssueItemProvider
 			childrenFeatures.add(TrackerPackage.Literals.ISSUE__OUTBOUND_RELATIONSHIPS);
 			childrenFeatures.add(TrackerPackage.Literals.ISSUE__NOTES);
 			childrenFeatures.add(TrackerPackage.Literals.ISSUE__CHILDREN);
+			childrenFeatures.add(TrackerPackage.Literals.ISSUE__REQUIREMENTS);
 		}
 		return childrenFeatures;
 	}
@@ -517,6 +518,7 @@ public class IssueItemProvider
 			case TrackerPackage.ISSUE__OUTBOUND_RELATIONSHIPS:
 			case TrackerPackage.ISSUE__NOTES:
 			case TrackerPackage.ISSUE__CHILDREN:
+			case TrackerPackage.ISSUE__REQUIREMENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -553,6 +555,11 @@ public class IssueItemProvider
 			(createChildParameter
 				(TrackerPackage.Literals.ISSUE__CHILDREN,
 				 TrackerFactory.eINSTANCE.createIssue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TrackerPackage.Literals.ISSUE__REQUIREMENTS,
+				 TrackerFactory.eINSTANCE.createRequirement()));
 	}
 
 	/**

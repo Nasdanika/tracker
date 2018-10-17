@@ -20,6 +20,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.tracker.Organization#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Organization#getGroups <em>Groups</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Organization#getIncrements <em>Increments</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Organization#getSitesUrl <em>Sites Url</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Organization#getTechnologies <em>Technologies</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getOrganization()
@@ -71,5 +73,45 @@ public interface Organization extends Artifact {
 	 * @generated
 	 */
 	EList<Increment> getIncrements();
+
+	/**
+	 * Returns the value of the '<em><b>Sites Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Base URL for artifact sites. Full URL of an artifact site is formed by adding group id, artifact id, and version to the base URL.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sites Url</em>' attribute.
+	 * @see #setSitesUrl(String)
+	 * @see org.nasdanika.tracker.TrackerPackage#getOrganization_SitesUrl()
+	 * @model
+	 * @generated
+	 */
+	String getSitesUrl();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.tracker.Organization#getSitesUrl <em>Sites Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sites Url</em>' attribute.
+	 * @see #getSitesUrl()
+	 * @generated
+	 */
+	void setSitesUrl(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Technologies</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.Technology}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Technologies used in the organization.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Technologies</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getOrganization_Technologies()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Technology> getTechnologies();
 
 } // Organization

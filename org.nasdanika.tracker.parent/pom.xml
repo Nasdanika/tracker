@@ -179,6 +179,8 @@
 	</build>
 	<modules>	
 		<module>../org.nasdanika.tracker</module>
+		<module>../org.nasdanika.tracker.edit</module>
+		<module>../org.nasdanika.tracker.editor</module>
 		<module>../org.nasdanika.tracker.feature</module>	
 		<module>../org.nasdanika.tracker.repository</module>	
 	</modules>

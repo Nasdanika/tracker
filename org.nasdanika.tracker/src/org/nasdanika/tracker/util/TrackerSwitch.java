@@ -93,6 +93,8 @@ public class TrackerSwitch<T> extends Switch<T> {
 			case TrackerPackage.ARTIFACT: {
 				Artifact artifact = (Artifact)theEObject;
 				T result = caseArtifact(artifact);
+				if (result == null) result = caseKnowledge(artifact);
+				if (result == null) result = caseCapability(artifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -106,6 +108,8 @@ public class TrackerSwitch<T> extends Switch<T> {
 				Organization organization = (Organization)theEObject;
 				T result = caseOrganization(organization);
 				if (result == null) result = caseArtifact(organization);
+				if (result == null) result = caseKnowledge(organization);
+				if (result == null) result = caseCapability(organization);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -194,9 +198,50 @@ public class TrackerSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case TrackerPackage.CAPABILITY: {
+				Capability capability = (Capability)theEObject;
+				T result = caseCapability(capability);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.REQUIREMENT: {
+				Requirement requirement = (Requirement)theEObject;
+				T result = caseRequirement(requirement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.KNOWLEDGE: {
+				Knowledge knowledge = (Knowledge)theEObject;
+				T result = caseKnowledge(knowledge);
+				if (result == null) result = caseCapability(knowledge);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case TrackerPackage.AVAILABILITY: {
 				Availability availability = (Availability)theEObject;
 				T result = caseAvailability(availability);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.TECHNOLOGY: {
+				Technology technology = (Technology)theEObject;
+				T result = caseTechnology(technology);
+				if (result == null) result = caseKnowledge(technology);
+				if (result == null) result = caseCapability(technology);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.RELEASE: {
+				Release release = (Release)theEObject;
+				T result = caseRelease(release);
+				if (result == null) result = caseKnowledge(release);
+				if (result == null) result = caseCapability(release);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TrackerPackage.SKILL: {
+				Skill skill = (Skill)theEObject;
+				T result = caseSkill(skill);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -490,6 +535,51 @@ public class TrackerSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Capability</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Capability</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCapability(Capability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Requirement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Requirement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRequirement(Requirement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Knowledge</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Knowledge</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseKnowledge(Knowledge object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Availability</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -501,6 +591,51 @@ public class TrackerSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAvailability(Availability object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Technology</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Technology</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTechnology(Technology object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Release</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Release</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRelease(Release object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Skill</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Skill</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSkill(Skill object) {
 		return null;
 	}
 

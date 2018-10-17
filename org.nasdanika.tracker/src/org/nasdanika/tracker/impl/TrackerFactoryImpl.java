@@ -76,7 +76,12 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 			case TrackerPackage.DEVELOPER: return (EObject)createDeveloper();
 			case TrackerPackage.NOTE: return (EObject)createNote();
 			case TrackerPackage.PROGRESS_REPORT: return (EObject)createProgressReport();
+			case TrackerPackage.CAPABILITY: return (EObject)createCapability();
+			case TrackerPackage.REQUIREMENT: return (EObject)createRequirement();
 			case TrackerPackage.AVAILABILITY: return (EObject)createAvailability();
+			case TrackerPackage.TECHNOLOGY: return (EObject)createTechnology();
+			case TrackerPackage.RELEASE: return (EObject)createRelease();
+			case TrackerPackage.SKILL: return (EObject)createSkill();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,6 +97,8 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 		switch (eDataType.getClassifierID()) {
 			case TrackerPackage.ISSUE_RELATIONSHIP_BLOCKING_DIRECTION:
 				return createIssueRelationshipBlockingDirectionFromString(eDataType, initialValue);
+			case TrackerPackage.SKILL_LEVEL:
+				return createSkillLevelFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +114,8 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 		switch (eDataType.getClassifierID()) {
 			case TrackerPackage.ISSUE_RELATIONSHIP_BLOCKING_DIRECTION:
 				return convertIssueRelationshipBlockingDirectionToString(eDataType, instanceValue);
+			case TrackerPackage.SKILL_LEVEL:
+				return convertSkillLevelToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -307,9 +316,59 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Capability createCapability() {
+		CapabilityImpl capability = new CapabilityImpl();
+		return capability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Requirement createRequirement() {
+		RequirementImpl requirement = new RequirementImpl();
+		return requirement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Availability createAvailability() {
 		AvailabilityImpl availability = new AvailabilityImpl();
 		return availability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Technology createTechnology() {
+		TechnologyImpl technology = new TechnologyImpl();
+		return technology;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Release createRelease() {
+		ReleaseImpl release = new ReleaseImpl();
+		return release;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Skill createSkill() {
+		SkillImpl skill = new SkillImpl();
+		return skill;
 	}
 
 	/**
@@ -329,6 +388,26 @@ public class TrackerFactoryImpl extends EFactoryImpl implements TrackerFactory {
 	 * @generated
 	 */
 	public String convertIssueRelationshipBlockingDirectionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SkillLevel createSkillLevelFromString(EDataType eDataType, String initialValue) {
+		SkillLevel result = SkillLevel.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSkillLevelToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

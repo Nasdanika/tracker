@@ -8,23 +8,12 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import org.nasdanika.cdo.security.provider.CDOItemProviderAdapterEx;
-
 import org.nasdanika.tracker.Artifact;
 import org.nasdanika.tracker.TrackerFactory;
 import org.nasdanika.tracker.TrackerPackage;
@@ -36,13 +25,7 @@ import org.nasdanika.tracker.TrackerPackage;
  * @generated
  */
 public class ArtifactItemProvider 
-	extends CDOItemProviderAdapterEx
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends KnowledgeItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -65,12 +48,7 @@ public class ArtifactItemProvider
 			super.getPropertyDescriptors(object);
 
 			addIdPropertyDescriptor(object);
-			addGroupPropertyDescriptor(object);
 			addGroupIDPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
-			addDescriptionPropertyDescriptor(object);
-			addModulesPropertyDescriptor(object);
-			addCategoriesPropertyDescriptor(object);
 			addPrivatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -99,28 +77,6 @@ public class ArtifactItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Group feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addGroupPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Artifact_group_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_group_feature", "_UI_Artifact_type"),
-				 TrackerPackage.Literals.ARTIFACT__GROUP,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Group ID feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,94 +94,6 @@ public class ArtifactItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Artifact_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_name_feature", "_UI_Artifact_type"),
-				 TrackerPackage.Literals.ARTIFACT__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Description feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescriptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Artifact_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_description_feature", "_UI_Artifact_type"),
-				 TrackerPackage.Literals.ARTIFACT__DESCRIPTION,
-				 true,
-				 true,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Modules feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addModulesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Artifact_modules_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_modules_feature", "_UI_Artifact_type"),
-				 TrackerPackage.Literals.ARTIFACT__MODULES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Categories feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addCategoriesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Artifact_categories_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Artifact_categories_feature", "_UI_Artifact_type"),
-				 TrackerPackage.Literals.ARTIFACT__CATEGORIES,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}
@@ -265,8 +133,10 @@ public class ArtifactItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TrackerPackage.Literals.ARTIFACT__DEVELOPERS);
+			childrenFeatures.add(TrackerPackage.Literals.ARTIFACT__MODULES);
 			childrenFeatures.add(TrackerPackage.Literals.ARTIFACT__ISSUES);
 			childrenFeatures.add(TrackerPackage.Literals.ARTIFACT__VERSIONS);
+			childrenFeatures.add(TrackerPackage.Literals.ARTIFACT__CATEGORIES);
 			childrenFeatures.add(TrackerPackage.Literals.ARTIFACT__ROLES);
 			childrenFeatures.add(TrackerPackage.Literals.ARTIFACT__ISSUE_RELATIONSHIP_TYPES);
 			childrenFeatures.add(TrackerPackage.Literals.ARTIFACT__ISSUE_STATUSES);
@@ -329,14 +199,14 @@ public class ArtifactItemProvider
 		switch (notification.getFeatureID(Artifact.class)) {
 			case TrackerPackage.ARTIFACT__ID:
 			case TrackerPackage.ARTIFACT__GROUP_ID:
-			case TrackerPackage.ARTIFACT__NAME:
-			case TrackerPackage.ARTIFACT__DESCRIPTION:
 			case TrackerPackage.ARTIFACT__PRIVATE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TrackerPackage.ARTIFACT__DEVELOPERS:
+			case TrackerPackage.ARTIFACT__MODULES:
 			case TrackerPackage.ARTIFACT__ISSUES:
 			case TrackerPackage.ARTIFACT__VERSIONS:
+			case TrackerPackage.ARTIFACT__CATEGORIES:
 			case TrackerPackage.ARTIFACT__ROLES:
 			case TrackerPackage.ARTIFACT__ISSUE_RELATIONSHIP_TYPES:
 			case TrackerPackage.ARTIFACT__ISSUE_STATUSES:
@@ -366,6 +236,16 @@ public class ArtifactItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(TrackerPackage.Literals.ARTIFACT__MODULES,
+				 TrackerFactory.eINSTANCE.createArtifact()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TrackerPackage.Literals.ARTIFACT__MODULES,
+				 TrackerFactory.eINSTANCE.createOrganization()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(TrackerPackage.Literals.ARTIFACT__ISSUES,
 				 TrackerFactory.eINSTANCE.createIssue()));
 
@@ -373,6 +253,11 @@ public class ArtifactItemProvider
 			(createChildParameter
 				(TrackerPackage.Literals.ARTIFACT__VERSIONS,
 				 TrackerFactory.eINSTANCE.createVersion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TrackerPackage.Literals.ARTIFACT__CATEGORIES,
+				 TrackerFactory.eINSTANCE.createCategory()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -398,17 +283,6 @@ public class ArtifactItemProvider
 			(createChildParameter
 				(TrackerPackage.Literals.ARTIFACT__ISSUE_PRIORITIES,
 				 TrackerFactory.eINSTANCE.createIssuePriority()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return TrackerEditPlugin.INSTANCE;
 	}
 
 }

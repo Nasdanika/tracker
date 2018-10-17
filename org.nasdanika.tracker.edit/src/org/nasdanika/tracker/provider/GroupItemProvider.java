@@ -64,11 +64,11 @@ public class GroupItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
 			addNamePropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
+			addPrivatePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addMembersPropertyDescriptor(object);
-			addPrivatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -196,6 +196,7 @@ public class GroupItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TrackerPackage.Literals.GROUP__CHILDREN);
+			childrenFeatures.add(TrackerPackage.Literals.GROUP__ARTIFACTS);
 		}
 		return childrenFeatures;
 	}
@@ -251,13 +252,14 @@ public class GroupItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Group.class)) {
-			case TrackerPackage.GROUP__ID:
 			case TrackerPackage.GROUP__NAME:
-			case TrackerPackage.GROUP__DESCRIPTION:
+			case TrackerPackage.GROUP__ID:
 			case TrackerPackage.GROUP__PRIVATE:
+			case TrackerPackage.GROUP__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TrackerPackage.GROUP__CHILDREN:
+			case TrackerPackage.GROUP__ARTIFACTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -279,6 +281,16 @@ public class GroupItemProvider
 			(createChildParameter
 				(TrackerPackage.Literals.GROUP__CHILDREN,
 				 TrackerFactory.eINSTANCE.createGroup()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TrackerPackage.Literals.GROUP__ARTIFACTS,
+				 TrackerFactory.eINSTANCE.createArtifact()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TrackerPackage.Literals.GROUP__ARTIFACTS,
+				 TrackerFactory.eINSTANCE.createOrganization()));
 	}
 
 	/**

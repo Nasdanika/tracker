@@ -10,6 +10,8 @@ This product is in an early stage of development. The [vision](vision.html) docu
 * [Model documentation](modeldoc/index.html)
 * JavaDoc
     * [Model](apidocs/model)
+    * [Edit](apidocs/edit)
+    * [Editor](apidocs/editor)
 * [Sources](tracker.zip)    
 
 ## P2 Repository

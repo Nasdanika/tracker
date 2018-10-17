@@ -18,8 +18,8 @@ import org.eclipse.emf.cdo.CDOObject;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.Category#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.tracker.Category#getAssignedTo <em>Assigned To</em>}</li>
  *   <li>{@link org.nasdanika.tracker.Category#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.Category#getAssignedTo <em>Assigned To</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getCategory()

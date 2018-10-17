@@ -150,8 +150,32 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 				return createProgressReportAdapter();
 			}
 			@Override
+			public Adapter caseCapability(Capability object) {
+				return createCapabilityAdapter();
+			}
+			@Override
+			public Adapter caseRequirement(Requirement object) {
+				return createRequirementAdapter();
+			}
+			@Override
+			public Adapter caseKnowledge(Knowledge object) {
+				return createKnowledgeAdapter();
+			}
+			@Override
 			public Adapter caseAvailability(Availability object) {
 				return createAvailabilityAdapter();
+			}
+			@Override
+			public Adapter caseTechnology(Technology object) {
+				return createTechnologyAdapter();
+			}
+			@Override
+			public Adapter caseRelease(Release object) {
+				return createReleaseAdapter();
+			}
+			@Override
+			public Adapter caseSkill(Skill object) {
+				return createSkillAdapter();
 			}
 			@Override
 			public <CR> Adapter caseRealm(Realm<CR> object) {
@@ -464,6 +488,48 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Capability <em>Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.Capability
+	 * @generated
+	 */
+	public Adapter createCapabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Requirement <em>Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.Requirement
+	 * @generated
+	 */
+	public Adapter createRequirementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Knowledge <em>Knowledge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.Knowledge
+	 * @generated
+	 */
+	public Adapter createKnowledgeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Availability <em>Availability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -474,6 +540,48 @@ public class TrackerAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAvailabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Technology <em>Technology</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.Technology
+	 * @generated
+	 */
+	public Adapter createTechnologyAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Release <em>Release</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.Release
+	 * @generated
+	 */
+	public Adapter createReleaseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.tracker.Skill <em>Skill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.tracker.Skill
+	 * @generated
+	 */
+	public Adapter createSkillAdapter() {
 		return null;
 	}
 

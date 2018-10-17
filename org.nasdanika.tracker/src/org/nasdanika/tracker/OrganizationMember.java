@@ -19,10 +19,11 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.tracker.OrganizationMember#getRoles <em>Roles</em>}</li>
- *   <li>{@link org.nasdanika.tracker.OrganizationMember#getName <em>Name</em>}</li>
- *   <li>{@link org.nasdanika.tracker.OrganizationMember#getAvailability <em>Availability</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.OrganizationMember#getUser <em>User</em>}</li>
  *   <li>{@link org.nasdanika.tracker.OrganizationMember#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.OrganizationMember#getRoles <em>Roles</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.OrganizationMember#getAvailability <em>Availability</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.OrganizationMember#getSkills <em>Skills</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember()
@@ -31,6 +32,34 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface OrganizationMember extends CDOObject {
+	/**
+	 * Returns the value of the '<em><b>User</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.tracker.User#getMembership <em>Membership</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>User</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>User</em>' reference.
+	 * @see #setUser(User)
+	 * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember_User()
+	 * @see org.nasdanika.tracker.User#getMembership
+	 * @model opposite="membership" required="true"
+	 * @generated
+	 */
+	User getUser();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.tracker.OrganizationMember#getUser <em>User</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>User</em>' reference.
+	 * @see #getUser()
+	 * @generated
+	 */
+	void setUser(User value);
+
 	/**
 	 * Returns the value of the '<em><b>Roles</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.tracker.Developer}.
@@ -49,31 +78,6 @@ public interface OrganizationMember extends CDOObject {
 	EList<Developer> getRoles();
 
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Developer name.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.tracker.OrganizationMember#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Availability</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.tracker.Availability}.
 	 * <!-- begin-user-doc -->
@@ -88,6 +92,22 @@ public interface OrganizationMember extends CDOObject {
 	 * @generated
 	 */
 	EList<Availability> getAvailability();
+
+	/**
+	 * Returns the value of the '<em><b>Skills</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.tracker.Skill}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Skills</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Skills</em>' containment reference list.
+	 * @see org.nasdanika.tracker.TrackerPackage#getOrganizationMember_Skills()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Skill> getSkills();
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.

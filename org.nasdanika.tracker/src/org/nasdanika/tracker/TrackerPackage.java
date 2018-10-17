@@ -109,40 +109,13 @@ public interface TrackerPackage extends EPackage {
 	int TRACKER__PACKAGES = SecurityPackage.LOGIN_PASSWORD_REALM__PACKAGES;
 
 	/**
-	 * The feature id for the '<em><b>Users</b></em>' reference list.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TRACKER__USERS = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Auto Create Users</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACKER__AUTO_CREATE_USERS = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Organizations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACKER__ORGANIZATIONS = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Sites Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TRACKER__SITES_URL = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 3;
+	int TRACKER__NAME = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -151,7 +124,34 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TRACKER__DESCRIPTION = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 4;
+	int TRACKER__DESCRIPTION = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Auto Create Users</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACKER__AUTO_CREATE_USERS = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Users</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACKER__USERS = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Organizations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRACKER__ORGANIZATIONS = SecurityPackage.LOGIN_PASSWORD_REALM_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Tracker</em>' class.
@@ -335,13 +335,22 @@ public interface TrackerPackage extends EPackage {
 	int USER__TIMEZONE = SecurityPackage.LOGIN_PASSWORD_HASH_USER_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Membership</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__MEMBERSHIP = SecurityPackage.LOGIN_PASSWORD_HASH_USER_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>User</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_HASH_USER_FEATURE_COUNT + 6;
+	int USER_FEATURE_COUNT = SecurityPackage.LOGIN_PASSWORD_HASH_USER_FEATURE_COUNT + 7;
 
 	/**
 	 * The operation id for the '<em>Authorize</em>' operation.
@@ -380,6 +389,107 @@ public interface TrackerPackage extends EPackage {
 	int USER_OPERATION_COUNT = SecurityPackage.LOGIN_PASSWORD_HASH_USER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.CapabilityImpl <em>Capability</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.CapabilityImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getCapability()
+	 * @generated
+	 */
+	int CAPABILITY = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY__DESCRIPTION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Capability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Capability</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAPABILITY_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.KnowledgeImpl <em>Knowledge</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.KnowledgeImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getKnowledge()
+	 * @generated
+	 */
+	int KNOWLEDGE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KNOWLEDGE__NAME = CAPABILITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KNOWLEDGE__DESCRIPTION = CAPABILITY__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Experts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KNOWLEDGE__EXPERTS = CAPABILITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Knowledge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KNOWLEDGE_FEATURE_COUNT = CAPABILITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Knowledge</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int KNOWLEDGE_OPERATION_COUNT = CAPABILITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.tracker.impl.ArtifactImpl <em>Artifact</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -390,40 +500,13 @@ public interface TrackerPackage extends EPackage {
 	int ARTIFACT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Group</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__GROUP = 1;
-
-	/**
-	 * The feature id for the '<em><b>Group ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTIFACT__GROUP_ID = 2;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__NAME = 3;
+	int ARTIFACT__NAME = KNOWLEDGE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -432,7 +515,34 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__DESCRIPTION = 4;
+	int ARTIFACT__DESCRIPTION = KNOWLEDGE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Experts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__EXPERTS = KNOWLEDGE__EXPERTS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__ID = KNOWLEDGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Group ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT__GROUP_ID = KNOWLEDGE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Developers</b></em>' containment reference list.
@@ -441,16 +551,16 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__DEVELOPERS = 5;
+	int ARTIFACT__DEVELOPERS = KNOWLEDGE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Modules</b></em>' reference list.
+	 * The feature id for the '<em><b>Modules</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__MODULES = 6;
+	int ARTIFACT__MODULES = KNOWLEDGE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Issues</b></em>' containment reference list.
@@ -459,7 +569,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ISSUES = 7;
+	int ARTIFACT__ISSUES = KNOWLEDGE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Versions</b></em>' containment reference list.
@@ -468,16 +578,16 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__VERSIONS = 8;
+	int ARTIFACT__VERSIONS = KNOWLEDGE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Categories</b></em>' reference.
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__CATEGORIES = 9;
+	int ARTIFACT__CATEGORIES = KNOWLEDGE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Roles</b></em>' containment reference list.
@@ -486,7 +596,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ROLES = 10;
+	int ARTIFACT__ROLES = KNOWLEDGE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Private</b></em>' attribute.
@@ -495,7 +605,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__PRIVATE = 11;
+	int ARTIFACT__PRIVATE = KNOWLEDGE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Issue Relationship Types</b></em>' containment reference list.
@@ -504,7 +614,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ISSUE_RELATIONSHIP_TYPES = 12;
+	int ARTIFACT__ISSUE_RELATIONSHIP_TYPES = KNOWLEDGE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Issue Statuses</b></em>' containment reference list.
@@ -513,7 +623,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ISSUE_STATUSES = 13;
+	int ARTIFACT__ISSUE_STATUSES = KNOWLEDGE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Issue Resolutions</b></em>' containment reference list.
@@ -522,7 +632,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ISSUE_RESOLUTIONS = 14;
+	int ARTIFACT__ISSUE_RESOLUTIONS = KNOWLEDGE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Issue Priorities</b></em>' containment reference list.
@@ -531,7 +641,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT__ISSUE_PRIORITIES = 15;
+	int ARTIFACT__ISSUE_PRIORITIES = KNOWLEDGE_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of structural features of the '<em>Artifact</em>' class.
@@ -540,7 +650,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_FEATURE_COUNT = 16;
+	int ARTIFACT_FEATURE_COUNT = KNOWLEDGE_FEATURE_COUNT + 13;
 
 	/**
 	 * The number of operations of the '<em>Artifact</em>' class.
@@ -549,7 +659,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTIFACT_OPERATION_COUNT = 0;
+	int ARTIFACT_OPERATION_COUNT = KNOWLEDGE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.tracker.impl.RoleImpl <em>Role</em>}' class.
@@ -617,33 +727,6 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANIZATION__ID = ARTIFACT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Group</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANIZATION__GROUP = ARTIFACT__GROUP;
-
-	/**
-	 * The feature id for the '<em><b>Group ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANIZATION__GROUP_ID = ARTIFACT__GROUP_ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -662,6 +745,33 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION__DESCRIPTION = ARTIFACT__DESCRIPTION;
 
 	/**
+	 * The feature id for the '<em><b>Experts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__EXPERTS = ARTIFACT__EXPERTS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__ID = ARTIFACT__ID;
+
+	/**
+	 * The feature id for the '<em><b>Group ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__GROUP_ID = ARTIFACT__GROUP_ID;
+
+	/**
 	 * The feature id for the '<em><b>Developers</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -671,7 +781,7 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION__DEVELOPERS = ARTIFACT__DEVELOPERS;
 
 	/**
-	 * The feature id for the '<em><b>Modules</b></em>' reference list.
+	 * The feature id for the '<em><b>Modules</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -698,7 +808,7 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION__VERSIONS = ARTIFACT__VERSIONS;
 
 	/**
-	 * The feature id for the '<em><b>Categories</b></em>' reference.
+	 * The feature id for the '<em><b>Categories</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -788,13 +898,31 @@ public interface TrackerPackage extends EPackage {
 	int ORGANIZATION__INCREMENTS = ARTIFACT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Sites Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__SITES_URL = ARTIFACT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Technologies</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION__TECHNOLOGIES = ARTIFACT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Organization</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION_FEATURE_COUNT = ARTIFACT_FEATURE_COUNT + 3;
+	int ORGANIZATION_FEATURE_COUNT = ARTIFACT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Organization</em>' class.
@@ -816,49 +944,22 @@ public interface TrackerPackage extends EPackage {
 	int GROUP = 5;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__ID = 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__NAME = 1;
+	int GROUP__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__DESCRIPTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__CHILDREN = 3;
-
-	/**
-	 * The feature id for the '<em><b>Members</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GROUP__MEMBERS = 4;
+	int GROUP__ID = 1;
 
 	/**
 	 * The feature id for the '<em><b>Private</b></em>' attribute.
@@ -867,7 +968,43 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__PRIVATE = 5;
+	int GROUP__PRIVATE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__DESCRIPTION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CHILDREN = 4;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__MEMBERS = 5;
+
+	/**
+	 * The feature id for the '<em><b>Artifacts</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__ARTIFACTS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Group</em>' class.
@@ -876,7 +1013,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = 6;
+	int GROUP_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Group</em>' class.
@@ -980,22 +1117,22 @@ public interface TrackerPackage extends EPackage {
 	int CATEGORY__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Assigned To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CATEGORY__ASSIGNED_TO = 1;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CATEGORY__DESCRIPTION = 2;
+	int CATEGORY__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Assigned To</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CATEGORY__ASSIGNED_TO = 2;
 
 	/**
 	 * The number of structural features of the '<em>Category</em>' class.
@@ -1026,13 +1163,22 @@ public interface TrackerPackage extends EPackage {
 	int ISSUE = 8;
 
 	/**
+	 * The feature id for the '<em><b>Summary</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__SUMMARY = 0;
+
+	/**
 	 * The feature id for the '<em><b>Reporter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__REPORTER = 0;
+	int ISSUE__REPORTER = 1;
 
 	/**
 	 * The feature id for the '<em><b>Category</b></em>' reference.
@@ -1041,16 +1187,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE__CATEGORY = 1;
-
-	/**
-	 * The feature id for the '<em><b>Summary</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ISSUE__SUMMARY = 2;
+	int ISSUE__CATEGORY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1197,13 +1334,22 @@ public interface TrackerPackage extends EPackage {
 	int ISSUE__ESTIMATED_EFFORT = 18;
 
 	/**
+	 * The feature id for the '<em><b>Requirements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__REQUIREMENTS = 19;
+
+	/**
 	 * The number of structural features of the '<em>Issue</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE_FEATURE_COUNT = 19;
+	int ISSUE_FEATURE_COUNT = 20;
 
 	/**
 	 * The number of operations of the '<em>Issue</em>' class.
@@ -1312,7 +1458,7 @@ public interface TrackerPackage extends EPackage {
 	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getAvailability()
 	 * @generated
 	 */
-	int AVAILABILITY = 19;
+	int AVAILABILITY = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.tracker.IssueRelationshipBlockingDirection <em>Issue Relationship Blocking Direction</em>}' enum.
@@ -1322,7 +1468,17 @@ public interface TrackerPackage extends EPackage {
 	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getIssueRelationshipBlockingDirection()
 	 * @generated
 	 */
-	int ISSUE_RELATIONSHIP_BLOCKING_DIRECTION = 20;
+	int ISSUE_RELATIONSHIP_BLOCKING_DIRECTION = 26;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.SkillLevel <em>Skill Level</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.SkillLevel
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getSkillLevel()
+	 * @generated
+	 */
+	int SKILL_LEVEL = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.tracker.impl.IssueRelationshipTypeImpl <em>Issue Relationship Type</em>}' class.
@@ -1615,31 +1771,13 @@ public interface TrackerPackage extends EPackage {
 	int INCREMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Roles</b></em>' reference list.
+	 * The feature id for the '<em><b>User</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION_MEMBER__ROLES = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANIZATION_MEMBER__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Availability</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ORGANIZATION_MEMBER__AVAILABILITY = 2;
+	int ORGANIZATION_MEMBER__USER = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -1648,7 +1786,34 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION_MEMBER__DESCRIPTION = 3;
+	int ORGANIZATION_MEMBER__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION_MEMBER__ROLES = 2;
+
+	/**
+	 * The feature id for the '<em><b>Availability</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION_MEMBER__AVAILABILITY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Skills</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ORGANIZATION_MEMBER__SKILLS = 4;
 
 	/**
 	 * The number of structural features of the '<em>Organization Member</em>' class.
@@ -1657,7 +1822,7 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ORGANIZATION_MEMBER_FEATURE_COUNT = 4;
+	int ORGANIZATION_MEMBER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Organization Member</em>' class.
@@ -1678,22 +1843,22 @@ public interface TrackerPackage extends EPackage {
 	int DEVELOPER__ORGANIZATION_MEMBER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Roles</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DEVELOPER__ROLES = 1;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DEVELOPER__DESCRIPTION = 2;
+	int DEVELOPER__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Roles</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEVELOPER__ROLES = 2;
 
 	/**
 	 * The number of structural features of the '<em>Developer</em>' class.
@@ -1858,6 +2023,61 @@ public interface TrackerPackage extends EPackage {
 	int PROGRESS_REPORT_OPERATION_COUNT = NOTE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.RequirementImpl <em>Requirement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.RequirementImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getRequirement()
+	 * @generated
+	 */
+	int REQUIREMENT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__DESCRIPTION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Capability</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__CAPABILITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Optional</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT__OPTIONAL = 2;
+
+	/**
+	 * The number of structural features of the '<em>Requirement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Requirement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIREMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The feature id for the '<em><b>Increment</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1904,6 +2124,190 @@ public interface TrackerPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.TechnologyImpl <em>Technology</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.TechnologyImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getTechnology()
+	 * @generated
+	 */
+	int TECHNOLOGY = 23;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY__NAME = KNOWLEDGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY__DESCRIPTION = KNOWLEDGE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Experts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY__EXPERTS = KNOWLEDGE__EXPERTS;
+
+	/**
+	 * The feature id for the '<em><b>Releases</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY__RELEASES = KNOWLEDGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY__CHILDREN = KNOWLEDGE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Technology</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY_FEATURE_COUNT = KNOWLEDGE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Technology</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHNOLOGY_OPERATION_COUNT = KNOWLEDGE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.ReleaseImpl <em>Release</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.ReleaseImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getRelease()
+	 * @generated
+	 */
+	int RELEASE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE__NAME = KNOWLEDGE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE__DESCRIPTION = KNOWLEDGE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Experts</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE__EXPERTS = KNOWLEDGE__EXPERTS;
+
+	/**
+	 * The number of structural features of the '<em>Release</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE_FEATURE_COUNT = KNOWLEDGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Release</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELEASE_OPERATION_COUNT = KNOWLEDGE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.tracker.impl.SkillImpl <em>Skill</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.tracker.impl.SkillImpl
+	 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getSkill()
+	 * @generated
+	 */
+	int SKILL = 25;
+
+	/**
+	 * The feature id for the '<em><b>Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__LEVEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Knowledge</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL__KNOWLEDGE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Skill</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Skill</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SKILL_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Tracker <em>Tracker</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1914,10 +2318,21 @@ public interface TrackerPackage extends EPackage {
 	EClass getTracker();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.Tracker#getUsers <em>Users</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Tracker#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Users</em>'.
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.tracker.Tracker#getName()
+	 * @see #getTracker()
+	 * @generated
+	 */
+	EAttribute getTracker_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Tracker#getUsers <em>Users</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Users</em>'.
 	 * @see org.nasdanika.tracker.Tracker#getUsers()
 	 * @see #getTracker()
 	 * @generated
@@ -1945,17 +2360,6 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTracker_Organizations();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Tracker#getSitesUrl <em>Sites Url</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sites Url</em>'.
-	 * @see org.nasdanika.tracker.Tracker#getSitesUrl()
-	 * @see #getTracker()
-	 * @generated
-	 */
-	EAttribute getTracker_SitesUrl();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Tracker#getDescription <em>Description</em>}'.
@@ -2045,6 +2449,17 @@ public interface TrackerPackage extends EPackage {
 	EAttribute getUser_Timezone();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.User#getMembership <em>Membership</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Membership</em>'.
+	 * @see org.nasdanika.tracker.User#getMembership()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EReference getUser_Membership();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Artifact <em>Artifact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2066,17 +2481,6 @@ public interface TrackerPackage extends EPackage {
 	EAttribute getArtifact_Id();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Artifact#getGroup <em>Group</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Group</em>'.
-	 * @see org.nasdanika.tracker.Artifact#getGroup()
-	 * @see #getArtifact()
-	 * @generated
-	 */
-	EReference getArtifact_Group();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Artifact#getGroupID <em>Group ID</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2086,17 +2490,6 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getArtifact_GroupID();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Artifact#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.tracker.Artifact#getName()
-	 * @see #getArtifact()
-	 * @generated
-	 */
-	EAttribute getArtifact_Name();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Artifact#getDevelopers <em>Developers</em>}'.
@@ -2110,10 +2503,10 @@ public interface TrackerPackage extends EPackage {
 	EReference getArtifact_Developers();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.Artifact#getModules <em>Modules</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Artifact#getModules <em>Modules</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Modules</em>'.
+	 * @return the meta object for the containment reference list '<em>Modules</em>'.
 	 * @see org.nasdanika.tracker.Artifact#getModules()
 	 * @see #getArtifact()
 	 * @generated
@@ -2143,10 +2536,10 @@ public interface TrackerPackage extends EPackage {
 	EReference getArtifact_Versions();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Artifact#getCategories <em>Categories</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.tracker.Artifact#getCategories <em>Categories</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Categories</em>'.
+	 * @return the meta object for the containment reference '<em>Categories</em>'.
 	 * @see org.nasdanika.tracker.Artifact#getCategories()
 	 * @see #getArtifact()
 	 * @generated
@@ -2218,17 +2611,6 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getArtifact_IssuePriorities();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Artifact#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see org.nasdanika.tracker.Artifact#getDescription()
-	 * @see #getArtifact()
-	 * @generated
-	 */
-	EAttribute getArtifact_Description();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Role <em>Role</em>}'.
@@ -2317,6 +2699,28 @@ public interface TrackerPackage extends EPackage {
 	EReference getOrganization_Increments();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Organization#getSitesUrl <em>Sites Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sites Url</em>'.
+	 * @see org.nasdanika.tracker.Organization#getSitesUrl()
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	EAttribute getOrganization_SitesUrl();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Organization#getTechnologies <em>Technologies</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Technologies</em>'.
+	 * @see org.nasdanika.tracker.Organization#getTechnologies()
+	 * @see #getOrganization()
+	 * @generated
+	 */
+	EReference getOrganization_Technologies();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2380,6 +2784,17 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGroup_Members();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Group#getArtifacts <em>Artifacts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Artifacts</em>'.
+	 * @see org.nasdanika.tracker.Group#getArtifacts()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EReference getGroup_Artifacts();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Group#isPrivate <em>Private</em>}'.
@@ -2720,6 +3135,17 @@ public interface TrackerPackage extends EPackage {
 	EAttribute getIssue_EstimatedEffort();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Issue#getRequirements <em>Requirements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Requirements</em>'.
+	 * @see org.nasdanika.tracker.Issue#getRequirements()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EReference getIssue_Requirements();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Increment <em>Increment</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2806,6 +3232,17 @@ public interface TrackerPackage extends EPackage {
 	EClass getOrganizationMember();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.OrganizationMember#getUser <em>User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>User</em>'.
+	 * @see org.nasdanika.tracker.OrganizationMember#getUser()
+	 * @see #getOrganizationMember()
+	 * @generated
+	 */
+	EReference getOrganizationMember_User();
+
+	/**
 	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.OrganizationMember#getRoles <em>Roles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2817,17 +3254,6 @@ public interface TrackerPackage extends EPackage {
 	EReference getOrganizationMember_Roles();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.OrganizationMember#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.tracker.OrganizationMember#getName()
-	 * @see #getOrganizationMember()
-	 * @generated
-	 */
-	EAttribute getOrganizationMember_Name();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.OrganizationMember#getAvailability <em>Availability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2837,6 +3263,17 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOrganizationMember_Availability();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.OrganizationMember#getSkills <em>Skills</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Skills</em>'.
+	 * @see org.nasdanika.tracker.OrganizationMember#getSkills()
+	 * @see #getOrganizationMember()
+	 * @generated
+	 */
+	EReference getOrganizationMember_Skills();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.OrganizationMember#getDescription <em>Description</em>}'.
@@ -3140,6 +3577,102 @@ public interface TrackerPackage extends EPackage {
 	EAttribute getProgressReport_RemainingEffort();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.Capability <em>Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Capability</em>'.
+	 * @see org.nasdanika.tracker.Capability
+	 * @generated
+	 */
+	EClass getCapability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Capability#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.tracker.Capability#getName()
+	 * @see #getCapability()
+	 * @generated
+	 */
+	EAttribute getCapability_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Capability#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.Capability#getDescription()
+	 * @see #getCapability()
+	 * @generated
+	 */
+	EAttribute getCapability_Description();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.Requirement <em>Requirement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Requirement</em>'.
+	 * @see org.nasdanika.tracker.Requirement
+	 * @generated
+	 */
+	EClass getRequirement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Requirement#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.Requirement#getDescription()
+	 * @see #getRequirement()
+	 * @generated
+	 */
+	EAttribute getRequirement_Description();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Requirement#getCapability <em>Capability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Capability</em>'.
+	 * @see org.nasdanika.tracker.Requirement#getCapability()
+	 * @see #getRequirement()
+	 * @generated
+	 */
+	EReference getRequirement_Capability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Requirement#isOptional <em>Optional</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Optional</em>'.
+	 * @see org.nasdanika.tracker.Requirement#isOptional()
+	 * @see #getRequirement()
+	 * @generated
+	 */
+	EAttribute getRequirement_Optional();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.Knowledge <em>Knowledge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Knowledge</em>'.
+	 * @see org.nasdanika.tracker.Knowledge
+	 * @generated
+	 */
+	EClass getKnowledge();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.tracker.Knowledge#getExperts <em>Experts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Experts</em>'.
+	 * @see org.nasdanika.tracker.Knowledge#getExperts()
+	 * @see #getKnowledge()
+	 * @generated
+	 */
+	EReference getKnowledge_Experts();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.Availability <em>Availability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3183,6 +3716,91 @@ public interface TrackerPackage extends EPackage {
 	EAttribute getAvailability_Comment();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.Technology <em>Technology</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Technology</em>'.
+	 * @see org.nasdanika.tracker.Technology
+	 * @generated
+	 */
+	EClass getTechnology();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Technology#getReleases <em>Releases</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Releases</em>'.
+	 * @see org.nasdanika.tracker.Technology#getReleases()
+	 * @see #getTechnology()
+	 * @generated
+	 */
+	EReference getTechnology_Releases();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.tracker.Technology#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Children</em>'.
+	 * @see org.nasdanika.tracker.Technology#getChildren()
+	 * @see #getTechnology()
+	 * @generated
+	 */
+	EReference getTechnology_Children();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.Release <em>Release</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Release</em>'.
+	 * @see org.nasdanika.tracker.Release
+	 * @generated
+	 */
+	EClass getRelease();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.tracker.Skill <em>Skill</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Skill</em>'.
+	 * @see org.nasdanika.tracker.Skill
+	 * @generated
+	 */
+	EClass getSkill();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Skill#getLevel <em>Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Level</em>'.
+	 * @see org.nasdanika.tracker.Skill#getLevel()
+	 * @see #getSkill()
+	 * @generated
+	 */
+	EAttribute getSkill_Level();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.tracker.Skill#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.tracker.Skill#getDescription()
+	 * @see #getSkill()
+	 * @generated
+	 */
+	EAttribute getSkill_Description();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.tracker.Skill#getKnowledge <em>Knowledge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Knowledge</em>'.
+	 * @see org.nasdanika.tracker.Skill#getKnowledge()
+	 * @see #getSkill()
+	 * @generated
+	 */
+	EReference getSkill_Knowledge();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.tracker.IssueRelationshipBlockingDirection <em>Issue Relationship Blocking Direction</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3191,6 +3809,16 @@ public interface TrackerPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getIssueRelationshipBlockingDirection();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.tracker.SkillLevel <em>Skill Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Skill Level</em>'.
+	 * @see org.nasdanika.tracker.SkillLevel
+	 * @generated
+	 */
+	EEnum getSkillLevel();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.tracker.IssueRelationshipType <em>Issue Relationship Type</em>}'.
@@ -3280,7 +3908,15 @@ public interface TrackerPackage extends EPackage {
 		EClass TRACKER = eINSTANCE.getTracker();
 
 		/**
-		 * The meta object literal for the '<em><b>Users</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TRACKER__NAME = eINSTANCE.getTracker_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Users</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3302,14 +3938,6 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TRACKER__ORGANIZATIONS = eINSTANCE.getTracker_Organizations();
-
-		/**
-		 * The meta object literal for the '<em><b>Sites Url</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TRACKER__SITES_URL = eINSTANCE.getTracker_SitesUrl();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -3378,6 +4006,14 @@ public interface TrackerPackage extends EPackage {
 		EAttribute USER__TIMEZONE = eINSTANCE.getUser_Timezone();
 
 		/**
+		 * The meta object literal for the '<em><b>Membership</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USER__MEMBERSHIP = eINSTANCE.getUser_Membership();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.ArtifactImpl <em>Artifact</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3396,28 +4032,12 @@ public interface TrackerPackage extends EPackage {
 		EAttribute ARTIFACT__ID = eINSTANCE.getArtifact_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Group</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ARTIFACT__GROUP = eINSTANCE.getArtifact_Group();
-
-		/**
 		 * The meta object literal for the '<em><b>Group ID</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute ARTIFACT__GROUP_ID = eINSTANCE.getArtifact_GroupID();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ARTIFACT__NAME = eINSTANCE.getArtifact_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Developers</b></em>' containment reference list feature.
@@ -3428,7 +4048,7 @@ public interface TrackerPackage extends EPackage {
 		EReference ARTIFACT__DEVELOPERS = eINSTANCE.getArtifact_Developers();
 
 		/**
-		 * The meta object literal for the '<em><b>Modules</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Modules</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3452,7 +4072,7 @@ public interface TrackerPackage extends EPackage {
 		EReference ARTIFACT__VERSIONS = eINSTANCE.getArtifact_Versions();
 
 		/**
-		 * The meta object literal for the '<em><b>Categories</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Categories</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -3506,14 +4126,6 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ARTIFACT__ISSUE_PRIORITIES = eINSTANCE.getArtifact_IssuePriorities();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ARTIFACT__DESCRIPTION = eINSTANCE.getArtifact_Description();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.RoleImpl <em>Role</em>}' class.
@@ -3584,6 +4196,22 @@ public interface TrackerPackage extends EPackage {
 		EReference ORGANIZATION__INCREMENTS = eINSTANCE.getOrganization_Increments();
 
 		/**
+		 * The meta object literal for the '<em><b>Sites Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ORGANIZATION__SITES_URL = eINSTANCE.getOrganization_SitesUrl();
+
+		/**
+		 * The meta object literal for the '<em><b>Technologies</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANIZATION__TECHNOLOGIES = eINSTANCE.getOrganization_Technologies();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.GroupImpl <em>Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3632,6 +4260,14 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GROUP__MEMBERS = eINSTANCE.getGroup_Members();
+
+		/**
+		 * The meta object literal for the '<em><b>Artifacts</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP__ARTIFACTS = eINSTANCE.getGroup_Artifacts();
 
 		/**
 		 * The meta object literal for the '<em><b>Private</b></em>' attribute feature.
@@ -3888,6 +4524,14 @@ public interface TrackerPackage extends EPackage {
 		EAttribute ISSUE__ESTIMATED_EFFORT = eINSTANCE.getIssue_EstimatedEffort();
 
 		/**
+		 * The meta object literal for the '<em><b>Requirements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ISSUE__REQUIREMENTS = eINSTANCE.getIssue_Requirements();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.IncrementImpl <em>Increment</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3956,6 +4600,14 @@ public interface TrackerPackage extends EPackage {
 		EClass ORGANIZATION_MEMBER = eINSTANCE.getOrganizationMember();
 
 		/**
+		 * The meta object literal for the '<em><b>User</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANIZATION_MEMBER__USER = eINSTANCE.getOrganizationMember_User();
+
+		/**
 		 * The meta object literal for the '<em><b>Roles</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3964,20 +4616,20 @@ public interface TrackerPackage extends EPackage {
 		EReference ORGANIZATION_MEMBER__ROLES = eINSTANCE.getOrganizationMember_Roles();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ORGANIZATION_MEMBER__NAME = eINSTANCE.getOrganizationMember_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Availability</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ORGANIZATION_MEMBER__AVAILABILITY = eINSTANCE.getOrganizationMember_Availability();
+
+		/**
+		 * The meta object literal for the '<em><b>Skills</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ORGANIZATION_MEMBER__SKILLS = eINSTANCE.getOrganizationMember_Skills();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -4218,6 +4870,84 @@ public interface TrackerPackage extends EPackage {
 		EAttribute PROGRESS_REPORT__REMAINING_EFFORT = eINSTANCE.getProgressReport_RemainingEffort();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.CapabilityImpl <em>Capability</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.CapabilityImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getCapability()
+		 * @generated
+		 */
+		EClass CAPABILITY = eINSTANCE.getCapability();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CAPABILITY__NAME = eINSTANCE.getCapability_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CAPABILITY__DESCRIPTION = eINSTANCE.getCapability_Description();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.RequirementImpl <em>Requirement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.RequirementImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getRequirement()
+		 * @generated
+		 */
+		EClass REQUIREMENT = eINSTANCE.getRequirement();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIREMENT__DESCRIPTION = eINSTANCE.getRequirement_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Capability</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REQUIREMENT__CAPABILITY = eINSTANCE.getRequirement_Capability();
+
+		/**
+		 * The meta object literal for the '<em><b>Optional</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REQUIREMENT__OPTIONAL = eINSTANCE.getRequirement_Optional();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.KnowledgeImpl <em>Knowledge</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.KnowledgeImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getKnowledge()
+		 * @generated
+		 */
+		EClass KNOWLEDGE = eINSTANCE.getKnowledge();
+
+		/**
+		 * The meta object literal for the '<em><b>Experts</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference KNOWLEDGE__EXPERTS = eINSTANCE.getKnowledge_Experts();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.AvailabilityImpl <em>Availability</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4252,6 +4982,76 @@ public interface TrackerPackage extends EPackage {
 		EAttribute AVAILABILITY__COMMENT = eINSTANCE.getAvailability_Comment();
 
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.TechnologyImpl <em>Technology</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.TechnologyImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getTechnology()
+		 * @generated
+		 */
+		EClass TECHNOLOGY = eINSTANCE.getTechnology();
+
+		/**
+		 * The meta object literal for the '<em><b>Releases</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TECHNOLOGY__RELEASES = eINSTANCE.getTechnology_Releases();
+
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TECHNOLOGY__CHILDREN = eINSTANCE.getTechnology_Children();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.ReleaseImpl <em>Release</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.ReleaseImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getRelease()
+		 * @generated
+		 */
+		EClass RELEASE = eINSTANCE.getRelease();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.SkillImpl <em>Skill</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.impl.SkillImpl
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getSkill()
+		 * @generated
+		 */
+		EClass SKILL = eINSTANCE.getSkill();
+
+		/**
+		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SKILL__LEVEL = eINSTANCE.getSkill_Level();
+
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SKILL__DESCRIPTION = eINSTANCE.getSkill_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Knowledge</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SKILL__KNOWLEDGE = eINSTANCE.getSkill_Knowledge();
+
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.IssueRelationshipBlockingDirection <em>Issue Relationship Blocking Direction</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4260,6 +5060,16 @@ public interface TrackerPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum ISSUE_RELATIONSHIP_BLOCKING_DIRECTION = eINSTANCE.getIssueRelationshipBlockingDirection();
+
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.tracker.SkillLevel <em>Skill Level</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.tracker.SkillLevel
+		 * @see org.nasdanika.tracker.impl.TrackerPackageImpl#getSkillLevel()
+		 * @generated
+		 */
+		EEnum SKILL_LEVEL = eINSTANCE.getSkillLevel();
 
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.tracker.impl.IssueRelationshipTypeImpl <em>Issue Relationship Type</em>}' class.

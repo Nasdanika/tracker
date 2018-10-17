@@ -14,6 +14,7 @@ import org.nasdanika.cdo.security.SecurityPackage;
 
 import org.nasdanika.tracker.Artifact;
 import org.nasdanika.tracker.Availability;
+import org.nasdanika.tracker.Capability;
 import org.nasdanika.tracker.Category;
 import org.nasdanika.tracker.Developer;
 import org.nasdanika.tracker.Group;
@@ -25,11 +26,17 @@ import org.nasdanika.tracker.IssueRelationshipBlockingDirection;
 import org.nasdanika.tracker.IssueRelationshipType;
 import org.nasdanika.tracker.IssueResolution;
 import org.nasdanika.tracker.IssueStatus;
+import org.nasdanika.tracker.Knowledge;
 import org.nasdanika.tracker.Note;
 import org.nasdanika.tracker.Organization;
 import org.nasdanika.tracker.OrganizationMember;
 import org.nasdanika.tracker.ProgressReport;
+import org.nasdanika.tracker.Release;
+import org.nasdanika.tracker.Requirement;
 import org.nasdanika.tracker.Role;
+import org.nasdanika.tracker.Skill;
+import org.nasdanika.tracker.SkillLevel;
+import org.nasdanika.tracker.Technology;
 import org.nasdanika.tracker.Tracker;
 import org.nasdanika.tracker.TrackerFactory;
 import org.nasdanika.tracker.TrackerPackage;
@@ -181,6 +188,27 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass capabilityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass requirementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass knowledgeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass availabilityEClass = null;
 
 	/**
@@ -188,7 +216,35 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass technologyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass releaseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass skillEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum issueRelationshipBlockingDirectionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum skillLevelEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -268,8 +324,17 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTracker_Name() {
+		return (EAttribute)trackerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getTracker_Users() {
-		return (EReference)trackerEClass.getEStructuralFeatures().get(0);
+		return (EReference)trackerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -278,7 +343,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EAttribute getTracker_AutoCreateUsers() {
-		return (EAttribute)trackerEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)trackerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -287,16 +352,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getTracker_Organizations() {
-		return (EReference)trackerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getTracker_SitesUrl() {
-		return (EAttribute)trackerEClass.getEStructuralFeatures().get(3);
+		return (EReference)trackerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -305,7 +361,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EAttribute getTracker_Description() {
-		return (EAttribute)trackerEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)trackerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -376,6 +432,15 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getUser_Membership() {
+		return (EReference)userEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getArtifact() {
 		return artifactEClass;
 	}
@@ -394,26 +459,8 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getArtifact_Group() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getArtifact_GroupID() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getArtifact_Name() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -422,7 +469,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_Developers() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(5);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -431,7 +478,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_Modules() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(6);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -440,7 +487,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_Issues() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(7);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -449,7 +496,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_Versions() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(8);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -458,7 +505,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_Categories() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(9);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -467,7 +514,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_Roles() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(10);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -476,7 +523,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EAttribute getArtifact_Private() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(11);
+		return (EAttribute)artifactEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -485,7 +532,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_IssueRelationshipTypes() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(12);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -494,7 +541,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_IssueStatuses() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(13);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -503,7 +550,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_IssueResolutions() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(14);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -512,16 +559,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getArtifact_IssuePriorities() {
-		return (EReference)artifactEClass.getEStructuralFeatures().get(15);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getArtifact_Description() {
-		return (EAttribute)artifactEClass.getEStructuralFeatures().get(4);
+		return (EReference)artifactEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -601,6 +639,24 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getOrganization_SitesUrl() {
+		return (EAttribute)organizationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOrganization_Technologies() {
+		return (EReference)organizationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getGroup() {
 		return groupEClass;
 	}
@@ -611,15 +667,6 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EAttribute getGroup_Id() {
-		return (EAttribute)groupEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getGroup_Name() {
 		return (EAttribute)groupEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -628,8 +675,17 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getGroup_Name() {
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getGroup_Description() {
-		return (EAttribute)groupEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -638,15 +694,6 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getGroup_Children() {
-		return (EReference)groupEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getGroup_Members() {
 		return (EReference)groupEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -655,8 +702,26 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getGroup_Members() {
+		return (EReference)groupEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGroup_Artifacts() {
+		return (EReference)groupEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getGroup_Private() {
-		return (EAttribute)groupEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -737,7 +802,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getCategory_AssignedTo() {
-		return (EReference)categoryEClass.getEStructuralFeatures().get(1);
+		return (EReference)categoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -746,7 +811,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EAttribute getCategory_Description() {
-		return (EAttribute)categoryEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)categoryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -764,15 +829,6 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getIssue_Reporter() {
-		return (EReference)issueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIssue_Category() {
 		return (EReference)issueEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -781,8 +837,17 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIssue_Category() {
+		return (EReference)issueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getIssue_Summary() {
-		return (EAttribute)issueEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -934,6 +999,15 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getIssue_Requirements() {
+		return (EReference)issueEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIncrement() {
 		return incrementEClass;
 	}
@@ -1006,7 +1080,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOrganizationMember_Roles() {
+	public EReference getOrganizationMember_User() {
 		return (EReference)organizationMemberEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1015,16 +1089,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOrganizationMember_Name() {
-		return (EAttribute)organizationMemberEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOrganizationMember_Availability() {
+	public EReference getOrganizationMember_Roles() {
 		return (EReference)organizationMemberEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1033,8 +1098,26 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getOrganizationMember_Availability() {
+		return (EReference)organizationMemberEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOrganizationMember_Skills() {
+		return (EReference)organizationMemberEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getOrganizationMember_Description() {
-		return (EAttribute)organizationMemberEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)organizationMemberEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1061,7 +1144,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EReference getDeveloper_Roles() {
-		return (EReference)developerEClass.getEStructuralFeatures().get(1);
+		return (EReference)developerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1070,7 +1153,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * @generated
 	 */
 	public EAttribute getDeveloper_Description() {
-		return (EAttribute)developerEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)developerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1285,6 +1368,87 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCapability() {
+		return capabilityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapability_Name() {
+		return (EAttribute)capabilityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCapability_Description() {
+		return (EAttribute)capabilityEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRequirement() {
+		return requirementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRequirement_Description() {
+		return (EAttribute)requirementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRequirement_Capability() {
+		return (EReference)requirementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRequirement_Optional() {
+		return (EAttribute)requirementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getKnowledge() {
+		return knowledgeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getKnowledge_Experts() {
+		return (EReference)knowledgeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAvailability() {
 		return availabilityEClass;
 	}
@@ -1321,8 +1485,89 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTechnology() {
+		return technologyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTechnology_Releases() {
+		return (EReference)technologyEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTechnology_Children() {
+		return (EReference)technologyEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRelease() {
+		return releaseEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSkill() {
+		return skillEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSkill_Level() {
+		return (EAttribute)skillEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSkill_Description() {
+		return (EAttribute)skillEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSkill_Knowledge() {
+		return (EReference)skillEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getIssueRelationshipBlockingDirection() {
 		return issueRelationshipBlockingDirectionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSkillLevel() {
+		return skillLevelEEnum;
 	}
 
 	/**
@@ -1399,11 +1644,11 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 
 		// Create classes and their features
 		trackerEClass = createEClass(TRACKER);
-		createEReference(trackerEClass, TRACKER__USERS);
-		createEAttribute(trackerEClass, TRACKER__AUTO_CREATE_USERS);
-		createEReference(trackerEClass, TRACKER__ORGANIZATIONS);
-		createEAttribute(trackerEClass, TRACKER__SITES_URL);
+		createEAttribute(trackerEClass, TRACKER__NAME);
 		createEAttribute(trackerEClass, TRACKER__DESCRIPTION);
+		createEAttribute(trackerEClass, TRACKER__AUTO_CREATE_USERS);
+		createEReference(trackerEClass, TRACKER__USERS);
+		createEReference(trackerEClass, TRACKER__ORGANIZATIONS);
 
 		userEClass = createEClass(USER);
 		createEAttribute(userEClass, USER__NAME);
@@ -1412,13 +1657,11 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		createEAttribute(userEClass, USER__URL);
 		createEAttribute(userEClass, USER__AVATAR);
 		createEAttribute(userEClass, USER__TIMEZONE);
+		createEReference(userEClass, USER__MEMBERSHIP);
 
 		artifactEClass = createEClass(ARTIFACT);
 		createEAttribute(artifactEClass, ARTIFACT__ID);
-		createEReference(artifactEClass, ARTIFACT__GROUP);
 		createEAttribute(artifactEClass, ARTIFACT__GROUP_ID);
-		createEAttribute(artifactEClass, ARTIFACT__NAME);
-		createEAttribute(artifactEClass, ARTIFACT__DESCRIPTION);
 		createEReference(artifactEClass, ARTIFACT__DEVELOPERS);
 		createEReference(artifactEClass, ARTIFACT__MODULES);
 		createEReference(artifactEClass, ARTIFACT__ISSUES);
@@ -1440,14 +1683,17 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		createEReference(organizationEClass, ORGANIZATION__MEMBERS);
 		createEReference(organizationEClass, ORGANIZATION__GROUPS);
 		createEReference(organizationEClass, ORGANIZATION__INCREMENTS);
+		createEAttribute(organizationEClass, ORGANIZATION__SITES_URL);
+		createEReference(organizationEClass, ORGANIZATION__TECHNOLOGIES);
 
 		groupEClass = createEClass(GROUP);
-		createEAttribute(groupEClass, GROUP__ID);
 		createEAttribute(groupEClass, GROUP__NAME);
+		createEAttribute(groupEClass, GROUP__ID);
+		createEAttribute(groupEClass, GROUP__PRIVATE);
 		createEAttribute(groupEClass, GROUP__DESCRIPTION);
 		createEReference(groupEClass, GROUP__CHILDREN);
 		createEReference(groupEClass, GROUP__MEMBERS);
-		createEAttribute(groupEClass, GROUP__PRIVATE);
+		createEReference(groupEClass, GROUP__ARTIFACTS);
 
 		versionEClass = createEClass(VERSION);
 		createEAttribute(versionEClass, VERSION__NUMBER);
@@ -1458,13 +1704,13 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 
 		categoryEClass = createEClass(CATEGORY);
 		createEAttribute(categoryEClass, CATEGORY__NAME);
-		createEReference(categoryEClass, CATEGORY__ASSIGNED_TO);
 		createEAttribute(categoryEClass, CATEGORY__DESCRIPTION);
+		createEReference(categoryEClass, CATEGORY__ASSIGNED_TO);
 
 		issueEClass = createEClass(ISSUE);
+		createEAttribute(issueEClass, ISSUE__SUMMARY);
 		createEReference(issueEClass, ISSUE__REPORTER);
 		createEReference(issueEClass, ISSUE__CATEGORY);
-		createEAttribute(issueEClass, ISSUE__SUMMARY);
 		createEAttribute(issueEClass, ISSUE__DESCRIPTION);
 		createEReference(issueEClass, ISSUE__ARTIFACT_VERSION);
 		createEReference(issueEClass, ISSUE__TARGET_VERSION);
@@ -1481,6 +1727,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		createEAttribute(issueEClass, ISSUE__SUBMITTED);
 		createEAttribute(issueEClass, ISSUE__LAST_UPDATE);
 		createEAttribute(issueEClass, ISSUE__ESTIMATED_EFFORT);
+		createEReference(issueEClass, ISSUE__REQUIREMENTS);
 
 		issueRelationshipTypeEClass = createEClass(ISSUE_RELATIONSHIP_TYPE);
 		createEAttribute(issueRelationshipTypeEClass, ISSUE_RELATIONSHIP_TYPE__NAME);
@@ -1514,15 +1761,16 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		createEReference(incrementEClass, INCREMENT__CHILDREN);
 
 		organizationMemberEClass = createEClass(ORGANIZATION_MEMBER);
-		createEReference(organizationMemberEClass, ORGANIZATION_MEMBER__ROLES);
-		createEAttribute(organizationMemberEClass, ORGANIZATION_MEMBER__NAME);
-		createEReference(organizationMemberEClass, ORGANIZATION_MEMBER__AVAILABILITY);
+		createEReference(organizationMemberEClass, ORGANIZATION_MEMBER__USER);
 		createEAttribute(organizationMemberEClass, ORGANIZATION_MEMBER__DESCRIPTION);
+		createEReference(organizationMemberEClass, ORGANIZATION_MEMBER__ROLES);
+		createEReference(organizationMemberEClass, ORGANIZATION_MEMBER__AVAILABILITY);
+		createEReference(organizationMemberEClass, ORGANIZATION_MEMBER__SKILLS);
 
 		developerEClass = createEClass(DEVELOPER);
 		createEReference(developerEClass, DEVELOPER__ORGANIZATION_MEMBER);
-		createEReference(developerEClass, DEVELOPER__ROLES);
 		createEAttribute(developerEClass, DEVELOPER__DESCRIPTION);
+		createEReference(developerEClass, DEVELOPER__ROLES);
 
 		noteEClass = createEClass(NOTE);
 		createEReference(noteEClass, NOTE__DEVELOPER);
@@ -1536,13 +1784,37 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		createEAttribute(progressReportEClass, PROGRESS_REPORT__TIME_SPENT);
 		createEAttribute(progressReportEClass, PROGRESS_REPORT__REMAINING_EFFORT);
 
+		capabilityEClass = createEClass(CAPABILITY);
+		createEAttribute(capabilityEClass, CAPABILITY__NAME);
+		createEAttribute(capabilityEClass, CAPABILITY__DESCRIPTION);
+
+		requirementEClass = createEClass(REQUIREMENT);
+		createEAttribute(requirementEClass, REQUIREMENT__DESCRIPTION);
+		createEReference(requirementEClass, REQUIREMENT__CAPABILITY);
+		createEAttribute(requirementEClass, REQUIREMENT__OPTIONAL);
+
+		knowledgeEClass = createEClass(KNOWLEDGE);
+		createEReference(knowledgeEClass, KNOWLEDGE__EXPERTS);
+
 		availabilityEClass = createEClass(AVAILABILITY);
 		createEReference(availabilityEClass, AVAILABILITY__INCREMENT);
 		createEAttribute(availabilityEClass, AVAILABILITY__AVAILABILITY);
 		createEAttribute(availabilityEClass, AVAILABILITY__COMMENT);
 
+		technologyEClass = createEClass(TECHNOLOGY);
+		createEReference(technologyEClass, TECHNOLOGY__RELEASES);
+		createEReference(technologyEClass, TECHNOLOGY__CHILDREN);
+
+		releaseEClass = createEClass(RELEASE);
+
+		skillEClass = createEClass(SKILL);
+		createEAttribute(skillEClass, SKILL__LEVEL);
+		createEAttribute(skillEClass, SKILL__DESCRIPTION);
+		createEReference(skillEClass, SKILL__KNOWLEDGE);
+
 		// Create enums
 		issueRelationshipBlockingDirectionEEnum = createEEnum(ISSUE_RELATIONSHIP_BLOCKING_DIRECTION);
+		skillLevelEEnum = createEEnum(SKILL_LEVEL);
 	}
 
 	/**
@@ -1578,16 +1850,20 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		// Add supertypes to classes
 		trackerEClass.getESuperTypes().add(theSecurityPackage.getLoginPasswordRealm());
 		userEClass.getESuperTypes().add(theSecurityPackage.getLoginPasswordHashUser());
+		artifactEClass.getESuperTypes().add(this.getKnowledge());
 		organizationEClass.getESuperTypes().add(this.getArtifact());
 		progressReportEClass.getESuperTypes().add(this.getNote());
+		knowledgeEClass.getESuperTypes().add(this.getCapability());
+		technologyEClass.getESuperTypes().add(this.getKnowledge());
+		releaseEClass.getESuperTypes().add(this.getKnowledge());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(trackerEClass, Tracker.class, "Tracker", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTracker_Users(), this.getUser(), null, "users", null, 0, -1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTracker_AutoCreateUsers(), ecorePackage.getEBoolean(), "autoCreateUsers", null, 0, 1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTracker_Organizations(), this.getOrganization(), null, "organizations", null, 0, -1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTracker_SitesUrl(), ecorePackage.getEString(), "sitesUrl", null, 0, 1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTracker_Name(), ecorePackage.getEString(), "name", null, 1, 1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTracker_Description(), ecorePackage.getEString(), "description", null, 0, 1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTracker_AutoCreateUsers(), ecorePackage.getEBoolean(), "autoCreateUsers", null, 0, 1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTracker_Users(), this.getUser(), null, "users", null, 0, -1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTracker_Organizations(), this.getOrganization(), null, "organizations", null, 0, -1, Tracker.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getUser_Name(), ecorePackage.getEString(), "name", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1596,18 +1872,16 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		initEAttribute(getUser_Url(), ecorePackage.getEString(), "url", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_Avatar(), ecorePackage.getEString(), "avatar", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUser_Timezone(), ecorePackage.getEString(), "timezone", null, 0, 1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUser_Membership(), this.getOrganizationMember(), this.getOrganizationMember_User(), "membership", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Id(), ecorePackage.getEString(), "id", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArtifact_Group(), this.getGroup(), null, "group", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifact_GroupID(), ecorePackage.getEString(), "groupID", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getArtifact_Name(), ecorePackage.getEString(), "name", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getArtifact_Description(), ecorePackage.getEString(), "description", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Developers(), this.getDeveloper(), null, "developers", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArtifact_Modules(), this.getArtifact(), null, "modules", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_Modules(), this.getArtifact(), null, "modules", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Issues(), this.getIssue(), null, "issues", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Versions(), this.getVersion(), null, "versions", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getArtifact_Categories(), this.getCategory(), null, "categories", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getArtifact_Categories(), this.getCategory(), null, "categories", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_Roles(), this.getRole(), null, "roles", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getArtifact_Private(), ecorePackage.getEBoolean(), "private", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArtifact_IssueRelationshipTypes(), this.getIssueRelationshipType(), null, "issueRelationshipTypes", null, 0, -1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1624,14 +1898,17 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		initEReference(getOrganization_Members(), this.getOrganizationMember(), null, "members", null, 0, -1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrganization_Groups(), this.getGroup(), null, "groups", null, 0, -1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getOrganization_Increments(), this.getIncrement(), null, "increments", null, 0, -1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOrganization_SitesUrl(), ecorePackage.getEString(), "sitesUrl", null, 0, 1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganization_Technologies(), this.getTechnology(), null, "technologies", null, 0, -1, Organization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getGroup_Id(), ecorePackage.getEString(), "id", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_Id(), ecorePackage.getEString(), "id", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_Private(), ecorePackage.getEBoolean(), "private", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_Description(), ecorePackage.getEString(), "description", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGroup_Children(), this.getGroup(), null, "children", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGroup_Members(), this.getOrganizationMember(), null, "members", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGroup_Private(), ecorePackage.getEBoolean(), "private", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup_Artifacts(), this.getArtifact(), null, "artifacts", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(versionEClass, Version.class, "Version", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVersion_Number(), ecorePackage.getEString(), "number", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1642,13 +1919,13 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 
 		initEClass(categoryEClass, Category.class, "Category", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCategory_Name(), ecorePackage.getEString(), "name", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCategory_AssignedTo(), this.getDeveloper(), null, "assignedTo", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCategory_Description(), ecorePackage.getEString(), "description", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCategory_AssignedTo(), this.getDeveloper(), null, "assignedTo", null, 0, 1, Category.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(issueEClass, Issue.class, "Issue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIssue_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_Reporter(), this.getUser(), null, "reporter", null, 1, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_Category(), this.getCategory(), null, "category", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIssue_Summary(), ecorePackage.getEString(), "summary", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIssue_Description(), ecorePackage.getEString(), "description", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_ArtifactVersion(), this.getVersion(), null, "artifactVersion", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIssue_TargetVersion(), this.getVersion(), null, "targetVersion", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1665,6 +1942,7 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		initEAttribute(getIssue_Submitted(), ecorePackage.getEDate(), "submitted", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIssue_LastUpdate(), ecorePackage.getEDate(), "lastUpdate", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIssue_EstimatedEffort(), ecorePackage.getEDoubleObject(), "estimatedEffort", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getIssue_Requirements(), this.getRequirement(), null, "requirements", null, 0, -1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(issueRelationshipTypeEClass, IssueRelationshipType.class, "IssueRelationshipType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIssueRelationshipType_Name(), ecorePackage.getEString(), "name", null, 0, 1, IssueRelationshipType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1698,15 +1976,16 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		initEReference(getIncrement_Children(), this.getIncrement(), null, "children", null, 0, -1, Increment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(organizationMemberEClass, OrganizationMember.class, "OrganizationMember", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOrganizationMember_Roles(), this.getDeveloper(), this.getDeveloper_OrganizationMember(), "roles", null, 0, -1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOrganizationMember_Name(), ecorePackage.getEString(), "name", null, 0, 1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOrganizationMember_Availability(), this.getAvailability(), null, "availability", null, 0, -1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganizationMember_User(), this.getUser(), this.getUser_Membership(), "user", null, 1, 1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOrganizationMember_Description(), ecorePackage.getEString(), "description", null, 0, 1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganizationMember_Roles(), this.getDeveloper(), this.getDeveloper_OrganizationMember(), "roles", null, 0, -1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganizationMember_Availability(), this.getAvailability(), null, "availability", null, 0, -1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOrganizationMember_Skills(), this.getSkill(), null, "skills", null, 0, -1, OrganizationMember.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(developerEClass, Developer.class, "Developer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDeveloper_OrganizationMember(), this.getOrganizationMember(), this.getOrganizationMember_Roles(), "organizationMember", null, 0, 1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDeveloper_Roles(), this.getRole(), this.getRole_Developers(), "roles", null, 0, -1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDeveloper_Description(), ecorePackage.getEString(), "description", null, 0, 1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDeveloper_Roles(), this.getRole(), this.getRole_Developers(), "roles", null, 0, -1, Developer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNote_Developer(), this.getDeveloper(), null, "developer", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1720,16 +1999,44 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		initEAttribute(getProgressReport_TimeSpent(), ecorePackage.getEDoubleObject(), "timeSpent", null, 0, 1, ProgressReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgressReport_RemainingEffort(), ecorePackage.getEDoubleObject(), "remainingEffort", null, 0, 1, ProgressReport.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(capabilityEClass, Capability.class, "Capability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCapability_Name(), ecorePackage.getEString(), "name", null, 0, 1, Capability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCapability_Description(), ecorePackage.getEString(), "description", null, 0, 1, Capability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRequirement_Description(), ecorePackage.getEString(), "description", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRequirement_Capability(), this.getCapability(), null, "capability", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRequirement_Optional(), ecorePackage.getEBoolean(), "optional", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(knowledgeEClass, Knowledge.class, "Knowledge", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getKnowledge_Experts(), this.getSkill(), this.getSkill_Knowledge(), "experts", null, 0, -1, Knowledge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(availabilityEClass, Availability.class, "Availability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAvailability_Increment(), this.getIncrement(), null, "increment", null, 1, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAvailability_Availability(), ecorePackage.getEInt(), "availability", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAvailability_Comment(), ecorePackage.getEString(), "comment", null, 0, 1, Availability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(technologyEClass, Technology.class, "Technology", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTechnology_Releases(), this.getRelease(), null, "releases", null, 0, -1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTechnology_Children(), this.getTechnology(), null, "children", null, 0, -1, Technology.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(releaseEClass, Release.class, "Release", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(skillEClass, Skill.class, "Skill", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSkill_Level(), this.getSkillLevel(), "level", null, 0, 1, Skill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSkill_Description(), ecorePackage.getEString(), "description", null, 0, 1, Skill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSkill_Knowledge(), this.getKnowledge(), this.getKnowledge_Experts(), "knowledge", null, 0, 1, Skill.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(issueRelationshipBlockingDirectionEEnum, IssueRelationshipBlockingDirection.class, "IssueRelationshipBlockingDirection");
 		addEEnumLiteral(issueRelationshipBlockingDirectionEEnum, IssueRelationshipBlockingDirection.NONE);
 		addEEnumLiteral(issueRelationshipBlockingDirectionEEnum, IssueRelationshipBlockingDirection.SOURCE);
 		addEEnumLiteral(issueRelationshipBlockingDirectionEEnum, IssueRelationshipBlockingDirection.TARGET);
+
+		initEEnum(skillLevelEEnum, SkillLevel.class, "SkillLevel");
+		addEEnumLiteral(skillLevelEEnum, SkillLevel.NOVICE);
+		addEEnumLiteral(skillLevelEEnum, SkillLevel.INTERMEDIATE);
+		addEEnumLiteral(skillLevelEEnum, SkillLevel.EXPERT);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -1760,22 +2067,22 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 			   "documentation", ""
 		   });
 		addAnnotation
-		  (getTracker_AutoCreateUsers(),
+		  (getTracker_Name(),
 		   source,
 		   new String[] {
-			   "documentation", "If this attribute is set to true users are automatically created by getUser(String) method.\nThis attribute shall be set to true in SSO deployments where users are authenticated\nby external systems which pass user ID\'s to the application."
-		   });
-		addAnnotation
-		  (getTracker_SitesUrl(),
-		   source,
-		   new String[] {
-			   "documentation", "Base URL for artifact sites. Full URL of an artifact site is formed by adding group id, artifact id, and version to the base URL."
+			   "documentation", "Role name, e.g. \"Architect\"."
 		   });
 		addAnnotation
 		  (getTracker_Description(),
 		   source,
 		   new String[] {
 			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getTracker_AutoCreateUsers(),
+		   source,
+		   new String[] {
+			   "documentation", "If this attribute is set to true users are automatically created by getUser(String) method.\nThis attribute shall be set to true in SSO deployments where users are authenticated\nby external systems which pass user ID\'s to the application."
 		   });
 		addAnnotation
 		  (userEClass,
@@ -1836,18 +2143,6 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Maven group ID, e.g. ``org.nasdanika.tracker``. If there is no dot in the group ID it is appended to the container\'s or group\'s group ID. If it is blank, it is inherited from group/container group ID."
-		   });
-		addAnnotation
-		  (getArtifact_Name(),
-		   source,
-		   new String[] {
-			   "documentation", "Artifact name, e.g. Nasdanika Tracker."
-		   });
-		addAnnotation
-		  (getArtifact_Description(),
-		   source,
-		   new String[] {
-			   "documentation", "Description in markdown."
 		   });
 		addAnnotation
 		  (getArtifact_Developers(),
@@ -1928,10 +2223,28 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 			   "documentation", "Organization\'s work is organized into increments."
 		   });
 		addAnnotation
+		  (getOrganization_SitesUrl(),
+		   source,
+		   new String[] {
+			   "documentation", "Base URL for artifact sites. Full URL of an artifact site is formed by adding group id, artifact id, and version to the base URL."
+		   });
+		addAnnotation
+		  (getOrganization_Technologies(),
+		   source,
+		   new String[] {
+			   "documentation", "Technologies used in the organization."
+		   });
+		addAnnotation
 		  (groupEClass,
 		   source,
 		   new String[] {
 			   "documentation", "Time zone of user location."
+		   });
+		addAnnotation
+		  (getGroup_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Group name."
 		   });
 		addAnnotation
 		  (getGroup_Id(),
@@ -1940,10 +2253,10 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 			   "documentation", "Group ID. If group ID does not contain a dot it is considered relative to the parent organization/group id and full group id is formed by appending this group ID to the container group ID "
 		   });
 		addAnnotation
-		  (getGroup_Name(),
+		  (getGroup_Private(),
 		   source,
 		   new String[] {
-			   "documentation", "Group name."
+			   "documentation", "Private model elements are visible only by the members of containing organization."
 		   });
 		addAnnotation
 		  (getGroup_Description(),
@@ -1964,10 +2277,10 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 			   "documentation", "Containing organization members \"aligned\" with this group, i.e. having expertise in technologies used by the group artifacts and familiarity with the group artifacts. Typically group members would also be developers of group artifacts. "
 		   });
 		addAnnotation
-		  (getGroup_Private(),
+		  (getGroup_Artifacts(),
 		   source,
 		   new String[] {
-			   "documentation", "Private model elements are visible only by the members of containing organization."
+			   "documentation", "Group artifacts."
 		   });
 		addAnnotation
 		  (versionEClass,
@@ -2012,16 +2325,16 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 			   "documentation", "Category name."
 		   });
 		addAnnotation
-		  (getCategory_AssignedTo(),
-		   source,
-		   new String[] {
-			   "documentation", "If this reference is set all issues reported to this category get assigned to the referenced developer."
-		   });
-		addAnnotation
 		  (getCategory_Description(),
 		   source,
 		   new String[] {
 			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getCategory_AssignedTo(),
+		   source,
+		   new String[] {
+			   "documentation", "If this reference is set all issues reported to this category get assigned to the referenced developer."
 		   });
 		addAnnotation
 		  (issueEClass,
@@ -2222,22 +2535,16 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 			   "documentation", "A member of a development team."
 		   });
 		addAnnotation
-		  (getOrganizationMember_Roles(),
-		   source,
-		   new String[] {
-			   "documentation", "Developer may play different roles for different artifacts/components."
-		   });
-		addAnnotation
-		  (getOrganizationMember_Name(),
-		   source,
-		   new String[] {
-			   "documentation", "Developer name."
-		   });
-		addAnnotation
 		  (getOrganizationMember_Description(),
 		   source,
 		   new String[] {
 			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getOrganizationMember_Roles(),
+		   source,
+		   new String[] {
+			   "documentation", "Developer may play different roles for different artifacts/components."
 		   });
 		addAnnotation
 		  (developerEClass,
@@ -2252,16 +2559,16 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 			   "documentation", "Organization member."
 		   });
 		addAnnotation
-		  (getDeveloper_Roles(),
-		   source,
-		   new String[] {
-			   "documentation", "Developer roles."
-		   });
-		addAnnotation
 		  (getDeveloper_Description(),
 		   source,
 		   new String[] {
 			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (getDeveloper_Roles(),
+		   source,
+		   new String[] {
+			   "documentation", "Developer roles."
 		   });
 		addAnnotation
 		  (noteEClass,
@@ -2294,6 +2601,42 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 			   "documentation", "Remaining effort estimation."
 		   });
 		addAnnotation
+		  (capabilityEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Something that might be required to, say, implement an issue."
+		   });
+		addAnnotation
+		  (getCapability_Name(),
+		   source,
+		   new String[] {
+			   "documentation", "Increment name. E.g. \"2019\" or \"Sprint 1\"."
+		   });
+		addAnnotation
+		  (getCapability_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (requirementEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Requirement of a capability."
+		   });
+		addAnnotation
+		  (getRequirement_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
+		   });
+		addAnnotation
+		  (knowledgeEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base abstract class for something which people can be experienced in - technologies and artifacts."
+		   });
+		addAnnotation
 		  (availabilityEClass,
 		   source,
 		   new String[] {
@@ -2310,6 +2653,30 @@ public class TrackerPackageImpl extends EPackageImpl implements TrackerPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Comment in markdown."
+		   });
+		addAnnotation
+		  (technologyEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Technology, e.g. Java, .Net, AWS, RabbitMQ"
+		   });
+		addAnnotation
+		  (getTechnology_Children(),
+		   source,
+		   new String[] {
+			   "documentation", "Technology forms a tree."
+		   });
+		addAnnotation
+		  (releaseEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Technology release. E.g. Java 10."
+		   });
+		addAnnotation
+		  (getSkill_Description(),
+		   source,
+		   new String[] {
+			   "documentation", "Description in markdown."
 		   });
 	}
 

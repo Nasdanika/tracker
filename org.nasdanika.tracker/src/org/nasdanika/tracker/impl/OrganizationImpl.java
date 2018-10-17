@@ -14,6 +14,7 @@ import org.nasdanika.tracker.Group;
 import org.nasdanika.tracker.Increment;
 import org.nasdanika.tracker.Organization;
 import org.nasdanika.tracker.OrganizationMember;
+import org.nasdanika.tracker.Technology;
 import org.nasdanika.tracker.TrackerPackage;
 
 /**
@@ -27,11 +28,23 @@ import org.nasdanika.tracker.TrackerPackage;
  *   <li>{@link org.nasdanika.tracker.impl.OrganizationImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.OrganizationImpl#getGroups <em>Groups</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.OrganizationImpl#getIncrements <em>Increments</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.OrganizationImpl#getSitesUrl <em>Sites Url</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.OrganizationImpl#getTechnologies <em>Technologies</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class OrganizationImpl extends ArtifactImpl implements Organization {
+	/**
+	 * The default value of the '{@link #getSitesUrl() <em>Sites Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSitesUrl()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SITES_URL_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,6 +99,34 @@ public class OrganizationImpl extends ArtifactImpl implements Organization {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getSitesUrl() {
+		return (String)eDynamicGet(TrackerPackage.ORGANIZATION__SITES_URL, TrackerPackage.Literals.ORGANIZATION__SITES_URL, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSitesUrl(String newSitesUrl) {
+		eDynamicSet(TrackerPackage.ORGANIZATION__SITES_URL, TrackerPackage.Literals.ORGANIZATION__SITES_URL, newSitesUrl);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	public EList<Technology> getTechnologies() {
+		return (EList<Technology>)eDynamicGet(TrackerPackage.ORGANIZATION__TECHNOLOGIES, TrackerPackage.Literals.ORGANIZATION__TECHNOLOGIES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -95,6 +136,8 @@ public class OrganizationImpl extends ArtifactImpl implements Organization {
 				return ((InternalEList<?>)getGroups()).basicRemove(otherEnd, msgs);
 			case TrackerPackage.ORGANIZATION__INCREMENTS:
 				return ((InternalEList<?>)getIncrements()).basicRemove(otherEnd, msgs);
+			case TrackerPackage.ORGANIZATION__TECHNOLOGIES:
+				return ((InternalEList<?>)getTechnologies()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -113,6 +156,10 @@ public class OrganizationImpl extends ArtifactImpl implements Organization {
 				return getGroups();
 			case TrackerPackage.ORGANIZATION__INCREMENTS:
 				return getIncrements();
+			case TrackerPackage.ORGANIZATION__SITES_URL:
+				return getSitesUrl();
+			case TrackerPackage.ORGANIZATION__TECHNOLOGIES:
+				return getTechnologies();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -138,6 +185,13 @@ public class OrganizationImpl extends ArtifactImpl implements Organization {
 				getIncrements().clear();
 				getIncrements().addAll((Collection<? extends Increment>)newValue);
 				return;
+			case TrackerPackage.ORGANIZATION__SITES_URL:
+				setSitesUrl((String)newValue);
+				return;
+			case TrackerPackage.ORGANIZATION__TECHNOLOGIES:
+				getTechnologies().clear();
+				getTechnologies().addAll((Collection<? extends Technology>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -159,6 +213,12 @@ public class OrganizationImpl extends ArtifactImpl implements Organization {
 			case TrackerPackage.ORGANIZATION__INCREMENTS:
 				getIncrements().clear();
 				return;
+			case TrackerPackage.ORGANIZATION__SITES_URL:
+				setSitesUrl(SITES_URL_EDEFAULT);
+				return;
+			case TrackerPackage.ORGANIZATION__TECHNOLOGIES:
+				getTechnologies().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -177,6 +237,10 @@ public class OrganizationImpl extends ArtifactImpl implements Organization {
 				return !getGroups().isEmpty();
 			case TrackerPackage.ORGANIZATION__INCREMENTS:
 				return !getIncrements().isEmpty();
+			case TrackerPackage.ORGANIZATION__SITES_URL:
+				return SITES_URL_EDEFAULT == null ? getSitesUrl() != null : !SITES_URL_EDEFAULT.equals(getSitesUrl());
+			case TrackerPackage.ORGANIZATION__TECHNOLOGIES:
+				return !getTechnologies().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

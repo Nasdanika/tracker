@@ -26,8 +26,8 @@ import org.nasdanika.tracker.TrackerPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.tracker.impl.DeveloperImpl#getOrganizationMember <em>Organization Member</em>}</li>
- *   <li>{@link org.nasdanika.tracker.impl.DeveloperImpl#getRoles <em>Roles</em>}</li>
  *   <li>{@link org.nasdanika.tracker.impl.DeveloperImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link org.nasdanika.tracker.impl.DeveloperImpl#getRoles <em>Roles</em>}</li>
  * </ul>
  *
  * @generated
@@ -184,10 +184,10 @@ public class DeveloperImpl extends CDOObjectImpl implements Developer {
 			case TrackerPackage.DEVELOPER__ORGANIZATION_MEMBER:
 				if (resolve) return getOrganizationMember();
 				return basicGetOrganizationMember();
-			case TrackerPackage.DEVELOPER__ROLES:
-				return getRoles();
 			case TrackerPackage.DEVELOPER__DESCRIPTION:
 				return getDescription();
+			case TrackerPackage.DEVELOPER__ROLES:
+				return getRoles();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,12 +204,12 @@ public class DeveloperImpl extends CDOObjectImpl implements Developer {
 			case TrackerPackage.DEVELOPER__ORGANIZATION_MEMBER:
 				setOrganizationMember((OrganizationMember)newValue);
 				return;
+			case TrackerPackage.DEVELOPER__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
 			case TrackerPackage.DEVELOPER__ROLES:
 				getRoles().clear();
 				getRoles().addAll((Collection<? extends Role>)newValue);
-				return;
-			case TrackerPackage.DEVELOPER__DESCRIPTION:
-				setDescription((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,11 +226,11 @@ public class DeveloperImpl extends CDOObjectImpl implements Developer {
 			case TrackerPackage.DEVELOPER__ORGANIZATION_MEMBER:
 				setOrganizationMember((OrganizationMember)null);
 				return;
-			case TrackerPackage.DEVELOPER__ROLES:
-				getRoles().clear();
-				return;
 			case TrackerPackage.DEVELOPER__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case TrackerPackage.DEVELOPER__ROLES:
+				getRoles().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -246,10 +246,10 @@ public class DeveloperImpl extends CDOObjectImpl implements Developer {
 		switch (featureID) {
 			case TrackerPackage.DEVELOPER__ORGANIZATION_MEMBER:
 				return basicGetOrganizationMember() != null;
-			case TrackerPackage.DEVELOPER__ROLES:
-				return !getRoles().isEmpty();
 			case TrackerPackage.DEVELOPER__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
+			case TrackerPackage.DEVELOPER__ROLES:
+				return !getRoles().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

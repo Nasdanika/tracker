@@ -64,11 +64,33 @@ public class OrganizationMemberItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRolesPropertyDescriptor(object);
-			addNamePropertyDescriptor(object);
+			addUserPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addRolesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the User feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUserPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_OrganizationMember_user_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_OrganizationMember_user_feature", "_UI_OrganizationMember_type"),
+				 TrackerPackage.Literals.ORGANIZATION_MEMBER__USER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -89,28 +111,6 @@ public class OrganizationMemberItemProvider
 				 false,
 				 true,
 				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_OrganizationMember_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OrganizationMember_name_feature", "_UI_OrganizationMember_type"),
-				 TrackerPackage.Literals.ORGANIZATION_MEMBER__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -150,6 +150,7 @@ public class OrganizationMemberItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(TrackerPackage.Literals.ORGANIZATION_MEMBER__AVAILABILITY);
+			childrenFeatures.add(TrackerPackage.Literals.ORGANIZATION_MEMBER__SKILLS);
 		}
 		return childrenFeatures;
 	}
@@ -182,11 +183,12 @@ public class OrganizationMemberItemProvider
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((OrganizationMember)object).getName();
+		OrganizationMember organizationMember = (OrganizationMember)object;
+		String label = organizationMember.getUser() == null ? "(no user)" : crop(organizationMember.getUser().getName());
 		return label == null || label.length() == 0 ?
 			getString("_UI_OrganizationMember_type") :
 			getString("_UI_OrganizationMember_type") + " " + label;
@@ -205,11 +207,12 @@ public class OrganizationMemberItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(OrganizationMember.class)) {
-			case TrackerPackage.ORGANIZATION_MEMBER__NAME:
+			case TrackerPackage.ORGANIZATION_MEMBER__USER:
 			case TrackerPackage.ORGANIZATION_MEMBER__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TrackerPackage.ORGANIZATION_MEMBER__AVAILABILITY:
+			case TrackerPackage.ORGANIZATION_MEMBER__SKILLS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -231,6 +234,11 @@ public class OrganizationMemberItemProvider
 			(createChildParameter
 				(TrackerPackage.Literals.ORGANIZATION_MEMBER__AVAILABILITY,
 				 TrackerFactory.eINSTANCE.createAvailability()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TrackerPackage.Literals.ORGANIZATION_MEMBER__SKILLS,
+				 TrackerFactory.eINSTANCE.createSkill()));
 	}
 
 	/**

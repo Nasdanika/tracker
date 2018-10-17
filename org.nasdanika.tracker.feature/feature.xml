@@ -16,8 +16,26 @@
       [Enter License Description here.]
    </license>
 
+   <requires>
+      <import feature="org.nasdanika.presentation.feature" version="0.1.0.qualifier"/>
+   </requires>
+
    <plugin
          id="org.nasdanika.tracker"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.nasdanika.tracker.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.nasdanika.tracker.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

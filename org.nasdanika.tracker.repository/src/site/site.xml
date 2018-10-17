@@ -13,12 +13,15 @@
    <menu name="Main">
       <item name="Overview" href="index.html" />
       <item name="Model Documentation" href="modeldoc/index.html" />
+      <item name="User Guide" href="user-guide.html" />
       <!-- <item name="User Stories" href="storydoc/index.html" /> -->
       <item name="Project information" href="project-info.html" />      
    </menu>
 
    <menu name="Java API">
       <item name="Model" href="apidocs/model/index.html" />
+      <item name="Model" href="apidocs/edit/index.html" />
+      <item name="Model" href="apidocs/editor/index.html" />
       <!-- <item name="Web" href="apidocs/web/index.html" /> -->
    </menu>
    
