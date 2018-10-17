@@ -6,17 +6,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
-
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -28,14 +26,12 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.SubContributionItem;
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
-
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
@@ -133,6 +129,11 @@ public class TrackerActionBarContributor
 	 * @generated
 	 */
 	protected Collection<IAction> createSiblingActions;
+	
+	protected SetPasswordAction setPasswordAction = new SetPasswordAction("Set password") {
+		
+		
+	};	
 
 	/**
 	 * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
@@ -397,7 +398,7 @@ public class TrackerActionBarContributor
 	 * This inserts global actions before the "additions-end" separator.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	protected void addGlobalActions(IMenuManager menuManager) {
@@ -406,6 +407,9 @@ public class TrackerActionBarContributor
 
 		refreshViewerAction.setEnabled(refreshViewerAction.isEnabled());		
 		menuManager.insertAfter("ui-actions", refreshViewerAction);
+		
+	    String key = (style & ADDITIONS_LAST_STYLE) == 0 ? "additions-end" : "additions";
+        menuManager.insertBefore(key, setPasswordAction);				
 
 		super.addGlobalActions(menuManager);
 	}
@@ -420,5 +424,17 @@ public class TrackerActionBarContributor
 	protected boolean removeAllReferencesOnDelete() {
 		return true;
 	}
+	
+	
+	@Override
+	public void activate() {
+		super.activate();
+	    ISelectionProvider selectionProvider = activeEditor instanceof ISelectionProvider ? (ISelectionProvider) activeEditor :	activeEditor.getEditorSite().getSelectionProvider();
+   	    if (selectionProvider != null) {
+   	    	selectionProvider.addSelectionChangedListener(setPasswordAction);
+   	    }
+   	    setPasswordAction.setEditingDomain((TransactionalEditingDomain) ((TrackerEditor) activeEditor).getEditingDomain()); 
+	}
+	
 
 }
