@@ -207,7 +207,9 @@ The editor embodiment may generate these files from the model to be published an
 * Reference selectors from trees, not lists.  
 * Validations:
     * Circular dependency of issues.
-    * Issue in a version planned for an increment depends on an issue in the backlog (no version assigned) or on a version planned for a later increment or not planned for an increment. In addition to validation - limit selection. 
+    * Issue in a version planned for an increment depends on an issue in the backlog (no version assigned) or on a version planned for a later increment or not planned for an increment. In addition to validation - limit selection.
+    * Duplicate computed maven coordinates - group id/artifact id.
+    * Duplicates - version, user, name within parent. 
 * Resource leveling, ... - versions critical path.
 * Issue severity?
 * Attachments?
@@ -219,3 +221,10 @@ The editor embodiment may generate these files from the model to be published an
 * Action contribution
 * Overview page - a more detailed of "real-life agile" and an explanation what the tracker does - planning, skill requirements, distributed team, ...
 * Scrum meeting/call view - a table to enter spent effort since last report and remaining effort. Like a composite transaction - results in multiple progress report entries. Progress report start date shall default to the previous progress report end date or on the increment start date.
+* A series of youtube videos showing how to use the tracker - bank as an example? - hard to maintain/keep up to date?
+* Installing as a Windows service - personal use.
+* Running on Heroku.
+* Themes - Bootswatch.
+* Concept of a team - look at GitHub how they do it
+* Bounded context - overlapping circles - increment maps to sprint. Why do you need a tracker if you have an agile tool.
+* Source code (tracker) -> bytecode (sprint/work items) metaphor to the java section. Bytecode is more linear, resolution of references/dependencies.
