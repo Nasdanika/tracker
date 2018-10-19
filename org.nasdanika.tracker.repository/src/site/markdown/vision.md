@@ -228,3 +228,4 @@ The editor embodiment may generate these files from the model to be published an
 * Concept of a team - look at GitHub how they do it
 * Bounded context - overlapping circles - increment maps to sprint. Why do you need a tracker if you have an agile tool.
 * Source code (tracker) -> bytecode (sprint/work items) metaphor to the java section. Bytecode is more linear, resolution of references/dependencies.
+* Relativistic agile - where a classical/"Newtonian" agile breaks down - high speeds.
