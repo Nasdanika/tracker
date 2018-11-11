@@ -21,7 +21,7 @@
 		
 			<repository>
 				<id>nasdanika-server</id>
-				<url>https://www.nasdanika.org/products/server/org.nasdanika.repository/repository</url>
+				<url>https://www.nasdanika.org/products/server/2.0.0-SNAPSHOT/org.nasdanika.repository/repository</url>
 				<layout>p2</layout>
 			</repository>		
 		
@@ -182,6 +182,8 @@
 		<module>../org.nasdanika.tracker.edit</module>
 		<module>../org.nasdanika.tracker.editor</module>
 		<module>../org.nasdanika.tracker.feature</module>	
+		<module>../org.nasdanika.tracker.web</module>	
+		<module>../org.nasdanika.tracker.web.feature</module>	
 		<module>../org.nasdanika.tracker.repository</module>	
 	</modules>
 </project>

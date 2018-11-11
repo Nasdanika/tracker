@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="tracker-session-initializer">
+   <implementation class="org.nasdanika.tracker.web.TrackerSessionInitializerComponent"/>
+   <service>
+      <provide interface="org.nasdanika.cdo.CDOSessionInitializer"/>
+   </service>
+   <!--<property name="initial-content" type="String" value=""/>-->
+</scr:component>

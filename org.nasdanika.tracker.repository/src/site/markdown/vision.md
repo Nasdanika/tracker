@@ -227,3 +227,4 @@ The editor embodiment may generate these files from the model to be published an
 * Themes - Bootswatch.
 * Bounded context - overlapping circles - increment maps to sprint. Why do you need a tracker if you have an agile tool.
 * Source code (tracker) -> bytecode (sprint/work items) metaphor to the java section. Bytecode is more linear, resolution of references/dependencies.
+* Capability (unique id, hierarchy) - requirement (amount if not binary) - resource - provides capability. Skills under this category?

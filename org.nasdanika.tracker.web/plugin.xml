@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.equinox.http.registry.servlets">
+      	
+      <servlet
+            alias="/router"
+            class="org.nasdanika.cdo.web.CDOTransactionRoutingServlet" httpcontextId="org.nasdanika.tracker">
+         <init-param
+               name="json-pretty-print"
+               value="true">
+         </init-param>
+         <init-param
+               name="default-access-decision"
+               value="deny">
+         </init-param>
+         <init-param
+               name="user-name-header"
+               value="X-Forwarded-User">
+         </init-param>
+         <init-param
+               name="user-name-header"
+               value="X-Forwarded-User">
+         </init-param>                  
+         <init-param
+               name="ws-session-path"
+               value="/session">
+         </init-param>
+      </servlet>
+      <!-- NTLM Authentication 
+      <servlet
+            alias="/ntlm/router"
+            class="org.nasdanika.cdo.web.CDOTransactionRoutingServlet" httpcontextId="org.nasdanika.tracker">
+         <init-param
+               name="json-pretty-print"
+               value="true">
+         </init-param>
+         <init-param
+               name="default-access-decision"
+               value="allow">
+         </init-param>
+         <init-param
+               name="ws-session-path"
+               value="/ntlm/session">
+         </init-param>
+      </servlet>
+	   	
+	      <servlet
+	            alias="/session"
+	            class="org.nasdanika.cdo.web.SessionWebSocketServlet"
+	             httpcontextId="org.nasdanika.tracker">
+	         <init-param
+	               name="view-path"
+	               value="/ntlm/router">
+	         </init-param>
+	      </servlet>
+		   
+      -->
+   	
+      <servlet
+            alias="/session"
+            class="org.nasdanika.cdo.web.SessionWebSocketServlet" httpcontextId="org.nasdanika.tracker">
+         <init-param
+               name="view-path"
+               value="/router">
+         </init-param>
+      </servlet>
+	   
+   </extension>
+   
+	
+   <extension point="org.nasdanika.web.route">
+   
+      <root-route
+            class="org.nasdanika.cdo.web.routes.RedirectToPrincipalHomeRoute"
+            method="GET"
+            path="index.html">
+      </root-route>
+            
+      <root-route
+            class="org.nasdanika.tracker.web.TrackerRoute"
+            method="GET"
+            pattern="tracker\.html">
+      </root-route>
+    </extension>
+   
+   <extension
+         point="org.eclipse.equinox.http.registry.resources">
+      <resource
+            alias="/"
+            base-name="WebContent">
+      </resource>
+   </extension>
+   <extension
+         point="org.eclipse.equinox.http.registry.httpcontexts">
+      <httpcontext
+            id="org.nasdanika.tracker">
+      </httpcontext>
+   </extension>   
+</plugin>
