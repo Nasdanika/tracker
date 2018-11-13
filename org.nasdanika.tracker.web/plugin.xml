@@ -12,57 +12,11 @@
          </init-param>
          <init-param
                name="default-access-decision"
-               value="deny">
-         </init-param>
-         <init-param
-               name="user-name-header"
-               value="X-Forwarded-User">
-         </init-param>
-         <init-param
-               name="user-name-header"
-               value="X-Forwarded-User">
-         </init-param>                  
-         <init-param
-               name="ws-session-path"
-               value="/session">
-         </init-param>
-      </servlet>
-      <!-- NTLM Authentication 
-      <servlet
-            alias="/ntlm/router"
-            class="org.nasdanika.cdo.web.CDOTransactionRoutingServlet" httpcontextId="org.nasdanika.tracker">
-         <init-param
-               name="json-pretty-print"
-               value="true">
-         </init-param>
-         <init-param
-               name="default-access-decision"
                value="allow">
          </init-param>
          <init-param
-               name="ws-session-path"
-               value="/ntlm/session">
-         </init-param>
-      </servlet>
-	   	
-	      <servlet
-	            alias="/session"
-	            class="org.nasdanika.cdo.web.SessionWebSocketServlet"
-	             httpcontextId="org.nasdanika.tracker">
-	         <init-param
-	               name="view-path"
-	               value="/ntlm/router">
-	         </init-param>
-	      </servlet>
-		   
-      -->
-   	
-      <servlet
-            alias="/session"
-            class="org.nasdanika.cdo.web.SessionWebSocketServlet" httpcontextId="org.nasdanika.tracker">
-         <init-param
-               name="view-path"
-               value="/router">
+               name="user-name-header"
+               value="X-Forwarded-User">
          </init-param>
       </servlet>
 	   
@@ -76,12 +30,15 @@
             method="GET"
             path="index.html">
       </root-route>
-            
-      <root-route
-            class="org.nasdanika.tracker.web.TrackerRoute"
-            method="GET"
-            pattern="tracker\.html">
-      </root-route>
+     
+      <eobject-route
+            class="org.nasdanika.tracker.web.route.TrackerRoute"
+            method="*"
+            path="/"
+            target="Tracker"
+            target-namespace-uri="urn:org.nasdanika.tracker">
+      </eobject-route>
+      
     </extension>
    
    <extension

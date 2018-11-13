@@ -4,5 +4,5 @@
    <service>
       <provide interface="org.nasdanika.cdo.CDOSessionInitializer"/>
    </service>
-   <!--<property name="initial-content" type="String" value=""/>-->
+   <property name="initial-content" type="String" value="C:\data\my.tracker"/>
 </scr:component>

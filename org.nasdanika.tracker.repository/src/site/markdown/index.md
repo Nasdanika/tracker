@@ -1,4 +1,4 @@
-# Nasdanika Tracker
+# Nasdanika Shinobi Tracker
 
 Agile is a great methodology! 
 Comparing to waterfall it is a big step forward in the direction of recognition that the world is full of uncertainties and fluctuations making long-term precise planning impossible.
