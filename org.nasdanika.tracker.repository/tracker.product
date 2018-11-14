@@ -115,6 +115,7 @@
       <plugin id="org.nasdanika.osgi.model"/>
       <plugin id="org.nasdanika.story"/>
       <plugin id="org.nasdanika.tracker"/>
+      <plugin id="org.nasdanika.tracker.html"/>
       <plugin id="org.nasdanika.tracker.web"/>
       <plugin id="org.nasdanika.web"/>
       <plugin id="org.nasdanika.web.resources"/>
