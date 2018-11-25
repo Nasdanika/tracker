@@ -1,15 +1,18 @@
 package org.nasdanika.tracker.web.route;
 
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.common.util.EList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.nasdanika.cdo.security.LoginPasswordCredentials;
 import org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext;
 import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Tag;
-import org.nasdanika.html.app.ActionRenderer;
-import org.nasdanika.html.app.ActionRendererImpl;
+import org.nasdanika.html.app.ApplicationRenderer;
 import org.nasdanika.html.app.Application;
-import org.nasdanika.html.app.BootstrapContainerApplication;
+import org.nasdanika.html.app.impl.ApplicationRendererImpl;
+import org.nasdanika.html.app.impl.BootstrapContainerApplication;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.html.emf.Renderer;
@@ -52,7 +55,13 @@ public class TrackerRoute extends TrackerBaseRoute<Tracker> {
 		
 		FontAwesomeFactory.INSTANCE.cdn(app.getHTMLPage());
 				
-		app.getHTMLPage().body(jsTreeFactory.bind(treeContainer, jsTreeFactory.buildAjaxJsTree("jstree.json", "contextmenu.json")));		
+		app.getHTMLPage().body(jsTreeFactory.bind(treeContainer, jsTreeFactory.buildAjaxJsTree("jstree.json", "contextmenu.json")));	
+		
+		System.out.println(context.getView().getProvider());
+		System.out.println(context.getView().getResourceSet());		
+		EList<AdapterFactory> adapterFactories = context.getView().getResourceSet().getAdapterFactories();
+		adapterFactories.add(new AdapterFactoryImpl());
+		System.out.println(adapterFactories);		
 		return app;
 	}
 	
@@ -82,7 +91,7 @@ public class TrackerRoute extends TrackerBaseRoute<Tracker> {
 		JsTreeFactory jsTreeFactory = JsTreeFactory.INSTANCE;		
 		JSONArray ret = new JSONArray();
 		
-		ActionRenderer actionRenderer = new ActionRendererImpl();
+		ApplicationRenderer actionRenderer = new ApplicationRendererImpl();
 		Renderer renderer = createRenderer(context, target);
 		
 		if ("#".equals(nodeId)) {
