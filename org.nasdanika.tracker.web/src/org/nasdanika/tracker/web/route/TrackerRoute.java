@@ -9,10 +9,10 @@ import org.nasdanika.cdo.security.LoginPasswordCredentials;
 import org.nasdanika.cdo.web.CDOTransactionHttpServletRequestContext;
 import org.nasdanika.core.ContextParameter;
 import org.nasdanika.html.Tag;
-import org.nasdanika.html.app.ApplicationRenderer;
 import org.nasdanika.html.app.Application;
-import org.nasdanika.html.app.impl.ApplicationRendererImpl;
+import org.nasdanika.html.app.ViewGenerator;
 import org.nasdanika.html.app.impl.BootstrapContainerApplication;
+import org.nasdanika.html.app.impl.ViewGeneratorImpl;
 import org.nasdanika.html.bootstrap.Color;
 import org.nasdanika.html.bootstrap.Theme;
 import org.nasdanika.html.emf.Renderer;
@@ -35,20 +35,20 @@ public class TrackerRoute extends TrackerBaseRoute<Tracker> {
 	public Object getIndexHtml(
 			@ContextParameter CDOTransactionHttpServletRequestContext<LoginPasswordCredentials> context,
 			@TargetParameter Tracker target) throws Exception {
-		Application app = new BootstrapContainerApplication(Theme.Litera) {
+		Application app = new BootstrapContainerApplication(Theme.Litera, true) {
 			
 			{
 				container.border(Color.DANGER);
 				header.border(Color.DANGER).background(Color.PRIMARY);
-				navigation.border(Color.DANGER);
-				leftPanel.border(Color.DANGER).widthAuto();
+				navigationBar.border(Color.DANGER);
+				navigationPanel.border(Color.DANGER).widthAuto();
 				footer.border(Color.DANGER);
-				content.border(Color.DANGER);
+				contentPanel.border(Color.DANGER);
 			}
 			
 		};
 		Tag treeContainer = app.getHTMLPage().getFactory().div();
-		app.header("header").navigation("navigation").leftPanel(treeContainer).content("content").footer("footer");
+		app.header("header").navigationBar("navigation bar").navigationPanel(treeContainer).contentPanel("content").footer("footer");
 		
 		JsTreeFactory jsTreeFactory = JsTreeFactory.INSTANCE;
 		jsTreeFactory.cdn(app.getHTMLPage());
@@ -91,7 +91,7 @@ public class TrackerRoute extends TrackerBaseRoute<Tracker> {
 		JsTreeFactory jsTreeFactory = JsTreeFactory.INSTANCE;		
 		JSONArray ret = new JSONArray();
 		
-		ApplicationRenderer actionRenderer = new ApplicationRendererImpl();
+		ViewGenerator actionRenderer = new ViewGeneratorImpl(null, null);
 		Renderer renderer = createRenderer(context, target);
 		
 		if ("#".equals(nodeId)) {
