@@ -178,9 +178,7 @@
 					<execution>
 						<id>build-distributions</id>
 						<goals>
-							<!-- install the product using the p2 director - - >
 							<goal>materialize-products</goal>
-							<!-- create zip file with the installed product - - >
 							<goal>archive-products</goal>
 						</goals>
 					</execution>
@@ -193,7 +191,6 @@
 						</product>
 						
 					</products>
-					<!-- global optional parameters (with default values) - - >
 					<installFeatures>true</installFeatures>
 					<profile>DefaultProfile</profile>
 				</configuration>
