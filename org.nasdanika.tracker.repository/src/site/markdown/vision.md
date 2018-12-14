@@ -28,7 +28,7 @@ The tracker will have two embodiments:
 
 ## Java Metaphor
 
-As a tracker provides an ability to submit an issue for an artifact to be worked on by a developer the team work can be thought as a computer program.
+Because a tracker provides an ability to submit an issue for an artifact to be worked on by a developer the team work can be thought as a computer program.
 
 In Java terminology:
 
@@ -48,7 +48,7 @@ Such recipes can be invoked from tools such eclipse plug-ins and/or be published
 To avoid complexities of external DSL's the DSL shall be internal - a Java API. Such API can be generated from the tracker model. It can be done
 by the server and downloaded by the API Maven build script before compilation - fully automated way. 
 
-Another option is to use Codegen generating API from the model data retrieved over CDO or the REST endpoint. In this case the code may have ``@generated`` annotations to support manual/generated code co-existence similar to ECore code generator.   
+Another option is to use [Codegen](/products/codegen/index.html) generating API from the model data retrieved over CDO or a REST endpoint. In this case the code may have ``@generated`` annotations to support manual/generated code co-existence similar to ECore code generator.   
 
 Options:
 
@@ -83,7 +83,7 @@ For DSL model elements exposeable via the DSL shall have java name attributes.
 
 E.g. organization may have API package name attribute and artifacts, groups, and categories may have javaName attribute. If such attributes are blank then Java names shall be derived from model elements names.
 
-If the DSL proves to be useful it can be implemented as an external DSL using Xtext. 
+If the DSL proves to be useful it can be implemented as an external DSL using [Xtext](https://www.eclipse.org/Xtext/). More options can be explored by reading [this book](https://www.amazon.com/Implementing-Domain-Specific-Languages-Xtext/dp/1786464969/ref=sr_1_1_sspa?ie=UTF8&qid=1544812335&sr=8-1-spons)
 
 ## Automated execution of issues
 
@@ -93,11 +93,11 @@ To support this:
 
 * An ``IssueWorker`` service interface shall be created. It may have ``boolean accept(Issue) method``.
 * An issue category shall have a flag indicating that it may be worked by an issue worker and an OSGi service filter attribute to select appropriate worker(s). 
-* Issue shall have ``configuration`` attribute containing YAML configuration to be used by the issue worker.
+* Issue shall have ``configuration`` attribute containing configuration to be used by the issue worker. Configuration may be textual, e.g. YAML, to be readable by both humans and computers. Or it can be in some other form, e.g. an EMF model and have associated UI to be readable/editable by humans. 
 * Issue notes shall be considered as Promise progress notifications and Completable Future/promise resolution. Therefore they shall have a type and also support ``configuration`` attribute to pass computer-readable information.
 * If there is no worker which accepts the issue or a worker cannot process the issue then it gets assigned to the developer associated with the category.
 
-Consider leveraging scheduler for automated execution, or services shall take care of scheduling themselves.
+Consider leveraging a scheduler for automated execution, or services shall take care of scheduling themselves.
 
 ## Completion notifications
 
@@ -146,7 +146,7 @@ Ordering:
 - Remaining effort
 - Cumulative priority
 
-Get out smallest first or get out most important first or some combination - proportion of priority vs remaining effort.
+Get out smallest first or get out most important first or some combination - proportion of priority vs. remaining effort.
 
 ### Increment Execution and Reporting
 
@@ -228,3 +228,4 @@ The editor embodiment may generate these files from the model to be published an
 * Bounded context - overlapping circles - increment maps to sprint. Why do you need a tracker if you have an agile tool.
 * Source code (tracker) -> bytecode (sprint/work items) metaphor to the java section. Bytecode is more linear, resolution of references/dependencies.
 * Capability (unique id, hierarchy) - requirement (amount if not binary) - resource - provides capability. Skills under this category?
+* Artifact/organization status - Proposed, Alpha, Released, Mature, Retired, ... Grouping by statuses in reports, charts.
