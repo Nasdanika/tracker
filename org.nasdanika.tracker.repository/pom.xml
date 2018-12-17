@@ -13,7 +13,7 @@
 	</parent>
 	
 	<properties>
-		<siteDir>tracker/${project.version}</siteDir>
+		<siteDir>tracker/${project.version}/${env.CIRCLE_BRANCH}</siteDir>
 	</properties>
 	
 	<build>
